@@ -10,9 +10,18 @@ config_version=5
 
 [application]
 
-config/name="OracleLaurie"
+config/name="Oracle"
+config/version="0.1"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=1280
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
 
 [rendering]
 

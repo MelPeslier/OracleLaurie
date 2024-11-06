@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardGroupData" load_steps=3 format=3 uid="uid://v3eh6lwuhpni"]
+
+[ext_resource type="Script" path="res://all/cards/resources/card_data.gd" id="1_iem8b"]
+[ext_resource type="Script" path="res://all/cards/resources/card_group_data.gd" id="2_th267"]
+
+[resource]
+script = ExtResource("2_th267")
+titre = "MAISON"
+mots_cles = ""
+description = ""
+nombre_de_cartes = 8
+cards_data = Array[ExtResource("1_iem8b")]([])

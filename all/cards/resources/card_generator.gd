@@ -1,3 +1,4 @@
+class_name CardDataGenerator
 extends Node
 ## This Script generates the cards data and the group_cards data
 
@@ -17,11 +18,11 @@ const COMPLEMENT : String = "COMPLEMENT"
 ## Start on ready
 func _ready() -> void:
 	for card_group_data : CardGroupData in card_group_datas:
-		generate_group(card_group_data)
+		generate_card_group_data(card_group_data)
 
 
 ## Generate CardGroupData and each of his cards
-func generate_group(_card_group_data: CardGroupData) -> void:
+func generate_card_group_data(_card_group_data: CardGroupData) -> void:
 	# Group
 	_card_group_data.mots_cles = _card_group_data.titre + S + MOTS_CLES
 	_card_group_data.description = _card_group_data.titre + S + DESCRIPTION
@@ -41,12 +42,12 @@ func generate_group(_card_group_data: CardGroupData) -> void:
 func generate_card_data(_group_titre: String, _card_id: int) -> CardData:
 	var card_data := CardData.new()
 	# TODO Normalement pas de problème : mais vérifier que _group_titre est bien en majuscule, français et sans accents
-	var base_name := _group_titre + S + id_to_str(_card_id) + S
+	var base_name := _group_titre + S + id_to_str(_card_id)
 	card_data.card_id = _card_id
-	card_data.titre = base_name + TITRE
-	card_data.mots_cles = base_name + MOTS_CLES
-	card_data.description = base_name + DESCRIPTION
-	card_data.complement = base_name + COMPLEMENT
+	card_data.titre = base_name + S + TITRE
+	card_data.mots_cles = base_name + S + MOTS_CLES
+	card_data.description = base_name + S + DESCRIPTION
+	card_data.complement = base_name + S + COMPLEMENT
 	card_data.image = load( IMAGE_PATH_START + base_name.to_lower() + IMAGE_PATH_END )
 	return card_data
 

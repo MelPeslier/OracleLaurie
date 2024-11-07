@@ -19,6 +19,7 @@ const COMPLEMENT : String = "COMPLEMENT"
 func _ready() -> void:
 	for card_group_data : CardGroupData in card_group_datas:
 		generate_card_group_data(card_group_data)
+	Data.card_group_datas = card_group_datas
 
 
 ## Generate CardGroupData and each of his cards
@@ -27,7 +28,10 @@ func generate_card_group_data(_card_group_data: CardGroupData) -> void:
 	_card_group_data.mots_cles = _card_group_data.titre + S + MOTS_CLES
 	_card_group_data.description = _card_group_data.titre + S + DESCRIPTION
 	var base_name : String = _card_group_data.titre + S + "00"
-	_card_group_data.image = load( IMAGE_PATH_START + base_name.to_lower() + IMAGE_PATH_END )
+	var tex : Texture2D = load( IMAGE_PATH_START + base_name.to_lower() + IMAGE_PATH_END )
+	if not tex:
+		tex = load("res://icon.svg")
+	_card_group_data.image = tex
 	
 	# Card
 	_card_group_data.cards_data.resize(0)
@@ -48,7 +52,10 @@ func generate_card_data(_group_titre: String, _card_id: int) -> CardData:
 	card_data.mots_cles = base_name + S + MOTS_CLES
 	card_data.description = base_name + S + DESCRIPTION
 	card_data.complement = base_name + S + COMPLEMENT
-	card_data.image = load( IMAGE_PATH_START + base_name.to_lower() + IMAGE_PATH_END )
+	var tex : Texture2D = load( IMAGE_PATH_START + base_name.to_lower() + IMAGE_PATH_END )
+	if not tex:
+		tex = load("res://icon.svg")
+	card_data.image = tex
 	return card_data
 
 

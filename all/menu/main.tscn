@@ -1,0 +1,24 @@
+[gd_scene load_steps=8 format=3 uid="uid://y1xgjdh2ermg"]
+
+[ext_resource type="Script" path="res://all/cards/resources/card_generator.gd" id="1_dwny4"]
+[ext_resource type="Script" path="res://all/cards/resources/card_group_data.gd" id="2_f18bx"]
+[ext_resource type="Resource" uid="uid://bstwwuoq6fgni" path="res://all/cards/resources/datas/karma.tres" id="3_golth"]
+[ext_resource type="Resource" uid="uid://iimuk0lsajot" path="res://all/cards/resources/datas/astre.tres" id="4_tdd0g"]
+[ext_resource type="Resource" uid="uid://v3eh6lwuhpni" path="res://all/cards/resources/datas/maison.tres" id="5_xb6du"]
+[ext_resource type="Resource" uid="uid://bec6ye3ukea7v" path="res://all/cards/resources/datas/signe.tres" id="6_cghfd"]
+[ext_resource type="PackedScene" uid="uid://dahvqp3wq3nvf" path="res://all/menu/menu.tscn" id="7_mefdl"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CardDataGenerator" type="Node" parent="."]
+script = ExtResource("1_dwny4")
+card_group_datas = Array[ExtResource("2_f18bx")]([ExtResource("3_golth"), ExtResource("4_tdd0g"), ExtResource("5_xb6du"), ExtResource("6_cghfd")])
+
+[node name="Menu" parent="." instance=ExtResource("7_mefdl")]
+layout_mode = 1

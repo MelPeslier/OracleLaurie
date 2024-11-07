@@ -1,11 +1,13 @@
-[gd_scene load_steps=34 format=3 uid="uid://dahvqp3wq3nvf"]
+[gd_scene load_steps=36 format=3 uid="uid://dahvqp3wq3nvf"]
 
 [ext_resource type="Script" path="res://all/menu/control_focus.gd" id="1_g7xkd"]
 [ext_resource type="PackedScene" uid="uid://ci5wpttsjw7ns" path="res://all/menu/components/custom_button/custom_button.tscn" id="2_7v8ym"]
+[ext_resource type="PackedScene" uid="uid://vejjiryd6mam" path="res://all/menu/tirage.tscn" id="3_6rhb6"]
 [ext_resource type="Texture2D" uid="uid://byeccwlgimi0u" path="res://all/menu/images/tirage.png" id="3_t2n2p"]
 [ext_resource type="Shader" path="res://all/shaders/visibility.gdshader" id="4_o538s"]
 [ext_resource type="Texture2D" uid="uid://dmwmc6v1evjvl" path="res://all/menu/images/history.png" id="5_665mn"]
 [ext_resource type="Texture2D" uid="uid://ekj70gyevekf" path="res://all/menu/images/cartes.png" id="6_dp1jx"]
+[ext_resource type="PackedScene" uid="uid://d4nn56k0m345v" path="res://all/menu/historique.tscn" id="6_e08pa"]
 [ext_resource type="Texture2D" uid="uid://bk7hp4lshv8ba" path="res://all/menu/images/quit.png" id="7_bsnl0"]
 
 [sub_resource type="Curve" id="Curve_p6g2d"]
@@ -199,6 +201,7 @@ alignment = 1
 [node name="Tirage" parent="VBC" instance=ExtResource("2_7v8ym")]
 layout_mode = 2
 size_flags_horizontal = 4
+next_scene = ExtResource("3_6rhb6")
 
 [node name="Main" parent="VBC/Tirage/HBC/Border" index="0"]
 texture = ExtResource("3_t2n2p")
@@ -215,6 +218,7 @@ text = "TIRAGE"
 [node name="Historique" parent="VBC" instance=ExtResource("2_7v8ym")]
 layout_mode = 2
 size_flags_horizontal = 4
+next_scene = ExtResource("6_e08pa")
 
 [node name="Main" parent="VBC/Historique/HBC/Border" index="0"]
 texture = ExtResource("5_665mn")

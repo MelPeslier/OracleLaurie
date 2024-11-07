@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Data="*res://all/autoload/data.gd"
 InputHelper="*res://all/autoload/input_helper.gd"
+SceneTransition="*res://all/autoload/scene_transition.gd"
 
 [display]
 

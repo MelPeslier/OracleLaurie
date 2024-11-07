@@ -1,7 +1,8 @@
 class_name CustomButton
 extends PanelContainer
 
-@export var next_control : ControlFocus
+@export var next_scene: PackedScene
+@export var transition_screen_packed: PackedScene
 @export var td : TweenData
 
 
@@ -41,10 +42,7 @@ func activate() -> void:
 
 
 func next(_time_scale: float = 1.0) -> void:
-	if not next_control : 
-		unfocus()
-		return
-	next_control.focus()
+	SceneTransition.change_scene_to_packed(next_scene, transition_screen_packed)
 	set_process_input(false)
 
 

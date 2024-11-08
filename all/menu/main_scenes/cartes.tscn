@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpqyyx0cyo646"]
+
+[ext_resource type="Script" path="res://all/menu/control_focus.gd" id="1_gwct2"]
+
+[node name="Cartes" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_gwct2")

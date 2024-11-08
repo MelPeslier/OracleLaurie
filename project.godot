@@ -12,7 +12,10 @@ config_version=5
 
 config/name="Oracle"
 config/version="0.1"
+run/main_scene="res://all/menu/main_scenes/main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/bg_color=Color(0.0313726, 0.0313726, 0.141176, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

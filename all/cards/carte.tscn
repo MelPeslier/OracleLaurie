@@ -1,0 +1,85 @@
+[gd_scene load_steps=3 format=3 uid="uid://rx1jw8cmyygp"]
+
+[ext_resource type="Script" path="res://all/cards/carte.gd" id="1_hofrp"]
+[ext_resource type="Texture2D" uid="uid://d3u4ryuf26jv7" path="res://icon.svg" id="2_br8fj"]
+
+[node name="Carte" type="Control"]
+custom_minimum_size = Vector2(960, 1280)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -640.0
+offset_right = 480.0
+offset_bottom = 640.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+script = ExtResource("1_hofrp")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(960, 1280)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Front" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"panelbox"
+
+[node name="Image" type="TextureRect" parent="MarginContainer/Front"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_br8fj")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Front"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Titre" type="Label" parent="MarginContainer/Front/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderLarge"
+text = "Titre"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MotsCles" type="Label" parent="MarginContainer/Front/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "MotsCles"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="MarginContainer/Front/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"HeaderSmall"
+text = "Description"
+vertical_alignment = 1
+
+[node name="Complement" type="Label" parent="MarginContainer/Front/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"HeaderSmall"
+text = "Complement
+"
+vertical_alignment = 1

@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://iimuk0lsajot" path="res://all/cards/resources/datas/astre.tres" id="4_tdd0g"]
 [ext_resource type="Resource" uid="uid://v3eh6lwuhpni" path="res://all/cards/resources/datas/maison.tres" id="5_xb6du"]
 [ext_resource type="Resource" uid="uid://bec6ye3ukea7v" path="res://all/cards/resources/datas/signe.tres" id="6_cghfd"]
-[ext_resource type="PackedScene" uid="uid://dahvqp3wq3nvf" path="res://all/menu/main_scenes/menu.tscn" id="7_mefdl"]
+[ext_resource type="PackedScene" uid="uid://dahvqp3wq3nvf" path="res://all/menu/main_scenes/menu/menu.tscn" id="7_mefdl"]
 
 [node name="Main" type="Control"]
 layout_mode = 3

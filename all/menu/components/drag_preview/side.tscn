@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyte2bd7dt042"]
+
+[ext_resource type="Script" path="res://all/menu/components/drag_preview/side.gd" id="2_x8f65"]
+
+[node name="Side" type="ColorRect"]
+custom_minimum_size = Vector2(50, 50)
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_x8f65")
+side_type = 3
+is_available = null
+
+[node name="Particles" type="GPUParticles2D" parent="."]

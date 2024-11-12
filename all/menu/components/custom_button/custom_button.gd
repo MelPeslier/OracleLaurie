@@ -27,6 +27,8 @@ var t: Tween
 var focused := true
 var focus_coef : float = 0.0 : set = _set_focus_coef
 
+
+
 @onready var hbc: HBoxContainer = %HBC
 @onready var border: TextureRect = %Border
 
@@ -46,7 +48,8 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if InputHelper.is_action_just_pressed("tap") and _is_point_inside_area(event.position):
+	if not event.is_action_type(): return
+	if InputHelper.is_action_just_released("tap") and InputHelper.is_point_inside_box(self, event.position):
 		if focused:
 			next()
 		else:
@@ -89,15 +92,6 @@ func unfocus(_time_scale: float = 1.0) -> void:
 	t.tween_property(border, "position:x", target_pos, duration)
 	t.tween_property(self, "focus_coef", 0.0, duration)
 	t.chain().tween_property(main_particles, "emitting", false, 0.0)
-
-
-func _is_point_inside_area(point: Vector2) -> bool:
-	var _start := global_position
-	var _end := global_position + size * scale
-	var _inside :bool = _start.x < point.x and _end.x > point.x \
-					and _start.y < point.y and _end.y > point.y
-	return _inside
-
 
 
 func update_gpu_scale() -> void:

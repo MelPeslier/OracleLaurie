@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://dahvqp3wq3nvf"]
+
+[ext_resource type="Script" path="res://all/menu/control_focus.gd" id="1_k4fdb"]
+[ext_resource type="PackedScene" uid="uid://ci5wpttsjw7ns" path="res://all/menu/components/custom_button/custom_button.tscn" id="2_gqdpo"]
+[ext_resource type="PackedScene" uid="uid://vejjiryd6mam" path="res://all/menu/main_scenes/tirage/tirage.tscn" id="3_rgnpq"]
+[ext_resource type="Texture2D" uid="uid://byeccwlgimi0u" path="res://all/menu/images/tirage.png" id="4_oas53"]
+[ext_resource type="PackedScene" uid="uid://d4nn56k0m345v" path="res://all/menu/main_scenes/historique/historique.tscn" id="5_7a27i"]
+[ext_resource type="Texture2D" uid="uid://dmwmc6v1evjvl" path="res://all/menu/images/history.png" id="6_3rr6d"]
+[ext_resource type="PackedScene" uid="uid://cpqyyx0cyo646" path="res://all/menu/main_scenes/cartes/cartes.tscn" id="7_nfu8q"]
+[ext_resource type="Texture2D" uid="uid://ekj70gyevekf" path="res://all/menu/images/cartes.png" id="8_c8grv"]
+[ext_resource type="PackedScene" uid="uid://biyfxg6fryjmy" path="res://all/menu/main_scenes/reglages/reglages.tscn" id="9_q7nrs"]
+[ext_resource type="Texture2D" uid="uid://cc1ajkq10wm1" path="res://all/menu/images/cog_wheel.png" id="10_0ecll"]
+[ext_resource type="PackedScene" uid="uid://dlqwvhvmgwr54" path="res://all/menu/main_scenes/quit/quit.tscn" id="11_enavm"]
+[ext_resource type="Texture2D" uid="uid://bk7hp4lshv8ba" path="res://all/menu/images/quit.png" id="11_ubr3l"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k4fdb")
+
+[node name="VBC" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="Tirage" parent="VBC" instance=ExtResource("2_gqdpo")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+next_scene = ExtResource("3_rgnpq")
+text = "TIRAGE"
+texture = ExtResource("4_oas53")
+
+[node name="Historique" parent="VBC" instance=ExtResource("2_gqdpo")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+next_scene = ExtResource("5_7a27i")
+text = "HISTORIQUE"
+texture = ExtResource("6_3rr6d")
+
+[node name="Cartes" parent="VBC" instance=ExtResource("2_gqdpo")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+next_scene = ExtResource("7_nfu8q")
+text = "CARTES"
+texture = ExtResource("8_c8grv")
+
+[node name="Reglages" parent="VBC" instance=ExtResource("2_gqdpo")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+next_scene = ExtResource("9_q7nrs")
+text = "REGLAGES"
+texture = ExtResource("10_0ecll")
+
+[node name="Quit" parent="VBC" instance=ExtResource("2_gqdpo")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+next_scene = ExtResource("11_enavm")
+text = "QUIT"
+texture = ExtResource("11_ubr3l")

@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bto3nakpksmb2"]
+
+[ext_resource type="PackedScene" uid="uid://wd2ih63ywwif" path="res://all/menu/main_scenes/base/background/background.tscn" id="1_qkggi"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/base/global_size.gd" id="1_rymi6"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/base/input_handler.gd" id="3_7julb"]
+[ext_resource type="PackedScene" uid="uid://cuwkjg2046lwy" path="res://all/menu/components/drag_preview/drag_preview.tscn" id="3_wd2c8"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info.gd" id="5_x4f1w"]
+
+[node name="Centered" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" parent="." instance=ExtResource("1_qkggi")]
+layout_mode = 1
+
+[node name="GlobalSize" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rymi6")
+
+[node name="Left" type="Control" parent="GlobalSize"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Main" type="Control" parent="GlobalSize"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DragPreview" parent="GlobalSize/Main" instance=ExtResource("3_wd2c8")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Right" type="Control" parent="GlobalSize"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InputHandler" type="Node" parent="."]
+script = ExtResource("3_7julb")
+
+[node name="InputInfo" type="Node" parent="InputHandler"]
+script = ExtResource("5_x4f1w")
+action_name = &"up"

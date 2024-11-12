@@ -51,6 +51,8 @@ func _input(event: InputEvent) -> void:
 		scrolling = false
 		snap_to_nearest_interval()
 	
+	#if not InputHelper.focus_type == InputHelper.FocusType.TOUCH_SCREEN:
+	
 	# Keyboard & controller
 	#elif InputHelper.is_action_just_released("right"):
 	#elif InputHelper.is_action_just_released("left"):

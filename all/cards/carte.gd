@@ -27,6 +27,8 @@ func _set_card_data(_card_data: CardData) -> void:
 			#if InputHelper.is_point_inside_box(self, event.position):
 				#pass
 
+func tap() -> void:
+	pass
 
 func hide_them() -> void:
 	pass

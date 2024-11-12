@@ -3,9 +3,9 @@ extends HBoxContainer
 const MIN_SIZE := Vector2( 360, 640 )
 const BASE_SIZE := Vector2( 960, 1280 )
 
-@onready var left: Control = %Left
+@onready var left: Control = %LeftDummy
 @onready var main: Control = %Main
-@onready var right: Control = %Right
+@onready var right: Control = %RightDummy
 
 
 func _ready() -> void:

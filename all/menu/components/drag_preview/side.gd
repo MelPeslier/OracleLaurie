@@ -43,13 +43,13 @@ func _on_drag_progress_changed(_drag_progress: Vector2) -> void:
 	if not is_available: return
 	match side_type:
 		SideType.LEFT:
-			visibility = max( _drag_progress.x, 0.0)
-		SideType.RIGHT:
 			visibility = - min( _drag_progress.x, 0.0)
+		SideType.RIGHT:
+			visibility = max( _drag_progress.x, 0.0)
 		SideType.TOP:
-			visibility = max( _drag_progress.y, 0.0)
-		SideType.BOT:
 			visibility = - min( _drag_progress.y, 0.0)
+		SideType.BOT:
+			visibility = max( _drag_progress.y, 0.0)
 
 
 func _set_side_type(_side_type: SideType) -> void:
@@ -83,6 +83,7 @@ func _set_particles_box_extent() -> void:
 
 
 func _set_is_available(_is: bool) -> void:
+	if is_available == _is: return
 	is_available = _is
 	particles.emitting = _is
 	_on_viewport_size_changed()

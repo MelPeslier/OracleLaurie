@@ -54,7 +54,6 @@ func _input(event: InputEvent) -> void:
 				else:
 					Input.action_press("right")
 					Input.action_release("right")
-				_touch_index = -1
 			
 			elif absf( dist.y ) >= drag_distance:
 				if dist.y < 0 : # Finger to down

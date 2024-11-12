@@ -2,25 +2,12 @@ extends ControlFocus
 
 const CARTE = preload("res://all/cards/carte.tscn")
 
-# Facteur de lissage pour un snapping fluide
-@export var snap_smoothness : float = 0.15
-# Facteur de ralentissement pour la décélération automatique
-@export var deceleration_factor : float = 0.8
-# Vitesse minimale pour activer le snapping automatique
-@export var min_snap_speed : float = 30
-@export var scroll_coef : float = 2.0
-
-# Variables pour le suivi du scroll
-var target_position := 0
-var current_velocity := 0
-var scrolling := false
-
-var card_index : int = 0
+var card_index : int = 0 : set = _set_card_index
 
 var scroll_tween : Tween
 var scroll_tween_data : TweenData
 
-
+@onready var drag_preview: DragPreview = %DragPreview
 @onready var scroll: ScrollContainer = %Scroll
 @onready var cards: HBoxContainer = %Cards
 
@@ -37,19 +24,10 @@ func _ready() -> void:
 		var carte : Carte = CARTE.instantiate()
 		cards.add_child(carte)
 		carte.card_data = all_cards_data[i]
-	
-	snap_interval = cards.get_child(0).custom_minimum_size.x
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventScreenDrag:
-		scrolling = true
-		current_velocity = event.relative.x * scroll_coef
-		scroll.scroll_horizontal -= current_velocity
-	elif event is InputEventScreenTouch and event.is_released():
-		# Lorsque l'utilisateur lâche, déclenche le snapping
-		scrolling = false
-		snap_to_nearest_interval()
+	pass
 	
 	#if not InputHelper.focus_type == InputHelper.FocusType.TOUCH_SCREEN:
 	
@@ -60,27 +38,6 @@ func _input(event: InputEvent) -> void:
 	#elif InputHelper.is_action_just_released("down"):
 
 
-func _process(delta):
-	if not scrolling:
-		# Si on ne fait pas de drag, applique la décélération et le snapping
-		if absf(current_velocity) > min_snap_speed:
-			# Applique la décélération
-			current_velocity *= deceleration_factor
-			scroll.scroll_horizontal += current_velocity * delta
-		else:
-			# Applique un snapping fluide vers l'intervalle cible
-			var current_scroll = scroll.scroll_horizontal
-			var new_scroll = lerp(current_scroll, target_position, snap_smoothness)
-			scroll.scroll_horizontal = new_scroll
-
-
-func snap_to_nearest_interval():
-	# Calcul de la position la plus proche pour le snapping
-	var current_scroll = scroll.scroll_horizontal
-	var _index : int = roundi( abs(current_scroll ) / snap_interval)
-	target_position = float(_index) * snap_interval
-
-
 func focus(_time_scale : float = 1.0) -> void:
 	super(_time_scale)
 
@@ -89,14 +46,47 @@ func unfocus(_time_scale: float = 1.0) -> void:
 	super(_time_scale)
 
 
-func go_to(_index : int) -> void:
-	if not card_index + _index < cards.get_child_count() : return
-	var target_pos : float = cards.get_child(_index).position + cards.separation
-	scroll.scroll_horizontal = cards.get_child(_index).position.x + cards.separation
+func go_to(_index_to_add : int) -> void:
+	var index: int = card_index + _index_to_add
+	if not index < cards.get_child_count() : return
+	if not index < 0 : return
+	var target_pos : float = cards.get_child(index).position + cards.separation
+	scroll.scroll_horizontal = cards.get_child(index).position.x + cards.separation
 	
-	return
 	if scroll_tween and scroll_tween.is_running():
 		scroll_tween.kill()
 	scroll_tween = create_tween()
 	scroll_tween_data.set_data(scroll_tween)
 	scroll_tween.tween_property(scroll, "scroll_horizontal", target_pos, scroll_tween_data.duration)
+
+
+func _on_input_left_emitted() -> void:
+	print("left_emitted")
+	if InputHelper.focus_type == InputHelper.FocusType.TOUCH_SCREEN:
+		print("left return")
+		return
+	go_to(-1)
+
+
+func _on_input_right_emitted() -> void:
+	print("right_emitted")
+	if InputHelper.focus_type == InputHelper.FocusType.TOUCH_SCREEN:
+		print("right return")
+		return
+	go_to(+1)
+
+func _on_input_tap_emitted() -> void:
+	var carte: Carte = cards.get_child(card_index)
+	carte.tap()
+
+
+func _on_input_free_scroll_index_changed(_new_index: int) -> void:
+	card_index = _new_index
+
+
+func _set_card_index(_index: int) -> void:
+	card_index = clampi(_index, 0, cards.get_child_count() - 1)
+	var no_left := not card_index == 0
+	drag_preview.change_side_state(Side.SideType.LEFT, no_left)
+	var no_right := not card_index == cards.get_child_count() - 1
+	drag_preview.change_side_state(Side.SideType.RIGHT, no_right)

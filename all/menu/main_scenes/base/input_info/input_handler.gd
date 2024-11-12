@@ -6,9 +6,10 @@ extends Node
 func _ready() -> void:
 	update_available_preview()
 
-#func _input(event: InputEvent) -> void:
-	#for input_info: InputInfo in get_children():
-		#input_info
+
+func _input(event: InputEvent) -> void:
+	for input_info: InputInfo in get_children():
+		input_info.custom_input(event)
 
 
 func update_available_preview() -> void:

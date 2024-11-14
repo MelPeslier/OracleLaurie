@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://biyfxg6fryjmy"]
+[gd_scene load_steps=3 format=3 uid="uid://biyfxg6fryjmy"]
 
 [ext_resource type="Script" path="res://all/menu/control_focus.gd" id="1_c751m"]
+[ext_resource type="PackedScene" uid="uid://bto3nakpksmb2" path="res://all/menu/main_scenes/base/centered.tscn" id="1_qemio"]
 
-[node name="Reglages" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="ReglagesCentered" instance=ExtResource("1_qemio")]
+
+[node name="Reglages" type="Control" parent="GlobalSize/Main" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_c751m")

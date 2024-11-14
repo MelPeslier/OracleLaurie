@@ -5,8 +5,7 @@
 
 [resource]
 script = ExtResource("2_th267")
-titre = "MAISON"
-mots_cles = ""
+titre = "MAISONS"
 description = ""
-nombre_de_cartes = 8
+nombre_de_cartes = 12
 cards_data = Array[ExtResource("1_iem8b")]([])

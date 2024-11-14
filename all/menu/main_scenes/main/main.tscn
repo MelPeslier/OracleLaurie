@@ -18,7 +18,7 @@ grow_vertical = 2
 
 [node name="CardDataGenerator" type="Node" parent="."]
 script = ExtResource("1_dwny4")
-card_group_datas = Array[ExtResource("2_f18bx")]([ExtResource("3_golth"), ExtResource("4_tdd0g"), ExtResource("5_xb6du"), ExtResource("6_cghfd")])
+card_group_datas = Array[ExtResource("2_f18bx")]([ExtResource("3_golth"), ExtResource("4_tdd0g"), ExtResource("6_cghfd"), ExtResource("5_xb6du")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://wd2ih63ywwif"]
+[gd_scene load_steps=2 format=3 uid="uid://wd2ih63ywwif"]
+
+[ext_resource type="Material" uid="uid://c48xi8hlu0gl0" path="res://all/shaders/styled.material" id="2_dpu0p"]
 
 [node name="Background" type="Control"]
 layout_mode = 3
@@ -8,11 +10,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Last" type="ColorRect" parent="."]
+[node name="Style" type="ColorRect" parent="."]
+material = ExtResource("2_dpu0p")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.0313726, 0.0313726, 0.141176, 1)

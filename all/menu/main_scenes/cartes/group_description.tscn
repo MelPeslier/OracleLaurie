@@ -1,35 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://rx1jw8cmyygp"]
+[gd_scene load_steps=5 format=3 uid="uid://7bpw0ye5whe6"]
 
-[ext_resource type="Script" path="res://all/cards/carte.gd" id="1_hofrp"]
-[ext_resource type="Texture2D" uid="uid://bd3rnlb8xxvwh" path="res://default_texture.png" id="2_hwecr"]
-[ext_resource type="Script" path="res://all/menu/components/helper/tween_data/tween_data.gd" id="2_qp4og"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/cartes/group_description.gd" id="1_qqh1q"]
+[ext_resource type="Script" path="res://all/menu/components/helper/tween_data/tween_data.gd" id="3_28ygo"]
+[ext_resource type="Texture2D" uid="uid://bd3rnlb8xxvwh" path="res://default_texture.png" id="4_arb5f"]
 
-[sub_resource type="Resource" id="Resource_egcgr"]
-script = ExtResource("2_qp4og")
+[sub_resource type="Resource" id="Resource_gwvh2"]
+script = ExtResource("3_28ygo")
 ease_type = 2
 trans_type = 1
 duration = 0.5
 
-[node name="Carte" type="Control"]
+[node name="GroupDescription" type="Control"]
 custom_minimum_size = Vector2(960, 1280)
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -480.0
-offset_top = -640.0
-offset_right = 480.0
-offset_bottom = 640.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-mouse_filter = 1
-script = ExtResource("1_hofrp")
-change_tween_data = SubResource("Resource_egcgr")
-interval = 0.15
+script = ExtResource("1_qqh1q")
+change_tween_data = SubResource("Resource_gwvh2")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -66,7 +56,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-texture = ExtResource("2_hwecr")
+texture = ExtResource("4_arb5f")
 stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
@@ -84,17 +74,20 @@ theme_override_constants/separation = 10
 unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 84
 text = "Titre"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MotsCles" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+[node name="CardsNumber" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(410, 60)
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
-text = "MotsCles"
+text = "xx"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="Description" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -103,16 +96,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_type_variation = &"HeaderSmall"
 text = "Description"
-vertical_alignment = 1
-autowrap_mode = 2
-
-[node name="Complement" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(410, 251)
-layout_mode = 2
-size_flags_vertical = 3
-theme_type_variation = &"HeaderSmall"
-text = "Complement"
 vertical_alignment = 1
 autowrap_mode = 2
 

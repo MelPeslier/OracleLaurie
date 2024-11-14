@@ -1,15 +1,27 @@
 class_name Carte
 extends Control
 
+enum CardState{
+	PREVIEW,
+	DESCRIPTION,
+	COMPLEMENT
+}
+
+@export var change_tween_data: TweenData
+@export var interval: float = 0.3
+
+var change_tween: Tween
+
 var card_data: CardData : set = _set_card_data
+var card_state: CardState : set = _set_card_state
 
 
+@onready var textures: Control = %Textures
 @onready var image: TextureRect = %Image
 @onready var titre: Label = %Titre
 @onready var mots_cles: Label = %MotsCles
 @onready var description: Label = %Description
 @onready var complement: Label = %Complement
-
 
 func _set_card_data(_card_data: CardData) -> void:
 	card_data = _card_data
@@ -19,6 +31,9 @@ func _set_card_data(_card_data: CardData) -> void:
 	mots_cles.text = card_data.mots_cles
 	description.text = card_data.description
 	complement.text = card_data.complement
+	card_state = CardState.PREVIEW
+	if complement.text.is_empty():
+		complement.visible = false
 
 
 #func _input(event: InputEvent) -> void:
@@ -27,14 +42,46 @@ func _set_card_data(_card_data: CardData) -> void:
 			#if InputHelper.is_point_inside_box(self, event.position):
 				#pass
 
-func tap() -> void:
-	pass
+func _set_card_state(_card_state: CardState) -> void:
+	card_state = _card_state
+	match card_state:
+		CardState.PREVIEW:
+			show_preview()
+		CardState.DESCRIPTION:
+			show_description()
+		CardState.COMPLEMENT:
+			if complement.text.is_empty():
+				card_state = CardState.PREVIEW
+				show_preview()
+			else:
+				show_complement()
 
-func hide_them() -> void:
-	pass
+func tap() -> void:
+	card_state = (card_state + 1) % 3
+
+func show_preview() -> void:
+	var _duration = kill_create()
+	change_tween.tween_property(complement, "modulate:a", 0.0, _duration)
+	change_tween.tween_property(description, "modulate:a", 0.0, _duration).set_delay(interval)
+	change_tween.tween_property(textures, "modulate:a", 1.0, _duration).set_delay(interval * 2.0)
+
 
 func show_description() -> void:
-	pass
+	var _duration = kill_create()
+	change_tween.tween_property(complement, "modulate:a", 0.0, _duration)
+	change_tween.tween_property(textures, "modulate:a", 0.7, _duration)
+	change_tween.tween_property(description, "modulate:a", 1.0, _duration).set_delay(interval)
 
 func show_complement() -> void:
-	pass
+	var _duration = kill_create()
+	change_tween.tween_property(complement, "modulate:a", 1.0, _duration)
+	change_tween.tween_property(description, "modulate:a", 1.0, _duration)
+	change_tween.tween_property(textures, "modulate:a", 0.7, _duration)
+
+
+func kill_create() -> float:
+	if change_tween and change_tween.is_running():
+		change_tween.kill()
+	change_tween = create_tween().set_parallel()
+	change_tween_data.set_data(change_tween)
+	return change_tween_data.duration

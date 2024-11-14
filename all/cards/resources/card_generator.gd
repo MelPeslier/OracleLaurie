@@ -2,6 +2,7 @@ class_name CardDataGenerator
 extends Node
 ## This Script generates the cards data and the group_cards data
 
+const DEFAULT_TEXTURE = preload("res://default_texture.png")
 const IMAGE_PATH_START : String = "res://all/cards/images/"
 const IMAGE_PATH_END : String = ".png"
 
@@ -25,12 +26,11 @@ func _ready() -> void:
 ## Generate CardGroupData and each of his cards
 func generate_card_group_data(_card_group_data: CardGroupData) -> void:
 	# Group
-	_card_group_data.mots_cles = _card_group_data.titre + S + MOTS_CLES
 	_card_group_data.description = _card_group_data.titre + S + DESCRIPTION
 	var base_name : String = _card_group_data.titre + S + "00"
 	var tex : Texture2D = load( IMAGE_PATH_START + base_name.to_lower() + IMAGE_PATH_END )
 	if not tex:
-		tex = load("res://icon.svg")
+		tex = DEFAULT_TEXTURE
 	_card_group_data.image = tex
 	
 	# Card
@@ -47,16 +47,25 @@ func generate_card_data(_group_titre: String, _card_id: int) -> CardData:
 	var card_data := CardData.new()
 	# TODO Normalement pas de problème : mais vérifier que _group_titre est bien en majuscule, français et sans accents
 	var base_name := _group_titre + S + id_to_str(_card_id)
+	card_data.card_ref = generate_card_ref(_group_titre, _card_id)
 	card_data.card_id = _card_id
 	card_data.titre = base_name + S + TITRE
 	card_data.mots_cles = base_name + S + MOTS_CLES
 	card_data.description = base_name + S + DESCRIPTION
-	card_data.complement = base_name + S + COMPLEMENT
+	if _group_titre == "KARMA":
+		card_data.complement = base_name + S + COMPLEMENT
 	var tex : Texture2D = load( IMAGE_PATH_START + base_name.to_lower() + IMAGE_PATH_END )
 	if not tex:
-		tex = load("res://icon.svg")
+		tex = DEFAULT_TEXTURE
 	card_data.image = tex
 	return card_data
+
+## Generate the card ref used for finding the card once saved
+func generate_card_ref(_group_titre: String, _card_id: int) -> CardRef:
+	var card_ref := CardRef.new()
+	card_ref.card_id = _card_id
+	card_ref.group_titre = _group_titre
+	return card_ref
 
 
 ## Transform a number inferior to 10 to have a '0' before : '7' -> '07'

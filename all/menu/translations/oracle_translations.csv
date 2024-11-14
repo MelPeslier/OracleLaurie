@@ -1,4 +1,4 @@
-KEY,fr,en
+HISTORIQUE,fr,en
 TIRAGE,Tirage,Draw
 KARMA,Karma,Karma
 SIGNE,Signe,Sign
@@ -9,24 +9,707 @@ REGLAGES,Réglages,Settings
 QUITTER,Quitter,Quit
 CARTES,Cartes,Cards
 CARTE,Carte,Card
-KARMA_01_TITRE,,
-KARMA_01_MOTS_CLES,,
-KARMA_01_DESCRIPTION,,
-KARMA_01_COMPLEMENT,,
-KARMA_01_USES ???,,
-KARMA_02_TITRE,,
-KARMA_02_MOTS_CLES,,
-KARMA_02_DESCRIPTION,,
-KARMA_02_COMPLEMENT,,
-SIGNE_01_TITRE,,
-SIGNE_01_MOTS_CLES,,
-SIGNE_01_DESCRIPTION,,
-SIGNE_01_COMPLEMENT,,
-MAISON_01_TITRE,,
-MAISON_01_MOTS_CLES,,
-MAISON_01_DESCRIPTION,,
-MAISON_01_COMPLEMENT,,
-ASTRE_01_TITRE,,
-ASTRE_01_MOTS_CLES,,
-ASTRE_01_DESCRIPTION,,
-ASTRE_01_COMPLEMENT,,
+KARMA_01_TITRE,NOEUD NORD,NORTH NODE
+KARMA_01_MOTS_CLES,"Chemin d'évolution
+Énergies et qualités à développer","Path of evolution
+Energies and qualities you need to develop"
+KARMA_01_DESCRIPTION,"Le Noeud Nord indique le chemin que l'on est censé emprunter dans cette vie pour évoluer et s'épanouir. Ce chemin peut parfois sembler inconfortable ou effrayant car il constitue une sortie de notre zone de confort.
+
+Dans le tirage, c'est la voie à suivre, les énergies vers lesquelles il faut tendre pour réaliser votre projet ou réussir à avancer par rapport à la question qui vous tient à cœur.","The North Node indicates the path we are supposed to take in this life to evolve and grow. It 
+can sometimes seem uncomfortable or scary because it is a way out of our comfort zone.
+
+In the reading, the North Node indicates the right direction, the energies we should assimilate 
+to realize our project or succeed in the topic important to us."
+KARMA_01_COMPLEMENT,"Tirez une carte Signes pour savoir quelles sont ces énergies et, éventuellement, une carte Maison pour savoir dans quel domaine.","Pick a Signs card to find out which energies are in the field and, if you want, a Houses card 
+to find out the area. "
+KARMA_02_TITRE,NOEUD SUD,SOUTH NODE
+KARMA_02_MOTS_CLES,"Acquis
+Zone de confort
+Limitations","Gains
+Comfort zone
+Limitations"
+KARMA_02_DESCRIPTION,"Le Nœud Sud parle des expériences vécues dans les vies antérieures et qui sont présentes dans l'existence actuelle sous la forme d'énergies familières et de compétences. C'est le socle sur lequel on peut s'appuyer pour se ressourcer dans les moments difficiles. Toutefois, rester trop attaché à ces éléments peut nous empêcher de grandir. 
+
+Dans un tirage, il nous parle de nos acquis, de nos dons, mais aussi de notre zone de confort et des schémas répétitifs qui nous limitent.","The South Node speaks of experiences from past lives that are present in the current 
+existence in the form of familiar energies and skills. It's the foundation on which we can rely to 
+recharge our batteries in difficult times. However, staying too attached to these elements can 
+prevent us from growing. 
+
+In a reading, the South Node talks about our achievements, our gifts, but also about our 
+comfort zone and repetitive patterns that limit us."
+KARMA_02_COMPLEMENT,"Tirez une carte Signes pour savoir quelles sont ces énergies et, éventuellement, une carte
+Maison pour savoir dans quel domaine.","Pick a Signs card to find out which energies are in the field and, if you want, a Houses card 
+to find out the area. "
+KARMA_03_TITRE,LUNE NOIRE,DARK MOON
+KARMA_03_MOTS_CLES,"Ombre
+Attirance/répulsion
+Vide à combler","Shadow
+Attraction/repulsion
+Void to fill"
+KARMA_03_DESCRIPTION,"La Lune Noire, ou Lilith, représente les aspects de notre personnalité que nous gardons dans
+l'ombre, comme nos peurs, nos colères, ou nos désirs les plus intenses. Ses énergies 
+viennent d'événements traumatiques vécus dans des vies antérieures. Elle met en lumière les 
+endroits où nous avons envie de nous libérer des contraintes. 
+
+Dans un tirage, elle représente ce qui nous attire et nous fait peur à la fois, quelque chose 
+qui nous manque mais que nous ne nous sentons pas libres d'intégrer dans notre vie. ","The Dark Moon, also called Lilith, represents aspects of our personality that we keep in the 
+shadow, such as our fears, our anger or our most intense desires. Its energies come from 
+traumatic events in past lives. It highlights the places where we want to be free of limitations. 
+
+In a reading, the Dark Moon represents what attracts us and scares us at the same time, 
+something we lack but do not feel free to integrate into our lives. "
+KARMA_03_COMPLEMENT,"Une carte Signes vous donnera l'énergie à intégrer et une carte Maisons vous indiquera 
+dans quel domaine il vous faut la libérer.","A Signs card will show you the energy to assimilate and a Houses card will indicate 
+the area where you need to release it."
+KARMA_04_TITRE,PART DE FORTUNE,PART OF FORTUNE
+KARMA_04_MOTS_CLES,"Chance
+Harmonie
+Points forts","Luck
+Harmony
+Strength"
+KARMA_04_DESCRIPTION,"La Part de Fortune indique la manière dont nous pouvons trouver le bonheur et le succès 
+dans cette vie. Il s'agit de notre potentiel à réaliser une harmonie intérieure et à connaître 
+le bien-être, en alignant notre nature profonde avec nos actions dans le monde.
+
+Dans un tirage, c'est le coup de pouce du destin, les points forts, les énergies et domaines 
+à développer.","The Part of Fortune indicates how we can find happiness and success in the current life. It's 
+our potential to achieve an inner harmony and to experiment well-being, by connecting our deep 
+nature with our actions.
+
+In a reading, the Part of Fortune is fate intervening in our life, strengths, energies and areas 
+to develop."
+KARMA_04_COMPLEMENT," Une carte Signes vous indiquera de quel ordre est cette chance et une carte Maisons vous
+ indiquera dans quel domaine elle opérera le plus.","A Signs card will show you what kind of luck it's about and a Houses card will indicate 
+its field of action."
+KARMA_05_TITRE,PLANETE RETROGRADE,RETROGRADE PLANET
+KARMA_05_MOTS_CLES,"Leçon
+Introspection
+Ce qui est à régler","Lesson
+Introspection
+What we need to resolve"
+KARMA_05_DESCRIPTION,"Une planète rétrograde nous parle de ce qui n'a pas été résolu au cours des vies antérieures. 
+Elle évoque des souvenirs karmiques ou des leçons qui doivent être revisitées et intégrées 
+dans cette vie. 
+
+Dans un tirage, c'est la leçon à comprendre, le problème à résoudre, un sujet qui demande de
+l'introspection. ","A retrograde planet is about all that hasn't been resolved in past lives. It evokes karmic 
+memories or lessons we need to revise and assimilate in the current life.
+
+In a reading, a Retrograde Planet is a lesson to understand, a topic that needs some 
+introspection."
+KARMA_05_COMPLEMENT,"Tirez une carte Astres pour savoir de quelle énergie il est question. 
+Une carte Maisons vous indiquera dans quel domaine.","Pick a Planets card to know what energy it's about.
+A Houses card will give you the area."
+KARMA_06_TITRE,TRANSIT PLANETAIRE,PLANETARY TRANSIT
+KARMA_06_MOTS_CLES,"Mouvement
+Événement
+Évolution","Movement
+Event
+Evolution"
+KARMA_06_DESCRIPTION,"Le transit est le déplacement d'un astre, donnant l'impression qu'il tourne autour du 
+zodiaque. En astrologie karmique, on ne s'intéresse généralement qu'au transit de Pluton, 
+car il nous confronte à des situations ou des émotions non résolues de vies passées. 
+Cependant, n'importe quel astre en transit peut délivrer un message.
+
+Dans un tirage, le transit parle de ce qui est en train de bouger. ","Transit is the movement of a planet, giving the impression it travels around the zodiac. 
+Karmic astrology usually only look at Pluto's transit because it faces us to unsolved situations 
+or emotions from past lives. However, any planet's transit has something to tell us. 
+
+In a reading, the transit talks about something that's moving/changing in our life."
+KARMA_06_COMPLEMENT,"Tirez une carte Astres pour savoir quelle énergie se met en mouvement, une carte Signes 
+pour savoir comment et, enfin, une carte Maisons pour savoir le domaine de votre vie qui 
+est concerné.","Pick a Planets card to know what kind of energy, 
+a Signs card to discover how and a Houses card for the relevant life area"
+KARMA_07_TITRE,INTERCEPTION,INTERCEPTION
+KARMA_07_MOTS_CLES,"Énergies bloquées
+Domaine à équilibrer","Blocked energies
+Life area to balance"
+KARMA_07_DESCRIPTION,"Un signe intercepté est un signe dans lequel aucune Maison ne commence, ni ne finit. Son 
+énergie se retrouve étouffée. En astrologie karmique, l'interception représente des qualités 
+ou des aspects de notre vie que l'on a du mal à utiliser pleinement. Une interception 
+concerne normalement un axe, c'est-à-dire deux signes opposés du zodiaque. Cependant, 
+ici, vous pouvez ne vous intéresser qu'à un seul signe, pour simplifier.
+
+Dans un tirage, l'interception indique une énergie que l'on a du mal à exprimer alors qu'elle 
+nous serait utile pour tout ce qui se rapporte à notre question. ","An Intercepted sign is a sign where no House begins or ends. Its energy is choked. Interception
+ involves both a sign and a house (actually it's an axis, so there are two opposed signs and two
+opposed houses, but we simplify here). It's about qualities or aspects of our life we find it hard 
+to fully use. 
+In a reading, Interception indicates an energy hardly express though it would be useful for 
+everything regarding to the question."
+KARMA_07_COMPLEMENT,"Tirea une carte Signes pour comprendre de quel type d'énergie il s'agit et 
+une carte Maisons pour savoir quel domaine est concerné.",Pick a Signs card to to find out what kind of energy and a Houses card for the life area.
+KARMA_08_TITRE,CHIRON,CHIRON
+KARMA_08_MOTS_CLES,"Blessure
+Chemin de guérison","Wound
+Way to heal"
+KARMA_08_DESCRIPTION,"Chiron représente une blessure profonde liée à des expériences de vies passées, mais aussi
+la voie à suivre pour en guérir. Il nous invite à travailler sur cette blessure, à la comprendre
+pour l'intégrer à notre vie. Ainsi, nous développons la capacité d'aider les autres à guérir 
+de leurs blessures similaires. 
+
+Dans un tirage, Chiron nous parle d'une blessure actuellement active dans notre vie, et qui 
+constitue une opportunité de guérison. ","Chiron represents a deep wound related to past lives experiences, but it's also the way to heal 
+it. It asks us to work on this wound, to understand it in order to ingrate it into our life. Thus, we 
+become able to help others to heal the same kind of wound. 
+
+In a reading, Chiron is about a wound that is currently active in our life and represents an 
+opportunity of healing."
+KARMA_08_COMPLEMENT,"Une carte Signes aidera à cerner cette blessure et une carte Maisons indiquera 
+dans quel domaine elle se manifeste principalement.","A Signs card will show reveal the kind of wound and a Houses card will indicate 
+the area where it is mostly active."
+ASTRES_01_TITRE,SOLEIL,SUN
+ASTRES_01_MOTS_CLES,"Identité 
+Soi
+Volonté","Identity 
+Self
+Willingness"
+ASTRES_01_DESCRIPTION,"Sans le Soleil, pas de vie. Il représente l'essence fondamentale de notre identité, notre ego,
+et notre volonté. Il est l'expression de notre conscience, de notre vitalité, c'est en quelque 
+sorte le moteur de notre réalisation personnelle. Il montre notre manière de briller et 
+d'affirmer qui nous sommes. Il est souvent lié à nos aspirations, à notre but de vie et à 
+Notre volonté d’être reconnu.","Without the Sun, there's no life. It represents the fundamental essence of our identity, our ego, 
+and our will. It is the expression of our consciousness, of our vitality, it's like the motor of our 
+personal achievment. It shows how we shine and affirm who we are. It is often linked to our 
+aspirations, our life purpose and our desire to be recognized."
+ASTRES_02_TITRE,LUNE ,MOON
+ASTRES_02_MOTS_CLES,"Émotions
+Intuition
+Mère","Emotions
+Intuition
+Mother"
+ASTRES_02_DESCRIPTION,"La Lune représente notre nature profonde, nos émotions, la manière dont nous réagissons 
+instinctivement aux situations. Elle nous parle de nos besoins émotionnels et de notre 
+intimité. Elle est aussi en lien avec la maternité, aussi bien dans le lien avec notre mère que
+dans notre façon de materner.  ","The Moon represents our deep nature, our emotions and the way we react instinctively to 
+situations. It talks about our emotional needs and intimacy. The Moon is also related to 
+motherhood, both in the connection with our mother and in our way of mothering.  "
+ASTRES_03_TITRE,MERCURE,MERCURY
+ASTRES_03_MOTS_CLES,"Communication
+Déplacement
+Études","Communication
+Movement
+Studies"
+ASTRES_03_DESCRIPTION,"Mercure est l'astre de la communication, de l'intellect, et de la pensée rationnelle. Il régit la 
+manière dont nous nous exprimons, dont nous analysons, apprenons, et partageons des 
+informations. Il est aussi lié aux déplacements, aux connexions sociales et à notre curiosité. 
+Il peut aussi parler des études, formations et concours.","Mercury is the planet of communication, intellect, and rational thought. It governs the way we
+make our voice heard, analyse, learn and share information. It is also related to movement, 
+social connections and curiosity. It can talk about studies, training and competitions."
+ASTRES_04_TITRE,VENUS,VENUS
+ASTRES_04_MOTS_CLES,"Amour
+Pouvoir de séduction
+Argent","Love
+Sex appeal
+Money"
+ASTRES_04_DESCRIPTION,"Vénus est le symbole de l'amour, la beauté, les relations et l'harmonie. Elle influence la 
+manière dont nous exprimons notre affection, attirons les autres et recherchons l'équilibre 
+dans nos relations. Elle régit également les désirs, les plaisirs des sens et l'art, ainsi que 
+notre rapport à l'argent.","Venus is the symbol of love, beauty, relationships and harmony. It influences the way we 
+express  affection, attract others and seek balance in our relationships. It also governs desires, 
+pleasures of the senses and art, as well as our relationship to money."
+ASTRES_05_TITRE,MARS,MARS
+ASTRES_05_MOTS_CLES,"Action
+Force
+Désir","Action
+Strength
+Desire"
+ASTRES_05_DESCRIPTION,"Mars est la planète de l'action et du désir. Elle représente notre force, notre courage, notre 
+façon d'exprimer notre motivation et de prendre des initiatives, mais aussi notre colère et 
+notre sexualité. Mars est l'archétype du guerrier, régissant la compétition et l'affirmation de 
+soi.","Mars is the planet of action and desire. It represents our strength, our courage, our way of 
+expressing motivation and taking initiatives, but also anger and passion. Mars is the archetype 
+of the warrior, governing competition and self-assertion."
+ASTRES_06_TITRE,JUPITER,JUPITER
+ASTRES_06_MOTS_CLES,"Croissance
+Sagesse
+Chance","Growth
+Wisdom
+Luck"
+ASTRES_06_DESCRIPTION,"Jupiter symbolise l'expansion, la croissance et la sagesse. C'est la planète de l'optimisme, de
+la spiritualité et des grandes opportunités. On l'appelle «  la bénéfique du zodiaque  » car 
+elle favorise l'abondance et la chance. Elle régit notre manière d'élargir nos horizons, que ce
+soit à travers l'éducation, les voyages ou les idéaux.","Jupiter symbolizes expansion, growth and wisdom. It is the planet of optimism, spirituality and 
+great opportunities. It is called the “Greater Benefit” because it brings abundance and luck. It 
+governs the way we broaden our horizons, through travels, ideals or acquiring new knowledge."
+ASTRES_07_TITRE,SATURNE,SATURN
+ASTRES_07_MOTS_CLES,"Sérieux
+Structure
+Patience","Seriousness
+Structure
+Patience"
+ASTRES_07_DESCRIPTION,"Planète de la discipline, de la responsabilité et de la structure, elle est aussi associée aux 
+leçons de vie, à la patience et à la maturité. Saturne représente les défis, les restrictions 
+et les efforts nécessaires pour atteindre des objectifs durables. Elle nous oblige à apprendre
+par l'expérience. Saturne peut aussi représenter la figure du père.","Planet of discipline, responsibility and structure, Saturn is also associated with life lessons, 
+patience and maturity. It represents the challenges,the limitations and the efforts required to 
+achieve sustainable goals. It makes us learn from our experiences. Saturn can also represent
+the father figure."
+ASTRES_08_TITRE,URANUS,URANUS
+ASTRES_08_MOTS_CLES,"Changement
+Libération
+Indépendance","Change
+Liberation
+Independence"
+ASTRES_08_DESCRIPTION,"Uranus est synonyme de révolution, d'innovation, d'indépendance et de changement 
+soudain. C'est la planète de l'originalité (c'est la seule planète à tourner sur un axe couché), 
+de l'imprévu, de la liberté et des idées progressistes. Elle encourage à briser les conventions, 
+à explorer de nouvelles perspectives et à se libérer des limitations.  ","Uranus is about revolution, innovation, independence and sudden change. It's the planet of 
+originality (it's the only planet to rotate on a horizontal axis), of the unexpected, of freedom and 
+progressive ideas. It encourages to break conventions, to explore new perspectives and to 
+break free from limitations.  "
+ASTRES_09_TITRE,NEPTUNE,NEPTUNE
+ASTRES_09_MOTS_CLES,"Mysticisme
+Transcendance
+Confusion","Mysticism
+Transcendence
+Confusion"
+ASTRES_09_DESCRIPTION,"Neptune représente la spiritualité, l'imagination et les rêves. C'est la planète de l'intuition, 
+de la compassion et de la transcendance. Neptune est associée à l'évasion, aux illusions 
+et à tout ce qui échappe à la réalité matérielle, favorisant l'inspiration artistique, mystique 
+et la connexion avec des dimensions subtiles. Cependant, elle peut aussi apporter 
+confusion, déceptions et dépendances. ","Neptune represents spirituality, imagination and dreams. It is the planet of intuition, 
+compassion and transcendence. Neptune is associated with escape, illusions and everything 
+that allow to get ou of reality. It fosters the artistic and mystical inspiration and the connection 
+to subtle dimensions. However, it can also bring confusion, disappointment and addiction. "
+ASTRES_10_TITRE,PLUTON,PLUTO
+ASTRES_10_MOTS_CLES,"Transformation
+Inconscient
+Mort/Vie","Transformation
+Unconscious
+Death/Life"
+ASTRES_10_DESCRIPTION,"Pluton est l'astre de la transformation profonde, de la régénération et des processus de 
+destruction et de renaissance. Il régit l'inconscient, les forces cachées, les crises et la 
+résilience. Pluton est lié aux thèmes de la mort et de la renaissance, tant au niveau 
+psychologique que spirituel, incitant à se confronter à ses ombres et à opérer des 
+changements radicaux. ","Pluto is the planet of deep transformation, regeneration and processes of destruction and 
+rebirth. It governs the unconscious, the hidden forces, and also crises and resilience. Pluto is 
+about Death and Rebirth, both at a psychological and spiritual level, encouraging us to face
+our shadows and make radical changes. "
+SIGNE_01_TITRE,BELIER,ARIES
+SIGNE_01_MOTS_CLES,"Début
+Courage
+Impulsivité
+Leadership 
+Affirmation de soi","Beginning
+Courage
+Impulsiveness
+Leadership 
+Self-affirmation"
+SIGNE_01_DESCRIPTION,"
+Premier du zodiaque, le Bélier est le signe des débuts, de la nouveauté. Il nous parle d'action, 
+de courage et d'initiative. Le Bélier est un chef passionné et impulsif. Son énergie débordante 
+est pleine d'enthousiasme, mais il peut aussi se montrer impatient, têtu et colérique. 
+Direct et honnête, il aime les défis, recherchant toujours l'excitation et l'aventure. En tant que 
+signe de l'individualisme, il sait agir selon ses désirs et besoins personnels, au risque de 
+devenir égocentrique s'il ne dose pas. ","Aries is the sign of beginnings and novelty. They're all about action, courage and initiative. They
+are passionate and impulsive leaders. Their energy is overflowing with enthusiasm, but they 
+can also be impatient, stubborn and angry. Very honest, Aries like challenges, always looking 
+for excitement and adventure. As the sign of individualism, they know how to act according to 
+their personal desires and needs, at the risk of becoming self-centered if they don't balance
+these energies."
+SIGNE_02_TITRE,TAUREAU,TAURUS
+SIGNE_02_MOTS_CLES,"Stabilité
+Sécurité 
+Matérialisme
+ Valeurs
+Epicurisme","Stability
+Safety 
+Materialism
+ Values
+Epicureanism"
+SIGNE_02_DESCRIPTION,"Le Taureau est synonyme de stabilité et de patience. Ancré dans la réalité, il recherche la 
+sécurité, voire l'immuabilité, ce qui le pousse à appréhender toute forme de changement. Il est 
+persévérant jusqu'à l'entêtement pour atteindre ses objectifs. Par son attachement à la 
+matière, il est le signe des biens, des possessions, mais aussi des valeurs qui constituent 
+notre «  terreau moral  ». Le Taureau est un signe sensuel. Il apprécie les plaisirs simples de 
+la vie, les plaisirs charnels.Très fidèle, il peut aussi se montrer possessif. ","Taurus is the sign of stability and patience. Grounded in reality, they seek security, even 
+immutability which drives them to fear any form of change. They are persistent to the point of 
+stubbornness in order to achieve their goals. Attached to the matter, Taurus is the sign of 
+possessions, but also values that constitute our foundations. Taurus are sensual. They enjoy 
+the simple pleasures of life, like food and sexuality. Very faithful, they can also be possessive."
+SIGNE_03_TITRE,GEMEAUX,GEMINI
+SIGNE_03_MOTS_CLES,"Communication
+Curiosité
+Dynamisme
+Jeunesse
+Diversité","Communication
+Curiosity
+Dynamism
+Youth
+Diversity"
+SIGNE_03_DESCRIPTION,"Le Gémeaux est curieux et adaptable. Toujours en mouvement, il incarne la vivacité d'esprit et
+la quête de nouvelles expériences, de connaissances et de connexions sociales. Comme son
+maître Mercure, il est le roi de la communication sous toutes ses formes. Bavard et sociable, il
+aime se connecter aux autres. Il s'intéresse à de nombreux sujets et aime explorer différentes 
+perspectives, ce qui peut parfois le rendre indécis ou dispersé. Aller jusqu'au bout d'un projet 
+lui est difficile car il est toujours stimulé par quelque chose de nouveau. Son défi consiste à 
+ne pas trop s'éparpiller et à ne pas rester à la surface des choses.","Geminis are curious and adaptable. Always on the move, they embody quick thinking and 
+search for new experiences, knowledge and social connections. Geminis are kings of any kind 
+of communication. Chatty and sociable, they're also interested in many subjects and like to 
+explore different perspectives, which can sometimes make them undecided or scattered. They
+find it difficult to get through a project because they're always driven by something new. Their 
+challenge is not to get too dispersed and not to remain on the surface of things."
+SIGNE_04_TITRE,CANCER,CANCER
+SIGNE_04_MOTS_CLES,"Sensibilité
+Rêve
+Intuition
+Intimité
+Famille","Sensitivity
+Dream
+Intuition
+Privacy
+Family"
+SIGNE_04_DESCRIPTION,"Le Cancer est sensible, émotif et profondément attaché à sa famille et à son foyer. Il est 
+connu pour son intuition et son empathie. Le Cancer a un fort besoin de sécurité, tant 
+émotionnelle que matérielle. Il est souvent très attaché au passé, ce qui peut l'empêcher 
+d'être pleinement ancré dans l'instant présent. Il a d'ailleurs tendance à vivre sa vie dans 
+sa tête. Il imagine plus qu'il n'agit. Réservé, peu loquace, il aime prendre soin de ceux qu'il
+aime avec toute l'attention d'une mère pour son enfant et sait être à l'écoute.","Cancers are sensitive, emotional and deeply attached to their family and home. They're known 
+for their intuition and empathy. They have a strong need for security, both emotional and 
+material. They're often very attached to the past, which can prevent them from being fully 
+anchored in the here and now. They tend to dream their life. They imagine more than they act. 
+Not very talkative, Cancers like to take care of those they love with all the attention of a mother 
+for her child and they know how to listen."
+SIGNE_05_TITRE,LION,LEO
+SIGNE_05_MOTS_CLES,"Générosité
+Créativité
+Fierté
+Confiance en soi
+Passion","Generosity
+Creativity
+Pride
+Self-confidence
+Passion"
+SIGNE_05_DESCRIPTION,"Débordant de charisme et de confiance en lui, le Lion aime être au centre de 
+l'attention. Comme son maître, le Soleil, il rayonne d'une lumière qu'il ne manque pas de 
+diffuser aux autres, en accord avec sa nature généreuse. En revanche, il est préférable de 
+ne pas essayer de lui faire de l'ombre... Ambitieux et déterminé, il cherche généralement à 
+laisser une marque de son passage. Grâce à son énergie créative et passionnée, il peut 
+facilement se faire un nom dans le domaine des arts. À l'excès, il peut se montrer 
+égocentrique, tyrannique et imbu de sa personne.","Brimming with charisma and self-confidence, Leos love to be the center of attention. Like
+their master, the Sun, they radiate a light and spread it to the others, in accordance with their 
+generous nature. However, it's better not to try to shade on them... Ambitious and determined, 
+Leos usually try to leave a mark of their passage. Their creative and passionate energy can 
+easily make them become famous in the arts. They can be overly self-centered, tyrannical 
+and self-absorbed."
+SIGNE_06_TITRE,VIERGE,VIRGO
+SIGNE_06_MOTS_CLES,"Organisation
+Pragmatisme
+Service
+Santé
+Perfectionniste","Organization
+Pragmatism
+Service
+Health
+Perfectionist"
+SIGNE_06_DESCRIPTION,"Méthodique et pragmatique, la Vierge est attentive aux moindres détails. Elle a un sens aigu du
+devoir et cherche la perfection dans tout ce qu'elle entreprend. Elle aime structurer son 
+environnement, aidée en cela par son organisation infaillible. La routine sécurise ce signe qui 
+tend à l'anxiété et à la somatisation. Son esprit analytique et critique lui donne la faculté de 
+résoudre des problèmes, mais la rend également exigeante aussi bien avec les autres qu'avec
+ elle-même. Elle est cependant extrêmement tournée vers le service aux autres, quitte à 
+oublier ses propres besoins dans l'équation.","Methodical and pragmatic, Virgos pay attention to the smallest details. They have a keen sense 
+of duty and seek perfection in everything they undertake. They likes to structure their 
+environment, helped by their efficient organization. Routine reassures this sign that tends to 
+anxiety and somatisation. Their analytical and critical mind gives them the ability to solve 
+problems, but also make them demanding with others as well as with themselves. Virgos are 
+however extremely turned towards the service to others, even if to forget their own needs in 
+the equation."
+SIGNE_07_TITRE,BALANCE,LIBRA
+SIGNE_07_MOTS_CLES,"Equilibre
+Harmonie
+Raffinement
+Diplomatie
+Lien","Balance
+Harmony
+Refinement
+Diplomacy
+Link"
+SIGNE_07_DESCRIPTION,"La Balance est le signe de la conciliation et de la recherche constante de l'harmonie dans ses
+relations et son environnement. Dotée d'un sens aigu de la justice et de l'équité, elle constitue 
+généralement le point d'équilibre entre les différentes forces qui l'entourent. Les conflits lui font 
+horreur et elle tentera par tous les moyens de ménager la chèvre et le chou, quitte à se mettre 
+dans une position inconfortable. Faire un choix tranché lui est par ailleurs difficile. Influencée 
+par Vénus, elle est sensible à la beauté sous toutes ses formes. La Balance incarne le lien à 
+l'autre. La communication et la coopération lui sont essentielles. ","Libra is a sign of conciliation and constant search for harmony in their relationships and 
+environment. With a strong sense of justice and fairness, they're usually the balance point 
+between the different forces around them. Libras hate conflicts and will always try to spare 
+everyone even if it puts them in an uncomfortable position. Making a hard choice is also difficult 
+for them. Influenced by Venus, Libras are sensitive to beauty in all its forms. They represent the 
+link to the other. Communication and cooperation are essential to them."
+SIGNE_08_TITRE,SCORPION,SCORPIO
+SIGNE_08_MOTS_CLES,"Transformation
+Détachement
+Mystère
+Passion
+Sexualité","Transformation
+Detachment
+Mystery
+Passion
+Sexuality"
+SIGNE_08_DESCRIPTION,"Le Scorpion est le signe de la passion. Il vit et ressent les choses plus fort que les autres. Sa 
+grande profondeur émotionnelle le pousse à explorer les aspects cachés ou complexes de la 
+vie. Il est ainsi très doué pour décrypter les rouages d'une situation ou de la psyché humaine, 
+mais il éprouve de la difficulté à se dévoiler. Sa détermination est sans faille, il n'abandonne 
+jamais ce qu'il entreprend. Par son lien avec Pluton, dieu des Morts, le Scorpion a un sens inné
+de la transformation et du renouveau. Il sait parfaitement se détacher, quitte à s'auto-saboter 
+en mettant fin de lui-même à quelque chose plutôt que de prendre le risque de subir la perte.","Scorpio is the sign of passion. They live and feel things more strongly than others. Their great 
+emotional depth leads them to explore the hidden or complex aspects of life. Scorpios are very 
+good at deciphering the workings of a situation or human psyche, but they have difficulty in 
+revealing themselves. Their determination is unwavering, they never give up what they
+undertake. Because they're related to Pluto, they have an innate sense of transformation and 
+renewal. Scorpios know how to let go, even if they have to self-sabotage by ending something
+rather than taking the risk of suffering the loss."
+SIGNE_09_TITRE,SAGITTAIRE,SAGITTARIUS
+SIGNE_09_MOTS_CLES,"Expansion
+Optimisme
+Indépendance
+Aventure
+Philosophie","Expansion
+Optimism
+Independence
+Adventure
+Philosophy"
+SIGNE_09_DESCRIPTION,"Le Sagittaire est optimiste, aventureux et épris de liberté. Il est toujours en quête de 
+nouvelles expériences, de connaissances et de vérité. Le monde est son terrain de jeu et il 
+ne faut pas songer à l'empêcher de l'explorer. Son esprit est expansif, il aime les 
+philosophies et tout ce qui élargit son horizon, mais il peut aussi se montrer intransigeant et
+sectaire. Doté d'un grand sens de l'humour, il est franc, sociable et ressent le besoin de 
+transmettre ce qu'il apprend au cours de ses voyages, qu'ils soient physiques ou spirituels. 
+Son défi consiste à ne pas tomber dans les excès.","Sagittarius are optimistic, adventurous and freedom-loving. The're always in search of new 
+experiences, knowledge and truth. The world is their playground and there's no way to 
+prevent them from exploring it. Sagittarius' mind is expansive, they like philosophies and 
+anything that broadens their horizon, but they can also be uncompromising and sectarian. 
+With a great sense of humour, they're frank and sociable and feel the need to pass on what 
+they learn during their journeys, whether physical or spiritual. Their challenge is not to fall into 
+excesses."
+SIGNE_10_TITRE,CAPRICORNE,CAPRICORN
+SIGNE_10_MOTS_CLES,"Rigueur
+Persévérance
+Patience
+Ambition
+Long terme","Rigour
+Perseverance
+Patience
+Ambition
+Long term"
+SIGNE_10_DESCRIPTION,"Le Capricorne est ambitieux, discipliné et très persévérant. Quand il a un objectif, il mobilise 
+toute son énergie pour l'atteindre, peu importe le temps que ça prend. Il est souvent perçu 
+comme trop sérieux, alors qu'il est doté d'un humour plutôt tranchant. Son sens du devoir 
+n'est, en revanche, pas une légende. Il valorise la stabilité et la sécurité, tant dans sa vie 
+professionnelle que personnelle. Pudique, il éprouve de la difficulté à exprimer ses émotions, 
+ce qui peut le rendre froid et insensible, surtout dans les périodes au cours desquelles il 
+s'isole.","Capricorns are ambitious, disciplined and very persevering. When they have a goal, they put all 
+their energy into reaching it, no matter how long it takes. Capricorns are often perceived as 
+being too serious, while they have a rather sharp sense of humour. Their sense of duty is not, 
+however, a legend. They value stability and security, both in their professional and personal life. 
+Modest, they find it difficult to express their emotions, which can make them cold and 
+insensitive, especially in their isolation periods."
+SIGNE_11_TITRE,VERSEAU,AQUARIUS
+SIGNE_11_MOTS_CLES,"Altruisme
+Innovation
+Liberté
+Rébellion
+Excentricité","Altruism
+Innovation
+Freedom
+Rebellion
+Eccentricity"
+SIGNE_11_DESCRIPTION,"Signe de l'innovation, le Verseau est un visionnaire. Il pense vite et bien plus loin que les 
+autres. Grand défenseur des causes sociales, c'est un altruiste et un humaniste, prêt à 
+utiliser son génie pour faire avancer le collectif dans la bonne direction, tout en sachant 
+conserver son individualité. Son lien avec Uranus en fait d'ailleurs un révolutionnaire-né, 
+attiré par les utopies et tout ce qui n'a pas encore été tenté. Il est de ce fait très 
+connecté aux nouvelles technologies et aux découvertes scientifiques. Attaché à la liberté, 
+il aime se démarquer, quitte à verser dans la marginalité et la provocation.","Sign of innovation, Aquarius are visionaries. They think fast and far beyond others. Great 
+advocates of social causes, they're altruists and humanists, ready to use their genius to move
+the collective in the right direction, while maintaining their individuality. Their connection with 
+Uranus makes them born revolutionaries, attracted by utopias and everything that has not yet 
+been tried. Therefore, Aquarius are very connected to new technologies and scientific 
+discoveries. Attached to freedom, they like to stand out, to the point of becoming marginalized
+and troublemakers."
+SIGNE_12_TITRE,POISSONS,PISCES
+SIGNE_12_MOTS_CLES,"Hypersensibilité
+Réceptivité
+Communication intuitive
+Transcendance du Moi
+Inspiration","Hypersensitivity
+Receptivity
+Intuitive communication
+Transcendence of the Self
+Inspiration"
+SIGNE_12_DESCRIPTION,"Dernier signe du zodiaque (le plus détaché de la matière), il incarne l'hypersensibilité et la 
+capacité à ressentir les émotions des autres. Les Poissons sont souvent très créatifs et 
+imaginatifs. Leur maître, Neptune, est d'ailleurs la planète des artistes et des médiums. 
+Ainsi, ils recherchent la connexion et la fusion avec quelque chose de plus grand, au risque 
+d'y perdre leur individualité et d'y fuir la réalité concrète des choses. Les Poissons sont 
+rêveurs et spirituels. Ils peuvent être un peu mystérieux et parfois difficiles à comprendre 
+en raison de leur nature complexe. Ils communiquent plus par le biais de leurs ressentis que 
+par leur parole.","Pisces are the last sign of the zodiac  and the most detached from matter. They embody 
+hypersensitivity and ability to feel other people's emotions. Pisces are very creative and 
+imaginative. Their master, Neptune, is the planet of artists and mediums. Thus, they seek 
+connection and fusion with something greater, at the risk of losing their individuality and fleeing 
+the concrete reality of things. Pisces are dreamers and spiritual. They can be a bit mysterious 
+and sometimes hard to understand because of their complex nature. They communicate more 
+through their feelings than through their words."
+MAISONS_01_TITRE,1° MAISON,1st HOUSE
+MAISONS_01_MOTS_CLES,"Identité
+Apparence
+Affirmation de soi
+Corps","Identity
+Appearance
+Self-affirmation
+Body"
+MAISONS_01_DESCRIPTION,"On l'appelle aussi l'Ascendant. C'est le domaine de la personnalité extérieure (celle que l'on 
+montre aux autres) et de l'image de soi, y compris physique. Elle influence la façon dont on 
+se présente au monde et comment les autres nous perçoivent. On y trouve tout ce qui a 
+trait au corps. ","Also called the Ascendant, it's the domain of outer personality (the one we show to the 
+others) and self-image, including physical. It influences how we present ourselves to the world 
+and how others perceive us. It contains everything related to our body. "
+MAISONS_02_TITRE,2° MAISON,2nd HOUSE
+MAISONS_02_MOTS_CLES,"Possessions
+Valeurs 
+ Dons","Possessions
+Values
+ Gifts"
+MAISONS_02_DESCRIPTION,"La 2° Maison représente tout ce qui a de la valeur pour nous. On y trouve ainsi les biens 
+matériels, les possessions, la façon de produire et gérer des revenus, mais aussi nos valeurs 
+morales ainsi que nos dons.","The 2nd House represents everything that is valuable to us. It includes material 
+possessions, the way we produce and manage income, but also our moral values and gifts."
+MAISONS_03_TITRE,3° MAISON,3rd HOUSE
+MAISONS_03_MOTS_CLES,"Communication
+Intellect
+Fratrie
+Education","Communication
+Intellect
+Sibling
+Education"
+MAISONS_03_DESCRIPTION,"La 3° Maison nous parle de notre façon de penser, de notre mental, de notre capacité 
+d'analyse. Elle touche à la communication, à l'expression sous toutes ses formes, et à 
+l'école. C'est aussi là que se trouve notre rapport avec l'entourage proche, notamment les 
+frères et sœurs.","The 3rd House talks about our way of thinking, our mind and our analytical capacity. It's 
+about communication, expression in all its forms and school. This is also where we find our 
+relationship with the immediate entourage, especially brothers and sisters."
+MAISONS_04_TITRE,4° MAISON,4th HOUSE
+MAISONS_04_MOTS_CLES,"Foyer
+Racines
+Intimité","Home
+Roots
+Privacy"
+MAISONS_04_DESCRIPTION,"La 4° maison nous parle de notre foyer, de notre famille et de nos racines. Elle représente 
+notre besoin de sécurité émotionnelle ainsi que la façon dont notre passé influence notre 
+vie. Elle évoque également notre lieu de vie et ce dont nous avons besoin pour nous sentir 
+comme dans un nid.","The 4th House tells us about our home, family and roots. It represents our need for 
+emotional security and how our past influences our life. It also refers to our living place
+and what we need to make it a nest."
+MAISONS_05_TITRE,5° MAISON,5th HOUSE
+MAISONS_05_MOTS_CLES,"Créativité
+Amour
+Plaisir
+Enfants","Creativity
+Love
+Pleasure
+Children"
+MAISONS_05_DESCRIPTION,"La 5° Maison a trait à tout ce qui touche à la notion de plaisir dans notre vie : les passions, 
+la joie, l'amour naissant ou passager, la façon de se divertir. En lien avec les enfants (ou 
+l'enfant intérieur), elle nous parle de notre créativité et de notre capacité à nous 
+émerveiller.","The 5th House is about that comes to pleasure: passions, joy, young or ephemeral love and
+the way we have fun. Related to childhood (or the inner child), it tells us about our creativity 
+and our ability to marvel."
+MAISONS_06_TITRE,6° MAISON,6th HOUSE
+MAISONS_06_MOTS_CLES,"Travail
+Santé et  hygiène de vie
+Service
+Habitudes","Work
+Health and Lifestyle
+Service
+Habits"
+MAISONS_06_DESCRIPTION,"La 6° Maison est le domaine du quotidien, de nos routines et habitudes. C'est pourquoi on y
+trouve le travail «  alimentaire  », celui qu'on accomplit tous les jours mais qui n'est pas 
+forcément une vocation, mais aussi l'ambiance au travail, comment s'y déroule nos 
+journées. La 6° Maison nous parle aussi de notre hygiène de vie, de notre santé et de notre
+manière de rendre service.","The 6th House is the field of daily life, routines and habits. That’s why we find there the 
+veryday job that is not necessarily a vocation, but also the atmosphere at work, how our days 
+unfold. The 6th House also talks about our lifestyle, health and how we help others."
+MAISONS_07_TITRE,7° MAISON,7th HOUSE
+MAISONS_07_MOTS_CLES,"Partenariats
+Mariage/Divorce
+Contrat","Partnerships
+Marriage/Divorce
+Contract"
+MAISONS_07_DESCRIPTION,"La 7° Maison représente les partenariats, la façon de se lier aux autres de façon positive ou
+négative. C'est pourquoi elle est considérée comme la maison du mariage (et du divorce...).
+Elle nous parle également des contrats et de tout ce qui touche à la justice.","The 7th House represents partnerships, how we connect with others in a positive or negative 
+way. That's why it is considered the house of marriage (and divorce...). It also talks about 
+contracts and everything that's related to justice."
+MAISONS_08_TITRE,8° MAISON,8th HOUSE
+MAISONS_08_MOTS_CLES,"Transformation
+Héritage
+Mort
+Sexualité","Transformation
+Heritage
+Death
+Sexuality"
+MAISONS_08_DESCRIPTION,"La 8° Maison a trait à la mort et aux grandes transformations. Elle nous indique ce qui doit 
+prendre fin, ce dont on doit se défaire. C'est pourquoi elle est souvent associée à des 
+périodes de crises. Elle est fortement liée au monde de l'inconscient, aux tabous, à nos 
+zones d'ombre, mais aussi à la sexualité. ","The 8th house is about death and great transformations. It tells us what must end, what we 
+must get rid of. This is why it is often associated with periods of crisis. It is strongly linked to 
+the world of the unconscious, to taboos, to our dark zones, but also to sexuality. "
+MAISONS_09_TITRE,9° MAISON,9th HOUSE
+MAISONS_09_MOTS_CLES,"Philosophie
+Voyage
+Foi
+Enseignement supérieur","Philosophy
+Travel
+Faith
+Higher education"
+MAISONS_09_DESCRIPTION,"Dans la 9° Maison, on trouve notre conception de la vie au sens large: idéaux, philosophie, 
+religion, spiritualité... Elle nous parle également de voyage (qu'il soit physique ou intérieur), 
+de tout ce qui est étranger, de ce que l'on peut apprendre ou enseigner. C'est le domaine
+de l'université et des études poussées.","In the 9th House, we find our conception of life in a broad sense: ideals, philosophy, religion, 
+faith... It also tells us about journey (whether physical or inner), about everything that is foreign, 
+about what we can learn or teach. This is the field of university and extensive studies."
+MAISONS_10_TITRE,10° MAISON,10th HOUSE
+MAISONS_10_MOTS_CLES,"Carrière
+Réputation
+Ambition
+Reconnaissance sociale","Career
+Reputation
+Ambition
+Social recognition"
+MAISONS_10_DESCRIPTION,"Egalement appelée « Milieu du Ciel », la 10° Maison est le secteur de la carrière par 
+excellence. Elle nous parle donc de notre vocation, de notre ambition, mais aussi de notre 
+réputation. On y trouve notre façon d'envisager notre statut social et de réaliser nos objectifs
+à long terme.","Also known as Midheaven, the 10th House is the ultimate career area. It's about our vocation, 
+our ambition, but also our reputation. It is how we consider our social status and achieve our 
+long-term goals."
+MAISONS_11_TITRE,11° MAISON,11th HOUSE
+MAISONS_11_MOTS_CLES," Amis
+Réseaux 
+Projets
+Idéaux"," Friends
+Networks 
+Projects
+Ideals"
+MAISONS_11_DESCRIPTION,"La 11° Maison évoque notre vie sociale: les amis et la façon dont on se lie à eux, la 
+communauté, les associations, les clubs, mais aussi les projets. Elle est résolument tournée 
+vers l'extérieur et vers l'avenir. On y trouve également notre façon de nous engager (ou 
+pas) pour les autres, pour améliorer le monde, pour construire des lendemains plus radieux.","The 11th Maison evokes our social life: friends and the way we bond with them, community, 
+associations, clubs, but also projects. It is firmly outward-looking and forward-looking. It also 
+shows how we can be (or not) committed to others, to making the world a better place, 
+to building a brighter future."
+MAISONS_12_TITRE,12° MAISON,12th HOUSE
+MAISONS_12_MOTS_CLES," Vie intérieure
+Psychologie
+Epreuves"," Inner life
+Psychology
+Life's trials"
+MAISONS_12_DESCRIPTION,"Contrairement à la 1° Maison qui évoque ce l'on montre de soi aux autres, la 12° Maison 
+nous parle de ce que l'on garde en soi. C'est notre vie intérieure, nos rêves mais aussi nos 
+peurs et ce qui nous embrouille. On y trouve les épreuves que l'on rencontre, les moments 
+où on se replie sur soi, parfois les hospitalisations ou les enfermements.","Unlike the 1st House, which evokes what we show to others, the 12th House tells us about 
+what we keep within. It is our inner life, our dreams but also our fears and what makes us 
+confused. We find there the trials that we encounter, the moments where we withdraw into 
+ourselves, sometimes it can also be hospitalization or confinement."

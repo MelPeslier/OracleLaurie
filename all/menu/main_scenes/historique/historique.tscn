@@ -1,18 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4nn56k0m345v"]
+[gd_scene load_steps=3 format=3 uid="uid://d4nn56k0m345v"]
 
+[ext_resource type="PackedScene" uid="uid://bto3nakpksmb2" path="res://all/menu/main_scenes/base/centered.tscn" id="1_dqhb6"]
 [ext_resource type="Script" path="res://all/menu/control_focus.gd" id="1_gf5hb"]
 
-[node name="Historique" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_gf5hb")
+[node name="HistoriqueCentered" instance=ExtResource("1_dqhb6")]
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
+[node name="Historique" type="Control" parent="GlobalSize/Main" index="0"]
+anchors_preset = 0
 offset_right = 40.0
-offset_bottom = 23.0
-text = "historique"
+offset_bottom = 40.0
+script = ExtResource("1_gf5hb")

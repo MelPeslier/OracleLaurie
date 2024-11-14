@@ -33,9 +33,7 @@ func _notification(what: int) -> void:
 
 func _input(event: InputEvent) -> void:
 	track_focus_type(event)
-
 	if not focus_type == FocusType.TOUCH_SCREEN: return
-	
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			Input.action_press("tap")

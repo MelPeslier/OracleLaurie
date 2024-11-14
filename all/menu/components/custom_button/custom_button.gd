@@ -43,7 +43,8 @@ var focus_coef : float = 0.0 : set = _set_focus_coef
 func _ready() -> void:
 	_set_apply(true)
 	if Engine.is_editor_hint(): return
-	unfocus(0.0)
+	focus_coef = 0.0
+	unfocus.call_deferred(0.0)
 	activate()
 
 

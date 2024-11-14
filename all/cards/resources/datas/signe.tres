@@ -1,20 +1,11 @@
-[gd_resource type="Resource" script_class="CardGroupData" load_steps=4 format=3 uid="uid://bec6ye3ukea7v"]
+[gd_resource type="Resource" script_class="CardGroupData" load_steps=3 format=3 uid="uid://bec6ye3ukea7v"]
 
 [ext_resource type="Script" path="res://all/cards/resources/card_data.gd" id="1_dh162"]
 [ext_resource type="Script" path="res://all/cards/resources/card_group_data.gd" id="2_eq3sy"]
 
-[sub_resource type="Resource" id="Resource_5kp2v"]
-script = ExtResource("1_dh162")
-card_id = 0
-titre = ""
-mots_cles = ""
-description = ""
-complement = ""
-
 [resource]
 script = ExtResource("2_eq3sy")
 titre = "SIGNE"
-mots_cles = ""
 description = ""
-nombre_de_cartes = 8
-cards_data = Array[ExtResource("1_dh162")]([SubResource("Resource_5kp2v")])
+nombre_de_cartes = 12
+cards_data = Array[ExtResource("1_dh162")]([])

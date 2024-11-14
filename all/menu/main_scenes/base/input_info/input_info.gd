@@ -9,6 +9,7 @@ signal emitted()
 
 
 func custom_input(event: InputEvent) -> void:
+	if not event.is_action_type(): return
 	if on_release:
 		if InputHelper.is_action_just_released(action_name):
 			emitted.emit()

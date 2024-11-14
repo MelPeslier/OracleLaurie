@@ -4,8 +4,9 @@ extends Control
 signal appeared
 signal disappeared
 
+@export var play_backwards := true
 
-@onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func appear() -> void:
@@ -15,6 +16,9 @@ func appear() -> void:
 
 
 func disappear() -> void:
-	animation_player.play_backwards("appear")
+	if play_backwards:
+		animation_player.play_backwards("appear")
+	else:
+		animation_player.play("disappear")
 	await animation_player.animation_finished
 	disappeared.emit()

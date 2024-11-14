@@ -5,8 +5,7 @@
 
 [resource]
 script = ExtResource("2_pnf8s")
-titre = "ASTRE"
-mots_cles = ""
+titre = "ASTRES"
 description = ""
-nombre_de_cartes = 8
+nombre_de_cartes = 10
 cards_data = Array[ExtResource("1_uoetv")]([])

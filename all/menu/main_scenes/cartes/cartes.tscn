@@ -26,30 +26,9 @@ size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("1_obxt8")
 
-[node name="Scroll" type="ScrollContainer" parent="GlobalSize/Main/Cartes" index="0"]
+[node name="InputFreeScroll" type="Node" parent="InputHandler" index="0"]
 unique_name_in_owner = true
-clip_contents = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-horizontal_scroll_mode = 3
-vertical_scroll_mode = 0
-scroll_deadzone = 30
-
-[node name="Cards" type="HBoxContainer" parent="GlobalSize/Main/Cartes/Scroll" index="0"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 0
-
-[node name="InputFreeScroll" type="Node" parent="InputHandler" index="0" node_paths=PackedStringArray("scroll", "hbox")]
 script = ExtResource("3_53qw8")
-scroll = NodePath("../../GlobalSize/Main/Cartes/Scroll")
-hbox = NodePath("../../GlobalSize/Main/Cartes/Scroll/Cards")
 
 [node name="InputLeft" type="Node" parent="InputHandler" index="1"]
 script = ExtResource("4_nhc6w")
@@ -62,8 +41,19 @@ action_name = &"right"
 [node name="InputTap" type="Node" parent="InputHandler" index="3"]
 script = ExtResource("4_nhc6w")
 action_name = &"tap"
+on_release = true
+
+[node name="InputUp" type="Node" parent="InputHandler" index="4"]
+script = ExtResource("4_nhc6w")
+action_name = &"up"
+
+[node name="InputDown" type="Node" parent="InputHandler" index="5"]
+script = ExtResource("4_nhc6w")
+action_name = &"down"
 
 [connection signal="index_changed" from="InputHandler/InputFreeScroll" to="GlobalSize/Main/Cartes" method="_on_input_free_scroll_index_changed"]
 [connection signal="emitted" from="InputHandler/InputLeft" to="GlobalSize/Main/Cartes" method="_on_input_left_emitted"]
 [connection signal="emitted" from="InputHandler/InputRight" to="GlobalSize/Main/Cartes" method="_on_input_right_emitted"]
 [connection signal="emitted" from="InputHandler/InputTap" to="GlobalSize/Main/Cartes" method="_on_input_tap_emitted"]
+[connection signal="emitted" from="InputHandler/InputUp" to="GlobalSize/Main/Cartes" method="_on_input_up_emitted"]
+[connection signal="emitted" from="InputHandler/InputDown" to="GlobalSize/Main/Cartes" method="_on_input_down_emitted"]

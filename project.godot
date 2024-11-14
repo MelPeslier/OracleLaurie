@@ -34,6 +34,10 @@ window/stretch/aspect="expand"
 window/handheld/orientation=1
 window/bg_color=Color(0.0313726, 0.0313726, 0.141176, 1)
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+
 [gui]
 
 theme/custom="res://all/menu/custom_theme.theme"

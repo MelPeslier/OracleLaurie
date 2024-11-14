@@ -45,7 +45,6 @@ func generate_card_group_data(_card_group_data: CardGroupData) -> void:
 ## Generate the card data based on the number of cards wanted
 func generate_card_data(_group_titre: String, _card_id: int) -> CardData:
 	var card_data := CardData.new()
-	# TODO Normalement pas de problème : mais vérifier que _group_titre est bien en majuscule, français et sans accents
 	var base_name := _group_titre + S + id_to_str(_card_id)
 	card_data.card_ref = generate_card_ref(_group_titre, _card_id)
 	card_data.card_id = _card_id

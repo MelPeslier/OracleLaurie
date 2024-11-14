@@ -7,6 +7,10 @@ func _ready() -> void:
 	update_available_preview()
 
 
+func _on_help_opened(_opened : bool) -> void:
+	set_process_input(_opened)
+
+
 func _input(event: InputEvent) -> void:
 	for input_info: InputInfo in get_children():
 		input_info.custom_input(event)

@@ -9,9 +9,9 @@ func set_data(_tween: Tween) -> void:
 	_tween.set_ease(ease_type)
 	_tween.set_trans(trans_type)
 
-func kill_and_create(_node: Node, _tween: Tween, _parallel: bool = false) -> float:
+func kill_and_create(_node: Node, _tween: Tween, _parallel: bool = false) -> Tween:
 	if _tween and _tween.is_running():
 		_tween.kill()
 	_tween = _node.create_tween().set_parallel(_parallel)
 	set_data(_tween)
-	return duration
+	return _tween

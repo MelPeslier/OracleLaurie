@@ -1,8 +1,8 @@
 class_name BaseCustomButton
 extends PanelContainer
 
-@export var text : String
-@export var texture : Texture2D
+@export var text : String : set = _set_text
+@export var texture : Texture2D : set = _set_texture
 @export var td : TweenData
 
 @export_group("Action")
@@ -62,3 +62,10 @@ func is_action_just() -> bool:
 	if on_release:
 		return InputHelper.is_action_just_released( action_name )
 	return InputHelper.is_action_just_pressed( action_name )
+
+
+func _set_text(_text: String) -> void:
+	text = _text
+
+func _set_texture(_texture: Texture2D) -> void:
+	texture = _texture

@@ -14,7 +14,7 @@ const INFO_DISPLAY = preload("res://all/menu/main_scenes/help/info_display.tscn"
 
 
 func _ready() -> void:
-	set_process_input(false)
+	unfocus(0.0)
 	for info: Info in infos.get_children():
 		create_info_display(info)
 	

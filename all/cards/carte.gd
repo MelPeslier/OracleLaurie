@@ -60,28 +60,20 @@ func tap() -> void:
 	card_state = (card_state + 1) % 3
 
 func show_preview() -> void:
-	var _duration = kill_create()
+	var _duration = change_tween_data.kill_and_create(self, change_tween, true)
 	change_tween.tween_property(complement, "modulate:a", 0.0, _duration)
 	change_tween.tween_property(description, "modulate:a", 0.0, _duration).set_delay(interval)
 	change_tween.tween_property(textures, "modulate:a", 1.0, _duration).set_delay(interval * 2.0)
 
 
 func show_description() -> void:
-	var _duration = kill_create()
+	var _duration = change_tween_data.kill_and_create(self, change_tween, true)
 	change_tween.tween_property(complement, "modulate:a", 0.0, _duration)
 	change_tween.tween_property(textures, "modulate:a", 0.7, _duration)
 	change_tween.tween_property(description, "modulate:a", 1.0, _duration).set_delay(interval)
 
 func show_complement() -> void:
-	var _duration = kill_create()
+	var _duration = change_tween_data.kill_and_create(self, change_tween, true)
 	change_tween.tween_property(complement, "modulate:a", 1.0, _duration)
 	change_tween.tween_property(description, "modulate:a", 1.0, _duration)
 	change_tween.tween_property(textures, "modulate:a", 0.7, _duration)
-
-
-func kill_create() -> float:
-	if change_tween and change_tween.is_running():
-		change_tween.kill()
-	change_tween = create_tween().set_parallel()
-	change_tween_data.set_data(change_tween)
-	return change_tween_data.duration

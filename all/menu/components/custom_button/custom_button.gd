@@ -1,6 +1,6 @@
 @tool
 class_name CustomButton
-extends PanelContainer
+extends BaseCustomButton
 
 const BUTTON_PROCESS_MAT = preload("res://all/menu/components/custom_button/button_process_mat.material")
 
@@ -10,12 +10,6 @@ enum EmissionMaskMode{
 	EMISSION_MODE_BORDER_DIRECTED,
 }
 
-@export var next_scene: PackedScene
-@export var transition_screen_packed: PackedScene
-@export var td : TweenData
-
-@export var text : String
-@export var texture : Texture2D
 @export var apply := false : set = _set_apply
 @export_group("Mask")
 @export var emode : EmissionMaskMode
@@ -23,8 +17,6 @@ enum EmissionMaskMode{
 @export var centered := true
 @export_range(0, 255, 1) var transparency_threshold : int = 128
 
-var t: Tween
-var focused := true
 var focus_coef : float = 0.0 : set = _set_focus_coef
 
 
@@ -48,27 +40,9 @@ func _ready() -> void:
 	activate()
 
 
-func _input(event: InputEvent) -> void:
-	if not event.is_action_type(): return
-	if InputHelper.is_action_just_released("tap") and InputHelper.is_point_inside_box(self, event.position):
-		if focused:
-			next()
-		else:
-			if InputHelper.last_button:
-				InputHelper.last_button.unfocus()
-			focus()
-
-
-func activate() -> void:
-	set_process_input(true)
-
-
-func next(_time_scale: float = 1.0) -> void:
-	SceneTransition.change_scene_to_packed(next_scene, transition_screen_packed)
-	set_process_input(false)
-
-
 func focus(_time_scale: float = 1.0) -> void:
+	if InputHelper.last_button:
+		InputHelper.last_button.unfocus()
 	InputHelper.last_button = self
 	main_particles.emitting = true
 	focused = true
@@ -103,7 +77,6 @@ func update_gpu_scale() -> void:
 	if centered:
 		mat.emission_shape_offset.x -= main.size.x / 2.0
 		mat.emission_shape_offset.y -= main.size.y / 2.0
-
 
 func _set_focus_coef(_focus_coef: float) -> void:
 	focus_coef = _focus_coef

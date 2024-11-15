@@ -33,7 +33,6 @@ theme_override_constants/margin_bottom = 25
 
 [node name="OuterPanel" type="Panel" parent="All"]
 layout_mode = 2
-theme_type_variation = &"OuterPanel"
 
 [node name="PanelContainer" type="PanelContainer" parent="All"]
 layout_mode = 2
@@ -48,7 +47,6 @@ theme_override_constants/margin_bottom = 25
 
 [node name="InnerPanel" type="Panel" parent="All/VisibleSpace"]
 layout_mode = 2
-theme_type_variation = &"InnerPanel"
 
 [node name="TextSpace" type="MarginContainer" parent="All/VisibleSpace"]
 layout_mode = 2

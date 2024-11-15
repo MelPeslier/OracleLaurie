@@ -37,7 +37,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Help" parent="GlobalSize/Main" node_paths=PackedStringArray("infos", "input_handler") instance=ExtResource("3_iteng")]
-visible = false
 layout_mode = 1
 infos = NodePath("../../../Infos")
 input_handler = NodePath("../../../InputHandler")

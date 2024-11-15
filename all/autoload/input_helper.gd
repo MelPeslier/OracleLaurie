@@ -18,7 +18,7 @@ var drag_distance :float = 175
 var button_press_distance : float = 40
 var _drag_pos := Vector2.ZERO
 
-var last_button : CustomButton = null
+var last_button : BaseCustomButton = null
 
 var drag_progress := Vector2.ZERO : set = _set_drag_progress
 

@@ -3,6 +3,8 @@ extends Control
 
 
 func focus(_time_scale : float = 1.0) -> void:
+	if InputHelper.last_button:
+		InputHelper.last_button.unfocus()
 	visible = true
 	set_process_input(true)
 

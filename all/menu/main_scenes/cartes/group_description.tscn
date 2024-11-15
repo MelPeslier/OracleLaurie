@@ -81,6 +81,7 @@ vertical_alignment = 1
 
 [node name="CardsNumber" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(410, 60)
 layout_mode = 2
 theme_type_variation = &"HeaderMedium"
@@ -91,6 +92,7 @@ autowrap_mode = 2
 
 [node name="Description" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(410, 251)
 layout_mode = 2
 size_flags_vertical = 3

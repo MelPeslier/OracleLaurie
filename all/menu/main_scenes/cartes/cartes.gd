@@ -40,18 +40,6 @@ func _ready() -> void:
 	input_free_scroll.my_scroll = my_scroll
 
 
-func _input(event: InputEvent) -> void:
-	pass
-	
-	#if not InputHelper.focus_type == InputHelper.FocusType.TOUCH_SCREEN:
-	
-	# Keyboard & controller
-	#elif InputHelper.is_action_just_released("right"):
-	#elif InputHelper.is_action_just_released("left"):
-	#elif InputHelper.is_action_just_released("up"):
-	#elif InputHelper.is_action_just_released("down"):
-
-
 func focus(_time_scale : float = 1.0) -> void:
 	super(_time_scale)
 

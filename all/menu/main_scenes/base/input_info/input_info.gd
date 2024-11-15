@@ -1,11 +1,10 @@
 class_name InputInfo
-extends Node
+extends Info
 
 signal emitted()
 
 @export var action_name : StringName
 @export var on_release :bool = false
-@export var description: String
 
 
 func custom_input(event: InputEvent) -> void:

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ojmdjeyd4xr"]
+
+[ext_resource type="Script" path="res://all/menu/main_scenes/help/info_display.gd" id="1_isye7"]
+[ext_resource type="Texture2D" uid="uid://dey8jt4rw7dxy" path="res://all/shaders/particles/circle.png" id="1_jte13"]
+
+[node name="InfoDisplay" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+script = ExtResource("1_isye7")
+
+[node name="Image" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_jte13")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_type_variation = &"HeaderSmall"
+text = "lqdhflqkdjhf qldhfqlkdjhfnqlkdhf pqodhf^qodjfqmlkdjf qôdifqmldkjfmqlkdjf ôqdsihf^qdjnf!mlqkdnf^qo dihfôqdhfqôdkifjqmldkjqôdifjhôqdhf^qodifmlqkdnvqmdnvqoldvhiuoqh dqdhfkqhdflkjqhdfqhd fôqdh fmqidhmqlkdjfqjhdfôqhid mqklhdlqkmjdfmolqdjhfôiqdh ùqmlkdh mqldhvpoqidhv qôdih^qdiohfqùlkdjhflù^qkjdfôqijdsf^ùqjdlùkqjdlf jqdôifqjh d^fkjqdlùfjqdlùfjqopdqùldkj qùdlgkjhq^dogihqdlù^kjqùldgj qôpiçdgqùlkdjgqôpdgj ùqldjgqlidhgmqipdhgpqiudhgipqudhgqdhgmqdhgmqkdhgmqlkdhgqmlkdhgmlqhdgmqkjdhmkqjhdgkmjhgdqùdjùlqdjhgôqidug^qodhgmqlkdhgqmldkhgqmdshg^qoidhgqmlkdjhg^qoidhgqù^lkdjgqôdighqd^lkghqdhgqôdighq^doihqôidhgklqmdhgmlqdh gôqihgyodpihqpdhfpqoidhfpqiodhpqoghpqohdgqp"
+autowrap_mode = 3

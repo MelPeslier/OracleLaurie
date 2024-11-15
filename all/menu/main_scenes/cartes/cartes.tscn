@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpqyyx0cyo646"]
+[gd_scene load_steps=6 format=3 uid="uid://cpqyyx0cyo646"]
 
 [ext_resource type="PackedScene" uid="uid://bto3nakpksmb2" path="res://all/menu/main_scenes/base/centered.tscn" id="1_nkmq6"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/cartes/cartes.gd" id="1_obxt8"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/info.gd" id="3_2xhbi"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/inputs/free_scroll.gd" id="3_53qw8"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/input_info.gd" id="4_nhc6w"]
 
@@ -25,6 +26,10 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("1_obxt8")
+
+[node name="Info" type="Node" parent="Infos" index="0"]
+script = ExtResource("3_2xhbi")
+description = "Juste pour ça quoi"
 
 [node name="InputFreeScroll" type="Node" parent="InputHandler" index="0"]
 unique_name_in_owner = true

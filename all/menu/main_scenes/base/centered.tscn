@@ -36,8 +36,11 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Help" parent="GlobalSize/Main" instance=ExtResource("3_iteng")]
+[node name="Help" parent="GlobalSize/Main" node_paths=PackedStringArray("infos", "input_handler") instance=ExtResource("3_iteng")]
+visible = false
 layout_mode = 1
+infos = NodePath("../../../Infos")
+input_handler = NodePath("../../../InputHandler")
 
 [node name="DragPreview" parent="GlobalSize/Main" instance=ExtResource("3_wd2c8")]
 unique_name_in_owner = true
@@ -46,6 +49,8 @@ layout_mode = 1
 [node name="RightDummy" type="Control" parent="GlobalSize"]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="Infos" type="Node" parent="."]
 
 [node name="InputHandler" type="Node" parent="."]
 script = ExtResource("3_7julb")

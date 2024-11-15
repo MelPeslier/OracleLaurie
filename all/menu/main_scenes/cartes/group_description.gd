@@ -45,8 +45,8 @@ func show_preview(_time_scale: float) -> void:
 func show_description(_time_scale: float) -> void:
 	var _duration = kill_create() * _time_scale
 	change_tween.tween_property(textures, "modulate:a", 0.7, _duration)
-	change_tween.tween_property(cards_number, "modulate:a", 1.0, _duration).set_delay(interval)
-	change_tween.tween_property(description, "modulate:a", 1.0, _duration).set_delay(interval * 2.0)
+	change_tween.tween_property(description, "modulate:a", 1.0, _duration).set_delay(interval)
+	change_tween.tween_property(cards_number, "modulate:a", 1.0, _duration).set_delay(interval * 2.0)
 
 
 func kill_create() -> float:

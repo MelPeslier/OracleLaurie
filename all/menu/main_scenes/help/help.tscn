@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy4e1w5emjvsl"]
+[gd_scene load_steps=3 format=3 uid="uid://cy4e1w5emjvsl"]
 
 [ext_resource type="Script" path="res://all/menu/main_scenes/help/help.gd" id="1_kqnsr"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/input_info.gd" id="2_4e7ej"]
 
 [node name="Help" type="Control"]
 layout_mode = 3
@@ -10,3 +11,63 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kqnsr")
+
+[node name="TapInputInfo" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_4e7ej")
+action_name = &"tap"
+on_release = true
+description = "To qui the help info, just tap the screen"
+
+[node name="All" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="OuterPanel" type="Panel" parent="All"]
+layout_mode = 2
+theme_type_variation = &"OuterPanel"
+
+[node name="PanelContainer" type="PanelContainer" parent="All"]
+layout_mode = 2
+theme_type_variation = &"panelbox"
+
+[node name="VisibleSpace" type="MarginContainer" parent="All"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="InnerPanel" type="Panel" parent="All/VisibleSpace"]
+layout_mode = 2
+theme_type_variation = &"InnerPanel"
+
+[node name="TextSpace" type="MarginContainer" parent="All/VisibleSpace"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="ScrollContainer" type="ScrollContainer" parent="All/VisibleSpace/TextSpace"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+scroll_deadzone = 30
+
+[node name="VBox" type="VBoxContainer" parent="All/VisibleSpace/TextSpace/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[connection signal="emitted" from="TapInputInfo" to="." method="_on_tap_input_info_emitted"]

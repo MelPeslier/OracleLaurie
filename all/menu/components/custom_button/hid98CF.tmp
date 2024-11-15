@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://0l7qwq35u5up"]
+
+[ext_resource type="Script" path="res://all/menu/components/custom_button/hide_button.gd" id="1_ima04"]
+[ext_resource type="Texture2D" uid="uid://cc1ajkq10wm1" path="res://all/menu/images/cog_wheel.png" id="2_7rx3v"]
+[ext_resource type="Script" path="res://all/menu/components/helper/tween_data/tween_data.gd" id="2_qb3i2"]
+[ext_resource type="Shader" path="res://all/shaders/visibility.gdshader" id="4_sgs0v"]
+
+[sub_resource type="Resource" id="Resource_5jplw"]
+script = ExtResource("2_qb3i2")
+ease_type = 1
+trans_type = 10
+duration = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fnlq5"]
+resource_local_to_scene = true
+shader = ExtResource("4_sgs0v")
+shader_parameter/visibility = 0.67
+shader_parameter/angle_coef = 0.0
+
+[node name="HideButton" type="PanelContainer"]
+offset_right = 90.0
+offset_bottom = 92.0
+script = ExtResource("1_ima04")
+text_left = true
+text = "YOYOYOYOYO"
+texture = ExtResource("2_7rx3v")
+td = SubResource("Resource_5jplw")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="HBox"]
+layout_mode = 2
+theme_type_variation = &"panelbox"
+
+[node name="Main" type="TextureRect" parent="HBox/PanelContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("2_7rx3v")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="SVC" type="SubViewportContainer" parent="HBox"]
+unique_name_in_owner = true
+show_behind_parent = true
+material = SubResource("ShaderMaterial_fnlq5")
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="HBox/SVC"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(2, 2)
+render_target_update_mode = 4
+
+[node name="Label" type="Label" parent="HBox/SVC/SubViewport"]
+unique_name_in_owner = true
+show_behind_parent = true
+offset_right = 71.0
+offset_bottom = 58.0
+size_flags_horizontal = 8
+theme_type_variation = &"HeaderLarge"
+text = "test"
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="HBox/SVC/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0.482353, 0.607843)

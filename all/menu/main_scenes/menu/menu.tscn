@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dahvqp3wq3nvf"]
+[gd_scene load_steps=13 format=3 uid="uid://bmikt2qija12p"]
 
 [ext_resource type="Script" path="res://all/menu/control_focus.gd" id="1_k4fdb"]
-[ext_resource type="PackedScene" uid="uid://bto3nakpksmb2" path="res://all/menu/main_scenes/base/centered.tscn" id="1_o83su"]
 [ext_resource type="PackedScene" uid="uid://ci5wpttsjw7ns" path="res://all/menu/components/custom_button/custom_button.tscn" id="2_gqdpo"]
 [ext_resource type="PackedScene" uid="uid://vejjiryd6mam" path="res://all/menu/main_scenes/tirage/tirage.tscn" id="3_rgnpq"]
 [ext_resource type="Texture2D" uid="uid://byeccwlgimi0u" path="res://all/menu/images/tirage.png" id="4_oas53"]
@@ -14,10 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://dlqwvhvmgwr54" path="res://all/menu/main_scenes/quit/quit.tscn" id="11_enavm"]
 [ext_resource type="Texture2D" uid="uid://bk7hp4lshv8ba" path="res://all/menu/images/quit.png" id="11_ubr3l"]
 
-[node name="MenuCentered" instance=ExtResource("1_o83su")]
-
-[node name="Menu" type="Control" parent="GlobalSize/Main" index="1"]
-layout_mode = 1
+[node name="Menu" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_k4fdb")
 
-[node name="VBC" type="VBoxContainer" parent="GlobalSize/Main/Menu" index="0"]
+[node name="VBC" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +32,7 @@ grow_vertical = 2
 theme_override_constants/separation = 60
 alignment = 1
 
-[node name="Tirage" parent="GlobalSize/Main/Menu/VBC" index="0" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
+[node name="Tirage" parent="VBC" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -47,11 +44,10 @@ next_scene = ExtResource("3_rgnpq")
 button_up = NodePath("../Quit")
 button_down = NodePath("../Historique")
 
-[node name="Historique" parent="GlobalSize/Main/Menu/VBC" index="1" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
+[node name="Historique" parent="VBC" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-auto_focus = null
 text = "HISTORIQUE"
 texture = ExtResource("6_3rr6d")
 change_scene = true
@@ -59,11 +55,10 @@ next_scene = ExtResource("5_7a27i")
 button_up = NodePath("../Tirage")
 button_down = NodePath("../Cartes")
 
-[node name="Cartes" parent="GlobalSize/Main/Menu/VBC" index="2" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
+[node name="Cartes" parent="VBC" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-auto_focus = null
 text = "CARTES"
 texture = ExtResource("8_c8grv")
 change_scene = true
@@ -71,11 +66,10 @@ next_scene = ExtResource("7_nfu8q")
 button_up = NodePath("../Historique")
 button_down = NodePath("../Reglages")
 
-[node name="Reglages" parent="GlobalSize/Main/Menu/VBC" index="3" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
+[node name="Reglages" parent="VBC" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-auto_focus = null
 text = "REGLAGES"
 texture = ExtResource("10_0ecll")
 change_scene = true
@@ -83,11 +77,10 @@ next_scene = ExtResource("9_q7nrs")
 button_up = NodePath("../Cartes")
 button_down = NodePath("../Quit")
 
-[node name="Quit" parent="GlobalSize/Main/Menu/VBC" index="4" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
+[node name="Quit" parent="VBC" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-auto_focus = null
 text = "QUIT"
 texture = ExtResource("11_ubr3l")
 change_scene = true

@@ -24,8 +24,8 @@ func _ready() -> void:
 	create_info_display(tap_input_info)
 
 
-#func _input(event: InputEvent) -> void:
-	#tap_input_info.custom_input( event )
+func _input(event: InputEvent) -> void:
+	tap_input_info.custom_input( event )
 
 
 func create_info_display(_info: Info) -> void:

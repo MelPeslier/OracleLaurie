@@ -60,14 +60,19 @@ func _input(event: InputEvent) -> void:
 
 func next(_time_scale: float = 1.0) -> void:
 	if change_scene:
+		print( "is scene null : ", next_scene == null)
 		SceneTransition.change_scene_to_packed(next_scene, transition_screen_packed)
 		set_process_input(false)
+		return
+	if not control_focus:
+		print("base button : no focus referred")
+		unfocus()
 		return
 	control_focus.focus()
 
 
 func focus(_time_scale: float = 1.0) -> void:
-	if InputHelper.last_button:
+	if InputHelper.last_button and is_instance_valid( InputHelper.last_button ):
 		InputHelper.last_button.unfocus()
 	InputHelper.last_button = self
 	focused = true

@@ -25,7 +25,7 @@ void fragment() {
 	float angle = atan(toCenter.y,toCenter.x);
 	float radius = length(toCenter);
 	vec2 polar_uv = vec2(angle * repeat, radius * scale);
-	
+
 	// Scroll
 	vec2 uv_1 = polar_uv + speed_1 * TIME;
 	vec2 uv_2 = polar_uv + speed_2 * TIME;
@@ -33,17 +33,16 @@ void fragment() {
 	float n1 = texture(noise_1, uv_1).r;
 	float n2 = texture(noise_2, uv_2).r;
 	float intensity = n1 * n2;
-	
+
 	// Circle
 	float circle = distance(uv, vec2(0.5));
 	float circle_shade = smoothstep(shade_start, shade_end, circle);
-	
+
 	// Output
 	float output = smoothstep(edge_low, edge_high, intensity);
 	output *= circle_shade;
 	vec4 output_colored = texture(color_ramp, polar_uv.yx) * color_instensity * output;
 	vec4 bg_colored = texture( color_ramp, vec2( circle ) );
-	
+
 	COLOR = bg_colored + output_colored;
 }
-

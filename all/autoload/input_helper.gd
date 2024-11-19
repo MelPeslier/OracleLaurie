@@ -31,6 +31,10 @@ func _notification(what: int) -> void:
 			focused = true
 
 
+# TODO : manage next buttons from here.
+# + make repeatable inputs from keys and controller pressed buttons
+# + make an input buffer for buttons to switch to next buttons
+
 func _input(event: InputEvent) -> void:
 	track_focus_type(event)
 	if not focus_type == FocusType.TOUCH_SCREEN: return

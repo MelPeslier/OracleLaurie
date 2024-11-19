@@ -16,6 +16,8 @@ func change_scene_to_packed(_packed_scene: PackedScene, _transition_screen_packe
 	transition_screen.appear()
 	await transition_screen.appeared
 	
+	print(_packed_scene)
+	
 	var err = get_tree().change_scene_to_packed(_packed_scene)
 	if err:
 		push_error("failed to change scenes: %d" % err)

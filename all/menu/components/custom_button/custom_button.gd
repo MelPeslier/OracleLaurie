@@ -36,16 +36,15 @@ func _ready() -> void:
 	_set_apply(true)
 	if Engine.is_editor_hint(): return
 	focus_coef = 0.0
-	unfocus.call_deferred(0.0)
-	activate()
+	super()
 
 
 func focus(_time_scale: float = 1.0) -> void:
+	print(name, " focus called")
 	if InputHelper.last_button:
 		InputHelper.last_button.unfocus()
 	InputHelper.last_button = self
 	main_particles.emitting = true
-	focused = true
 	if t and t.is_running():
 		t.kill()
 	t = create_tween().set_parallel()
@@ -54,9 +53,11 @@ func focus(_time_scale: float = 1.0) -> void:
 	var target_pos : float = 0.0
 	t.tween_property(border, "position:x", target_pos, duration)
 	t.tween_property(self, "focus_coef", 1.0, duration)
+	t.tween_property(self, "focused", true, 0.3)
 
 
 func unfocus(_time_scale: float = 1.0) -> void:
+	print(name, " UNfocus called")
 	focused = false
 	if t and t.is_running():
 		t.kill()

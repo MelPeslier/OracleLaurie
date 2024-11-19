@@ -72,10 +72,10 @@ func _input(event: InputEvent) -> void:
 			drag_progress = dist / Vector2(drag_distance, drag_distance)
 
 
-func is_point_inside_box(_node: Variant, _point: Vector2) -> bool:
-	if not _node is CanvasItem:
-		print("input_helper.gd, is_point_inside_area not canvas item passed")
-		return false
+func is_point_inside_box(_node: BaseCustomButton, event: InputEvent) -> bool:
+	if not (event is InputEventScreenTouch or event is InputEventMouseButton):
+		return _node == InputHelper.last_button
+	var _point : Vector2 = event.position
 	var _start : Vector2 = _node.global_position
 	var _end : Vector2 = _node.global_position + _node.size * _node.scale
 	var _inside :bool = _start.x < _point.x and _end.x > _point.x \

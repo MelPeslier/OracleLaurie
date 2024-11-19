@@ -35,47 +35,62 @@ grow_vertical = 2
 theme_override_constants/separation = 60
 alignment = 1
 
-[node name="Tirage" parent="GlobalSize/Main/Menu/VBC" index="0" instance=ExtResource("2_gqdpo")]
+[node name="Tirage" parent="GlobalSize/Main/Menu/VBC" index="0" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+auto_focus = true
 text = "TIRAGE"
 texture = ExtResource("4_oas53")
 change_scene = true
 next_scene = ExtResource("3_rgnpq")
+button_up = NodePath("../Quit")
+button_down = NodePath("../Historique")
 
-[node name="Historique" parent="GlobalSize/Main/Menu/VBC" index="1" instance=ExtResource("2_gqdpo")]
+[node name="Historique" parent="GlobalSize/Main/Menu/VBC" index="1" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+auto_focus = null
 text = "HISTORIQUE"
 texture = ExtResource("6_3rr6d")
 change_scene = true
 next_scene = ExtResource("5_7a27i")
+button_up = NodePath("../Tirage")
+button_down = NodePath("../Cartes")
 
-[node name="Cartes" parent="GlobalSize/Main/Menu/VBC" index="2" instance=ExtResource("2_gqdpo")]
+[node name="Cartes" parent="GlobalSize/Main/Menu/VBC" index="2" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+auto_focus = null
 text = "CARTES"
 texture = ExtResource("8_c8grv")
 change_scene = true
 next_scene = ExtResource("7_nfu8q")
+button_up = NodePath("../Historique")
+button_down = NodePath("../Reglages")
 
-[node name="Reglages" parent="GlobalSize/Main/Menu/VBC" index="3" instance=ExtResource("2_gqdpo")]
+[node name="Reglages" parent="GlobalSize/Main/Menu/VBC" index="3" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+auto_focus = null
 text = "REGLAGES"
 texture = ExtResource("10_0ecll")
 change_scene = true
 next_scene = ExtResource("9_q7nrs")
+button_up = NodePath("../Cartes")
+button_down = NodePath("../Quit")
 
-[node name="Quit" parent="GlobalSize/Main/Menu/VBC" index="4" instance=ExtResource("2_gqdpo")]
+[node name="Quit" parent="GlobalSize/Main/Menu/VBC" index="4" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+auto_focus = null
 text = "QUIT"
 texture = ExtResource("11_ubr3l")
 change_scene = true
 next_scene = ExtResource("11_enavm")
+button_up = NodePath("../Reglages")
+button_down = NodePath("../Tirage")

@@ -22,15 +22,12 @@ td = SubResource("Resource_5jplw")
 layout_mode = 2
 color = Color(1, 0, 0, 0.501961)
 
-[node name="HBox" type="HBoxContainer" parent="."]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="PanelContainer" type="PanelContainer" parent="HBox"]
+[node name="Visual" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 2
 theme_type_variation = &"panelbox"
 
-[node name="Main" type="TextureRect" parent="HBox/PanelContainer"]
+[node name="Main" type="TextureRect" parent="Visual"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2

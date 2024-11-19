@@ -20,14 +20,5 @@ grow_vertical = 2
 script = ExtResource("1_dwny4")
 card_group_datas = Array[ExtResource("2_f18bx")]([ExtResource("3_golth"), ExtResource("4_tdd0g"), ExtResource("6_cghfd"), ExtResource("5_xb6du")])
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0313726, 0.0313726, 0.101961, 1)
-
 [node name="Menu" parent="." instance=ExtResource("7_mefdl")]
 layout_mode = 1

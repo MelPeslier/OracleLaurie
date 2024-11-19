@@ -1,5 +1,68 @@
-[gd_scene load_steps=2 format=3 uid="uid://vejjiryd6mam"]
+[gd_scene load_steps=6 format=3 uid="uid://vejjiryd6mam"]
 
 [ext_resource type="PackedScene" uid="uid://bto3nakpksmb2" path="res://all/menu/main_scenes/base/centered.tscn" id="1_mpu1n"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/tirage/tirage.gd" id="2_5ufpc"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/input_info.gd" id="3_2y7ho"]
+[ext_resource type="PackedScene" uid="uid://dmjfjq2j4grgi" path="res://all/menu/main_scenes/tirage/tirage_groupe.tscn" id="3_r377y"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/inputs/input_drag.gd" id="5_yy16i"]
 
 [node name="TirageCentered" instance=ExtResource("1_mpu1n")]
+
+[node name="Tirage" type="Control" parent="GlobalSize/Main" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_5ufpc")
+
+[node name="TirageGroupe" parent="GlobalSize/Main/Tirage" index="0" instance=ExtResource("3_r377y")]
+layout_mode = 1
+
+[node name="HideButtonReturn" parent="GlobalSize/Main" index="1"]
+visible = false
+
+[node name="HideButtonHelp" parent="GlobalSize/Main" index="2"]
+visible = false
+
+[node name="Help" parent="GlobalSize/Main" index="3"]
+visible = false
+
+[node name="DragPreview" parent="GlobalSize/Main" index="4"]
+visible = false
+
+[node name="InputTapPressed" type="Node" parent="InputHandler" index="0"]
+script = ExtResource("3_2y7ho")
+action_name = &"tap"
+
+[node name="InputDrag" type="Node" parent="InputHandler" index="1"]
+script = ExtResource("5_yy16i")
+
+[node name="InputTapReleased" type="Node" parent="InputHandler" index="2"]
+script = ExtResource("3_2y7ho")
+action_name = &"tap"
+on_release = true
+
+[node name="InputLeft" type="Node" parent="InputHandler" index="3"]
+script = ExtResource("3_2y7ho")
+action_name = &"left"
+
+[node name="InputRight" type="Node" parent="InputHandler" index="4"]
+script = ExtResource("3_2y7ho")
+action_name = &"right"
+
+[node name="InputUp" type="Node" parent="InputHandler" index="5"]
+script = ExtResource("3_2y7ho")
+action_name = &"up"
+
+[node name="InputDown" type="Node" parent="InputHandler" index="6"]
+script = ExtResource("3_2y7ho")
+action_name = &"down"
+
+[connection signal="emitted" from="InputHandler/InputTapPressed" to="GlobalSize/Main/Tirage" method="_on_input_tap_pressed_emitted"]
+[connection signal="emitted" from="InputHandler/InputTapReleased" to="GlobalSize/Main/Tirage" method="_on_input_tap_released_emitted"]
+[connection signal="emitted" from="InputHandler/InputLeft" to="GlobalSize/Main/Tirage" method="_on_input_left_emitted"]
+[connection signal="emitted" from="InputHandler/InputRight" to="GlobalSize/Main/Tirage" method="_on_input_right_emitted"]
+[connection signal="emitted" from="InputHandler/InputUp" to="GlobalSize/Main/Tirage" method="_on_input_up_emitted"]
+[connection signal="emitted" from="InputHandler/InputDown" to="GlobalSize/Main/Tirage" method="_on_input_down_emitted"]

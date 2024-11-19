@@ -52,6 +52,10 @@ func tap() -> void:
 	elif obj is GroupDescription:
 		var group_description: GroupDescription = obj
 		group_description.tap()
+	elif obj is TirageGroupe:
+		var tirage_groupe : TirageGroupe = obj
+		print("my scroll.gd : tirage_gorup_tap ?? ")
+		#tirage_groupe.tap()
 
 
 func _set_card_index(_index: int) -> void:

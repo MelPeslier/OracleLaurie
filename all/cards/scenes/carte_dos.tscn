@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://eqlqvfuwg4je"]
+
+[ext_resource type="Script" path="res://all/cards/scenes/carte_dos.gd" id="1_qbp7v"]
+[ext_resource type="Texture2D" uid="uid://bd3rnlb8xxvwh" path="res://default_texture.png" id="2_65njs"]
+
+[node name="CarteDos" type="Control"]
+custom_minimum_size = Vector2(144, 192)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -96.0
+offset_right = 72.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(72, 96)
+script = ExtResource("1_qbp7v")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.494118, 0.172549, 0.0784314, 0.737255)
+
+[node name="Image" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_65njs")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Contour" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"panelbox"

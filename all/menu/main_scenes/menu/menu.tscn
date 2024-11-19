@@ -1,16 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bmikt2qija12p"]
+[gd_scene load_steps=8 format=3 uid="uid://bmikt2qija12p"]
 
 [ext_resource type="Script" path="res://all/menu/control_focus.gd" id="1_k4fdb"]
 [ext_resource type="PackedScene" uid="uid://ci5wpttsjw7ns" path="res://all/menu/components/custom_button/custom_button.tscn" id="2_gqdpo"]
-[ext_resource type="PackedScene" uid="uid://vejjiryd6mam" path="res://all/menu/main_scenes/tirage/tirage.tscn" id="3_rgnpq"]
 [ext_resource type="Texture2D" uid="uid://byeccwlgimi0u" path="res://all/menu/images/tirage.png" id="4_oas53"]
-[ext_resource type="PackedScene" uid="uid://d4nn56k0m345v" path="res://all/menu/main_scenes/historique/historique.tscn" id="5_7a27i"]
 [ext_resource type="Texture2D" uid="uid://dmwmc6v1evjvl" path="res://all/menu/images/history.png" id="6_3rr6d"]
-[ext_resource type="PackedScene" uid="uid://cpqyyx0cyo646" path="res://all/menu/main_scenes/cartes/cartes.tscn" id="7_nfu8q"]
 [ext_resource type="Texture2D" uid="uid://ekj70gyevekf" path="res://all/menu/images/cartes.png" id="8_c8grv"]
-[ext_resource type="PackedScene" uid="uid://biyfxg6fryjmy" path="res://all/menu/main_scenes/reglages/reglages.tscn" id="9_q7nrs"]
 [ext_resource type="Texture2D" uid="uid://cc1ajkq10wm1" path="res://all/menu/images/cog_wheel.png" id="10_0ecll"]
-[ext_resource type="PackedScene" uid="uid://dlqwvhvmgwr54" path="res://all/menu/main_scenes/quit/quit.tscn" id="11_enavm"]
 [ext_resource type="Texture2D" uid="uid://bk7hp4lshv8ba" path="res://all/menu/images/quit.png" id="11_ubr3l"]
 
 [node name="Menu" type="Control"]
@@ -40,7 +35,7 @@ auto_focus = true
 text = "TIRAGE"
 texture = ExtResource("4_oas53")
 change_scene = true
-next_scene = ExtResource("3_rgnpq")
+next_scene_path = "res://all/menu/main_scenes/tirage/tirage.tscn"
 button_up = NodePath("../Quit")
 button_down = NodePath("../Historique")
 
@@ -51,7 +46,7 @@ size_flags_vertical = 4
 text = "HISTORIQUE"
 texture = ExtResource("6_3rr6d")
 change_scene = true
-next_scene = ExtResource("5_7a27i")
+next_scene_path = "res://all/menu/main_scenes/historique/historique.tscn"
 button_up = NodePath("../Tirage")
 button_down = NodePath("../Cartes")
 
@@ -62,7 +57,7 @@ size_flags_vertical = 4
 text = "CARTES"
 texture = ExtResource("8_c8grv")
 change_scene = true
-next_scene = ExtResource("7_nfu8q")
+next_scene_path = "res://all/menu/main_scenes/cartes/cartes.tscn"
 button_up = NodePath("../Historique")
 button_down = NodePath("../Reglages")
 
@@ -73,7 +68,7 @@ size_flags_vertical = 4
 text = "REGLAGES"
 texture = ExtResource("10_0ecll")
 change_scene = true
-next_scene = ExtResource("9_q7nrs")
+next_scene_path = "res://all/menu/main_scenes/reglages/reglages.tscn"
 button_up = NodePath("../Cartes")
 button_down = NodePath("../Quit")
 
@@ -84,6 +79,6 @@ size_flags_vertical = 4
 text = "QUIT"
 texture = ExtResource("11_ubr3l")
 change_scene = true
-next_scene = ExtResource("11_enavm")
+next_scene_path = "res://all/menu/main_scenes/quit/quit.tscn"
 button_up = NodePath("../Reglages")
 button_down = NodePath("../Tirage")

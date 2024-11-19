@@ -13,7 +13,9 @@ extends PanelContainer
 @export_group("ToDo")
 @export var change_scene := false
 @export_subgroup("Change")
+@export var use_path := true
 @export var next_scene: PackedScene
+@export_file("*.tscn") var next_scene_path: String
 @export var transition_screen_packed: PackedScene
 @export_subgroup("Stay")
 @export var control_focus : ControlFocus
@@ -60,8 +62,10 @@ func _input(event: InputEvent) -> void:
 
 func next(_time_scale: float = 1.0) -> void:
 	if change_scene:
-		print( "is scene null : ", next_scene == null)
-		SceneTransition.change_scene_to_packed(next_scene, transition_screen_packed)
+		if use_path:
+			SceneTransition.change_scene_to_file(next_scene_path, transition_screen_packed)
+		else:
+			SceneTransition.change_scene_to_packed(next_scene, transition_screen_packed)
 		set_process_input(false)
 		return
 	if not control_focus:

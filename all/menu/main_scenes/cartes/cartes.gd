@@ -15,6 +15,9 @@ var group_index : int = 0 : set = _set_group_index
 @onready var drag_preview: DragPreview = %DragPreview
 @onready var input_free_scroll: FreeScroll = %InputFreeScroll
 
+@onready var hide_button_return: HideButton = %HideButtonReturn
+
+
 
 func _ready() -> void:
 	for i: int in Data.card_group_datas.size():
@@ -55,7 +58,7 @@ func move_to(_index_to_add: int) -> void:
 	if index >= get_child_count() : return
 	if index < 0 : return
 	group_index = index
-	
+	print(group_index)
 	var my_scroll_target: MyScroll = get_child(group_index)
 	
 	var last_pos : float = get_window().size.y * -signf(_index_to_add)

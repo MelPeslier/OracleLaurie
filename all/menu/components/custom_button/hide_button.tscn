@@ -23,6 +23,7 @@ texture = ExtResource("2_7rx3v")
 td = SubResource("Resource_5jplw")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 color = Color(1, 0, 0, 0.501961)

@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://lt3e6p1t22o3"]
+[gd_scene load_steps=10 format=3 uid="uid://lt3e6p1t22o3"]
 
 [ext_resource type="Script" path="res://all/menu/main_scenes/first_scene/first_scene.gd" id="1_w6hqp"]
 [ext_resource type="PackedScene" uid="uid://y1xgjdh2ermg" path="res://all/menu/main_scenes/main/main.tscn" id="2_7s6f0"]
 [ext_resource type="PackedScene" uid="uid://b4rue6o4b5dkc" path="res://all/menu/components/helper/transition_screen/intro_transition_screen.tscn" id="3_uwnrt"]
+[ext_resource type="Script" path="res://all/cards/resources/card_generator.gd" id="4_yww6g"]
+[ext_resource type="Script" path="res://all/cards/resources/card_group_data.gd" id="5_g8yqm"]
+[ext_resource type="Resource" uid="uid://bstwwuoq6fgni" path="res://all/cards/resources/datas/karma.tres" id="6_1rije"]
+[ext_resource type="Resource" uid="uid://iimuk0lsajot" path="res://all/cards/resources/datas/astre.tres" id="7_cwpwt"]
+[ext_resource type="Resource" uid="uid://bec6ye3ukea7v" path="res://all/cards/resources/datas/signe.tres" id="8_5oudx"]
+[ext_resource type="Resource" uid="uid://v3eh6lwuhpni" path="res://all/cards/resources/datas/maison.tres" id="9_j6n7t"]
 
 [node name="FirstScene" type="Control"]
 layout_mode = 3
@@ -14,6 +20,10 @@ grow_vertical = 2
 script = ExtResource("1_w6hqp")
 next_scene = ExtResource("2_7s6f0")
 trans_screen = ExtResource("3_uwnrt")
+
+[node name="CardDataGenerator" type="Node" parent="."]
+script = ExtResource("4_yww6g")
+card_group_datas = Array[ExtResource("5_g8yqm")]([ExtResource("6_1rije"), ExtResource("7_cwpwt"), ExtResource("8_5oudx"), ExtResource("9_j6n7t")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

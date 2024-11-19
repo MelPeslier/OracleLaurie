@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bto3nakpksmb2"]
+[gd_scene load_steps=9 format=3 uid="uid://bto3nakpksmb2"]
 
 [ext_resource type="PackedScene" uid="uid://wd2ih63ywwif" path="res://all/menu/main_scenes/base/background/background.tscn" id="1_qkggi"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/base/global_size.gd" id="1_rymi6"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cuwkjg2046lwy" path="res://all/menu/components/drag_preview/drag_preview.tscn" id="3_wd2c8"]
 [ext_resource type="PackedScene" uid="uid://0l7qwq35u5up" path="res://all/menu/components/custom_button/hide_button.tscn" id="5_25kcv"]
 [ext_resource type="Texture2D" uid="uid://bk7hp4lshv8ba" path="res://all/menu/images/quit.png" id="6_6i6kl"]
-[ext_resource type="PackedScene" uid="uid://y1xgjdh2ermg" path="res://all/menu/main_scenes/main/main.tscn" id="7_81efd"]
 [ext_resource type="Texture2D" uid="uid://crsdhu46u6vh3" path="res://all/shaders/particles/trace_01.png" id="7_e7feb"]
 
 [node name="Centered" type="Control"]
@@ -44,7 +43,7 @@ size_flags_horizontal = 3
 layout_mode = 0
 texture = ExtResource("6_6i6kl")
 change_scene = true
-next_scene = ExtResource("7_81efd")
+next_scene_path = "res://all/menu/main_scenes/main/main.tscn"
 
 [node name="HideButtonHelp" parent="GlobalSize/Main" node_paths=PackedStringArray("control_focus") instance=ExtResource("5_25kcv")]
 layout_mode = 1

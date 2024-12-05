@@ -11,7 +11,7 @@ var scroll_tween : Tween
 
 # WARNING index = 0 is card group
 var card_index : int = 0 : set = _set_card_index
-var drag_preview: DragPreview = null
+@export var drag_preview: DragPreview = null
 
 
 @onready var cards: HBoxContainer = %Cards
@@ -54,8 +54,7 @@ func tap() -> void:
 		group_description.tap()
 	elif obj is TirageGroupe:
 		var tirage_groupe : TirageGroupe = obj
-		print("my scroll.gd : tirage_gorup_tap ?? ")
-		#tirage_groupe.tap()
+		tirage_groupe.tap()
 
 
 func _set_card_index(_index: int) -> void:

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmjfjq2j4grgi"]
+[gd_scene load_steps=3 format=3 uid="uid://dmjfjq2j4grgi"]
 
 [ext_resource type="Script" path="res://all/menu/main_scenes/tirage/tirage_groupe.gd" id="1_nwpan"]
+[ext_resource type="PackedScene" uid="uid://rx1jw8cmyygp" path="res://all/cards/carte.tscn" id="2_m70fe"]
 
 [node name="TirageGroupe" type="Control"]
+custom_minimum_size = Vector2(960, 1280)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,3 +12,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nwpan")
+
+[node name="CartesDos" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Carte" parent="." instance=ExtResource("2_m70fe")]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 1

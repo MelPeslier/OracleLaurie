@@ -74,14 +74,14 @@ func go_to(_index_to_add : int) -> void:
 
 func _on_input_left_emitted() -> void:
 	#print("left_emitted")
-	if InputHelper.focus_type == InputHelper.FocusType.TOUCH_SCREEN:
+	if InputHelper.is_mobile():
 		#print("left canceled")
 		return
 	go_to(-1)
 
 func _on_input_right_emitted() -> void:
 	#print("right_emitted")
-	if InputHelper.focus_type == InputHelper.FocusType.TOUCH_SCREEN:
+	if  InputHelper.is_mobile():
 		#print("right canceled")
 		return
 	go_to(+1)

@@ -32,7 +32,7 @@ var focused := false
 
 func _ready() -> void:
 	activate()
-	if auto_focus:
+	if auto_focus and not InputHelper.is_mobile():
 		focus.call_deferred()
 	else:
 		unfocus.call_deferred(0.0)

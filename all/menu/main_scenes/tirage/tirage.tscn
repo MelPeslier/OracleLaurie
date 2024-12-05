@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bto3nakpksmb2" path="res://all/menu/main_scenes/base/centered.tscn" id="1_mpu1n"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/tirage/tirage.gd" id="2_5ufpc"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/input_info.gd" id="3_2y7ho"]
-[ext_resource type="PackedScene" uid="uid://dmjfjq2j4grgi" path="res://all/menu/main_scenes/tirage/tirage_groupe.tscn" id="3_r377y"]
+[ext_resource type="PackedScene" uid="uid://c1h04xh33ww17" path="res://all/menu/main_scenes/cartes/my_scroll.tscn" id="3_7wbmf"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/inputs/input_drag.gd" id="5_yy16i"]
 
 [node name="TirageCentered" instance=ExtResource("1_mpu1n")]
@@ -17,8 +17,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_5ufpc")
 
-[node name="TirageGroupe" parent="GlobalSize/Main/Tirage" index="0" instance=ExtResource("3_r377y")]
-layout_mode = 1
+[node name="ScrollCards" parent="GlobalSize/Main/Tirage" index="0" node_paths=PackedStringArray("drag_preview") instance=ExtResource("3_7wbmf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+drag_preview = NodePath("../../DragPreview")
+
+[node name="ScrollIdeas" parent="GlobalSize/Main/Tirage" index="1" node_paths=PackedStringArray("drag_preview") instance=ExtResource("3_7wbmf")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+drag_preview = NodePath("../../DragPreview")
 
 [node name="HideButtonReturn" parent="GlobalSize/Main" index="1"]
 visible = false
@@ -32,37 +47,35 @@ visible = false
 [node name="DragPreview" parent="GlobalSize/Main" index="4"]
 visible = false
 
-[node name="InputTapPressed" type="Node" parent="InputHandler" index="0"]
-script = ExtResource("3_2y7ho")
-action_name = &"tap"
-
-[node name="InputDrag" type="Node" parent="InputHandler" index="1"]
+[node name="InputDrag" type="Node" parent="InputHandler" index="0"]
 script = ExtResource("5_yy16i")
 
-[node name="InputTapReleased" type="Node" parent="InputHandler" index="2"]
+[node name="InputTap" type="Node" parent="InputHandler" index="1"]
 script = ExtResource("3_2y7ho")
 action_name = &"tap"
 on_release = true
 
-[node name="InputLeft" type="Node" parent="InputHandler" index="3"]
+[node name="InputLeft" type="Node" parent="InputHandler" index="2"]
 script = ExtResource("3_2y7ho")
 action_name = &"left"
 
-[node name="InputRight" type="Node" parent="InputHandler" index="4"]
+[node name="InputRight" type="Node" parent="InputHandler" index="3"]
 script = ExtResource("3_2y7ho")
 action_name = &"right"
 
-[node name="InputUp" type="Node" parent="InputHandler" index="5"]
+[node name="InputUp" type="Node" parent="InputHandler" index="4"]
 script = ExtResource("3_2y7ho")
 action_name = &"up"
 
-[node name="InputDown" type="Node" parent="InputHandler" index="6"]
+[node name="InputDown" type="Node" parent="InputHandler" index="5"]
 script = ExtResource("3_2y7ho")
 action_name = &"down"
 
-[connection signal="emitted" from="InputHandler/InputTapPressed" to="GlobalSize/Main/Tirage" method="_on_input_tap_pressed_emitted"]
-[connection signal="emitted" from="InputHandler/InputTapReleased" to="GlobalSize/Main/Tirage" method="_on_input_tap_released_emitted"]
+[connection signal="emitted" from="InputHandler/InputTap" to="GlobalSize/Main/Tirage" method="_on_input_tap_emitted"]
 [connection signal="emitted" from="InputHandler/InputLeft" to="GlobalSize/Main/Tirage" method="_on_input_left_emitted"]
 [connection signal="emitted" from="InputHandler/InputRight" to="GlobalSize/Main/Tirage" method="_on_input_right_emitted"]
 [connection signal="emitted" from="InputHandler/InputUp" to="GlobalSize/Main/Tirage" method="_on_input_up_emitted"]
 [connection signal="emitted" from="InputHandler/InputDown" to="GlobalSize/Main/Tirage" method="_on_input_down_emitted"]
+
+[editable path="GlobalSize/Main/Tirage/ScrollCards"]
+[editable path="GlobalSize/Main/Tirage/ScrollIdeas"]

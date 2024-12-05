@@ -124,3 +124,6 @@ func _set_focus_type(_focus_type: FocusType) -> void:
 	if focus_type == _focus_type : return
 	focus_type = _focus_type
 	focus_type_changed.emit(focus_type)
+
+func is_mobile() -> bool:
+	return focus_type == FocusType.TOUCH_SCREEN

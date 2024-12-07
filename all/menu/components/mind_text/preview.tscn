@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://kajrw15hrirf"]
+
+[ext_resource type="Texture2D" uid="uid://d3u4ryuf26jv7" path="res://icon.svg" id="1_e266s"]
+[ext_resource type="Script" path="res://all/menu/components/mind_text/preview.gd" id="2_6oqe7"]
+
+[node name="Preview" type="TextureRect"]
+clip_contents = true
+custom_minimum_size = Vector2(80, 120)
+size_flags_horizontal = 6
+texture = ExtResource("1_e266s")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("2_6oqe7")

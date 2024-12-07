@@ -22,7 +22,6 @@ func _on_text_edit_text_changed() -> void:
 
 
 func _on_timer_timeout() -> void:
-	var self_pos : int = Data.tirage_actuel.minds_save.find( self )
-	#mind_save.text = 
+	mind_save.text = text_edit.text
 	Data.save_manager.save()
 	saved = true

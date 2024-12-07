@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://dybeoetphujct"]
+
+[ext_resource type="Script" path="res://all/menu/main_scenes/historique/tirage_box.gd" id="1_piy6v"]
+[ext_resource type="Script" path="res://all/menu/components/custom_button/base_custom_button.gd" id="2_8o7u1"]
+[ext_resource type="Script" path="res://all/menu/components/helper/tween_data/tween_data.gd" id="2_g3r5d"]
+
+[sub_resource type="Resource" id="Resource_ms8m6"]
+script = ExtResource("2_g3r5d")
+ease_type = 0
+trans_type = 11
+duration = 1.0
+
+[sub_resource type="Resource" id="Resource_r3osb"]
+script = ExtResource("2_g3r5d")
+ease_type = 1
+trans_type = 11
+duration = 1.0
+
+[node name="TirageBox" type="Control"]
+custom_minimum_size = Vector2(750, 300)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -150.0
+offset_right = 375.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+pivot_offset = Vector2(375, 150)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+script = ExtResource("1_piy6v")
+td_focus = SubResource("Resource_ms8m6")
+td_unfocus = SubResource("Resource_r3osb")
+
+[node name="BaseCustomButton" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"panelbox"
+script = ExtResource("2_8o7u1")
+change_scene = true
+next_scene_path = "res://all/menu/main_scenes/tirage/tirage.tscn"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Date" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(710, 48)
+layout_mode = 2
+theme_type_variation = &"HeaderMedium"
+text = "Date"
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="DebutDescripiton" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(710, 36)
+layout_mode = 2
+theme_type_variation = &"HeaderSmall"
+text = "DebutDescription"
+text_overrun_behavior = 3
+
+[node name="Cards" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[connection signal="focused" from="BaseCustomButton" to="." method="_on_base_custom_button_focused"]
+[connection signal="unfocused" from="BaseCustomButton" to="." method="_on_base_custom_button_unfocused"]

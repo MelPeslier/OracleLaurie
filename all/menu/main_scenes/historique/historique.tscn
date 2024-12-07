@@ -1,12 +1,55 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4nn56k0m345v"]
+[gd_scene load_steps=5 format=3 uid="uid://d4nn56k0m345v"]
 
 [ext_resource type="PackedScene" uid="uid://bto3nakpksmb2" path="res://all/menu/main_scenes/base/centered.tscn" id="1_dqhb6"]
-[ext_resource type="Script" path="res://all/menu/control_focus.gd" id="1_gf5hb"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/historique/historique.gd" id="2_4k8jn"]
+[ext_resource type="Script" path="res://all/menu/components/helper/tween_data/tween_data.gd" id="3_74r14"]
+
+[sub_resource type="Resource" id="Resource_d3on0"]
+script = ExtResource("3_74r14")
+ease_type = 1
+trans_type = 1
+duration = 1.0
 
 [node name="HistoriqueCentered" instance=ExtResource("1_dqhb6")]
 
 [node name="Historique" type="Control" parent="GlobalSize/Main" index="0"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("1_gf5hb")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("2_4k8jn")
+td = SubResource("Resource_d3on0")
+
+[node name="NoTirage" type="Label" parent="GlobalSize/Main/Historique" index="0"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+text = "PAS_ENCORE_DE_TIRAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GlobalSize/Main/Historique" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBox" type="VBoxContainer" parent="GlobalSize/Main/Historique/ScrollContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 60

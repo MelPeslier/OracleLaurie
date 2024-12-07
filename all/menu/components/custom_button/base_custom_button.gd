@@ -1,6 +1,10 @@
 class_name BaseCustomButton
 extends PanelContainer
 
+signal focused
+signal unfocused
+signal clicked
+
 @export var auto_focus :bool = false
 @export var text : String : set = _set_text
 @export var texture : Texture2D : set = _set_texture
@@ -27,7 +31,13 @@ extends PanelContainer
 @export var button_right : BaseCustomButton
 
 var t: Tween
-var focused := false
+var is_focused := false : set = _set_focused
+func _set_focused(_is_focused: bool) -> void:
+	is_focused = _is_focused
+	if is_focused:
+		focused.emit()
+	else:
+		unfocused.emit()
 
 
 func _ready() -> void:
@@ -43,12 +53,12 @@ func _input(event: InputEvent) -> void:
 	if not InputHelper.is_point_inside_box(self, event): return
 	
 	if is_action_just():
-		if focused:
+		if is_focused:
 			next()
 		else:
 			focus()
 	
-	if not focused: return
+	if not is_focused: return
 	
 	if InputHelper.is_action_just_released("up") and button_up:
 		button_up.focus()
@@ -61,6 +71,7 @@ func _input(event: InputEvent) -> void:
 
 
 func next(_time_scale: float = 1.0) -> void:
+	clicked.emit()
 	if change_scene:
 		if use_path:
 			SceneTransition.change_scene_to_file(next_scene_path, transition_screen_packed)
@@ -79,11 +90,11 @@ func focus(_time_scale: float = 1.0) -> void:
 	if InputHelper.last_button and is_instance_valid( InputHelper.last_button ):
 		InputHelper.last_button.unfocus()
 	InputHelper.last_button = self
-	focused = true
+	is_focused = true
 
 
 func unfocus(_time_scale: float = 1.0) -> void:
-	focused = false
+	is_focused = false
 
 
 func activate() -> void:

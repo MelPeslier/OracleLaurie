@@ -3,7 +3,7 @@ extends Resource
 
 const SAVE_PATH : String = "user://tirage_saves.tres"
 
-@export var tirage_saves : Array[TirageSave]
+@export var tirage_saves : Array[TirageSave] = []
 
 
 func save() -> void:

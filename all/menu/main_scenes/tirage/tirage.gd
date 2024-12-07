@@ -2,6 +2,7 @@ extends Control
 
 const TIRAGE_GROUPE = preload("res://all/menu/main_scenes/tirage/tirage_groupe.tscn")
 const MIND_TEXT = preload("res://all/menu/components/mind_text/mind_text.tscn")
+const CARTE = preload("res://all/cards/carte.tscn")
 
 var group_index : int = 0 : set = _set_group_index
 
@@ -12,13 +13,33 @@ var group_index : int = 0 : set = _set_group_index
 
 
 func _ready() -> void:
+	scroll_ideas.position.y = get_window().size.y
+	
+	
+	# Print a draw
+	if Data.tirage_actuel:
+		for card_ref in Data.tirage_actuel.cards_ref:
+			var carte : Carte = CARTE.instantiate()
+			scroll_cards.get_child(0).add_child( carte )
+			carte.card_data = Data.get_card_data_from_card_ref( card_ref )
+		
+		for mind_save : MindSave in Data.tirage_actuel.minds_save:
+			var mind_text : MindText = MIND_TEXT.instantiate()
+			mind_text.mind_save = mind_save
+			mind_texts.add_child( mind_text )
+			mind_text.text_edit.editable = false
+			mind_text.text_edit.text = mind_save.text
+			# TODO : false only if date is too long ago
+		return
+	
+	# Else do a draw
 	Data.tirage_actuel = TirageSave.new()
 	Data.save_manager.tirage_saves.append( Data.tirage_actuel )
 	for card_group_data : CardGroupData in Data.card_group_datas:
 		var tirage : TirageGroupe = TIRAGE_GROUPE.instantiate()
 		scroll_cards.get_child(0).add_child( tirage )
 		tirage.card_group_data = card_group_data
-	scroll_ideas.position.y = get_window().size.y
+	
 	var mind_text : MindText = MIND_TEXT.instantiate()
 	mind_texts.add_child( mind_text )
 	
@@ -79,3 +100,8 @@ func _set_group_index(_group_index: int) -> void:
 	drag_preview.change_side_state(Side.SideType.TOP, no_top)
 	var no_bot := not group_index == get_child_count() - 1
 	drag_preview.change_side_state(Side.SideType.BOT, no_bot)
+
+
+func _on_hide_button_return_clicked() -> void:
+	for mind_text: MindText in mind_texts.get_children():
+		mind_text._on_timer_timeout()

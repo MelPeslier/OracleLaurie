@@ -19,11 +19,11 @@ func focus(_time_scale: float = 1.0) -> void:
 	InputHelper.last_button = self
 	t = td.kill_and_create(self, t)
 	t.tween_property(visual, "position:x", 0.0, td.duration)
-	t.parallel().tween_property(self, "focused", true, 0.0).set_delay(0.3)
+	t.parallel().tween_property(self, "is_focused", true, 0.0).set_delay(0.3)
 
 
 func unfocus(_time_scale: float = 1.0) -> void:
-	focused = false
+	is_focused = false
 	t = td.kill_and_create(self, t)
 	var target_pos : float = visual.size.x * (1.0 - coef_visible)
 	if is_anchored_left:

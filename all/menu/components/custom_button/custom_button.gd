@@ -52,11 +52,11 @@ func focus(_time_scale: float = 1.0) -> void:
 	var target_pos : float = 0.0
 	t.tween_property(border, "position:x", target_pos, duration)
 	t.tween_property(self, "focus_coef", 1.0, duration)
-	t.tween_property(self, "focused", true, 0.0).set_delay(0.3)
+	t.tween_property(self, "is_focused", true, 0.0).set_delay(0.3)
 
 
 func unfocus(_time_scale: float = 1.0) -> void:
-	focused = false
+	is_focused = false
 	if t and t.is_running():
 		t.kill()
 	t = create_tween().set_parallel()

@@ -27,13 +27,24 @@ grow_vertical = 1
 drag_preview = NodePath("../../DragPreview")
 
 [node name="ScrollIdeas" parent="GlobalSize/Main/Tirage" index="1" node_paths=PackedStringArray("drag_preview") instance=ExtResource("3_7wbmf")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
 drag_preview = NodePath("../../DragPreview")
+
+[node name="MarginContainer" type="MarginContainer" parent="GlobalSize/Main/Tirage/ScrollIdeas/Cards" index="0"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 100
+
+[node name="MindTexts" type="VBoxContainer" parent="GlobalSize/Main/Tirage/ScrollIdeas/Cards/MarginContainer" index="0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
 
 [node name="HideButtonReturn" parent="GlobalSize/Main" index="1"]
 visible = false

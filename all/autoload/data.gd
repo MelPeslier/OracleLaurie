@@ -12,6 +12,10 @@ var card_group_datas : Array[CardGroupData]
 var color_tween : Tween
 
 
+
+var tirage_actuel : TirageSave = null
+@onready var save_manager : SaveManager = SaveManager.load_or_create()
+
 @onready var color_helper := ColorHelper.new()
 
 

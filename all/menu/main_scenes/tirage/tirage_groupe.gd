@@ -30,6 +30,8 @@ func tap() -> void:
 	if not choosen_card_ref:
 		choosen_card_ref = get_closest_card()
 		carte.card_data = Data.get_card_data_from_card_ref( choosen_card_ref )
+		Data.tirage_actuel.cards_ref.append( choosen_card_ref )
+		Data.save_manager.save()
 		carte.modulate.a = 1.0
 		cartes_dos.modulate.a = 0.0
 		return

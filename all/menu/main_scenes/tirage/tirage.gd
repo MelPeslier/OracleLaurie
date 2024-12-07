@@ -1,20 +1,27 @@
 extends Control
 
 const TIRAGE_GROUPE = preload("res://all/menu/main_scenes/tirage/tirage_groupe.tscn")
+const MIND_TEXT = preload("res://all/menu/components/mind_text/mind_text.tscn")
 
 var group_index : int = 0 : set = _set_group_index
 
 @onready var drag_preview: DragPreview = %DragPreview
 @onready var scroll_cards: MyScroll = $ScrollCards
 @onready var scroll_ideas: MyScroll = $ScrollIdeas
+@onready var mind_texts: VBoxContainer = %MindTexts
 
 
 func _ready() -> void:
+	Data.tirage_actuel = TirageSave.new()
+	Data.save_manager.tirage_saves.append( Data.tirage_actuel )
 	for card_group_data : CardGroupData in Data.card_group_datas:
 		var tirage : TirageGroupe = TIRAGE_GROUPE.instantiate()
 		scroll_cards.get_child(0).add_child( tirage )
 		tirage.card_group_data = card_group_data
-
+	scroll_ideas.position.y = get_window().size.y
+	var mind_text : MindText = MIND_TEXT.instantiate()
+	mind_texts.add_child( mind_text )
+	
 
 func move_to(_index_to_add: int) -> void:
 	var my_scroll_last: MyScroll = get_child(group_index)
@@ -23,7 +30,6 @@ func move_to(_index_to_add: int) -> void:
 	if index >= get_child_count() : return
 	if index < 0 : return
 	group_index = index
-	print(group_index)
 	var my_scroll_target: MyScroll = get_child(group_index)
 	
 	var last_pos : float = get_window().size.y * -signf(_index_to_add)

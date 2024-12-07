@@ -36,7 +36,7 @@ window/bg_color=Color(0.0313726, 0.0313726, 0.141176, 1)
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/safe_resource_loader/plugin.cfg")
 
 [gui]
 

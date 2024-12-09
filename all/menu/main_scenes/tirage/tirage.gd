@@ -14,8 +14,7 @@ var group_index : int = 0 : set = _set_group_index
 
 func _ready() -> void:
 	scroll_ideas.position.y = get_window().size.y
-	
-	
+
 	# Print a draw
 	if Data.tirage_actuel:
 		for card_ref in Data.tirage_actuel.cards_ref:
@@ -23,13 +22,17 @@ func _ready() -> void:
 			scroll_cards.get_child(0).add_child( carte )
 			carte.card_data = Data.get_card_data_from_card_ref( card_ref )
 		
+		var last_mind_save : MindText
 		for mind_save : MindSave in Data.tirage_actuel.minds_save:
 			var mind_text : MindText = MIND_TEXT.instantiate()
 			mind_text.mind_save = mind_save
 			mind_texts.add_child( mind_text )
-			mind_text.text_edit.editable = false
-			mind_text.text_edit.text = mind_save.text
+			last_mind_save = mind_text
 			# TODO : false only if date is too long ago
+		
+		if not last_mind_save.is_today():
+			var mind_text : MindText = MIND_TEXT.instantiate()
+			mind_texts.add_child( mind_text )
 		return
 	
 	# Else do a draw
@@ -94,7 +97,7 @@ func _on_input_down_emitted() -> void:
 func _set_group_index(_group_index: int) -> void:
 	group_index = clampi(_group_index, 0, get_child_count() - 1)
 	
-	var my_scroll: MyScroll = get_child(group_index)
+	#var my_scroll: MyScroll = get_child(group_index)
 	
 	var no_top := not group_index == 0
 	drag_preview.change_side_state(Side.SideType.TOP, no_top)

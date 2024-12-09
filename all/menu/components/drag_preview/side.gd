@@ -70,7 +70,7 @@ func _set_side_type(_side_type: SideType) -> void:
 func _set_particles_amount() -> void:
 	if not particles: return
 	var bigger : float = maxf( size.x, size.y )
-	particles.amount = particles_per_100_pixels * (bigger / 100)
+	particles.amount = int( particles_per_100_pixels * (bigger / 100) )
 
 
 func _set_particles_box_extent() -> void:

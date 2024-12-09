@@ -5,6 +5,7 @@ signal focused
 signal unfocused
 signal clicked
 
+@export var focus_component : FocusComponent
 @export var auto_focus :bool = false
 @export var text : String : set = _set_text
 @export var texture : Texture2D : set = _set_texture
@@ -91,10 +92,14 @@ func focus(_time_scale: float = 1.0) -> void:
 		InputHelper.last_button.unfocus()
 	InputHelper.last_button = self
 	is_focused = true
+	if focus_component:
+		focus_component.focus(_time_scale)
 
 
 func unfocus(_time_scale: float = 1.0) -> void:
 	is_focused = false
+	if focus_component:
+		focus_component.unfocus(_time_scale)
 
 
 func activate() -> void:

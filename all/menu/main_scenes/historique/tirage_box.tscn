@@ -1,20 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dybeoetphujct"]
 
 [ext_resource type="Script" path="res://all/menu/main_scenes/historique/tirage_box.gd" id="1_piy6v"]
+[ext_resource type="Resource" uid="uid://b3ld1j6w4d23r" path="res://all/menu/components/focus_component/focus_zoom_td_in.tres" id="2_0seml"]
 [ext_resource type="Script" path="res://all/menu/components/custom_button/base_custom_button.gd" id="2_8o7u1"]
-[ext_resource type="Script" path="res://all/menu/components/helper/tween_data/tween_data.gd" id="2_g3r5d"]
-
-[sub_resource type="Resource" id="Resource_ms8m6"]
-script = ExtResource("2_g3r5d")
-ease_type = 0
-trans_type = 11
-duration = 1.0
-
-[sub_resource type="Resource" id="Resource_r3osb"]
-script = ExtResource("2_g3r5d")
-ease_type = 1
-trans_type = 11
-duration = 1.0
+[ext_resource type="Resource" uid="uid://d003es3tspmq" path="res://all/menu/components/focus_component/focus_zoom_td_out.tres" id="3_1avvv"]
+[ext_resource type="Script" path="res://all/menu/components/focus_component/focus_zoom.gd" id="4_7fxb8"]
 
 [node name="TirageBox" type="Control"]
 custom_minimum_size = Vector2(750, 300)
@@ -30,16 +20,18 @@ offset_right = 375.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.2, 1.2)
 pivot_offset = Vector2(375, 150)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 1
 script = ExtResource("1_piy6v")
-td_focus = SubResource("Resource_ms8m6")
-td_unfocus = SubResource("Resource_r3osb")
+td_focus = ExtResource("2_0seml")
+td_unfocus = ExtResource("3_1avvv")
 
-[node name="BaseCustomButton" type="PanelContainer" parent="."]
+[node name="FocusZoom" type="Node" parent="."]
+script = ExtResource("4_7fxb8")
+
+[node name="BaseCustomButton" type="PanelContainer" parent="." node_paths=PackedStringArray("focus_component")]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -49,6 +41,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_type_variation = &"panelbox"
 script = ExtResource("2_8o7u1")
+focus_component = NodePath("../FocusZoom")
 change_scene = true
 next_scene_path = "res://all/menu/main_scenes/tirage/tirage.tscn"
 

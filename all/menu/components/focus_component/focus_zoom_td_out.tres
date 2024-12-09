@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="TweenData" load_steps=2 format=3 uid="uid://d003es3tspmq"]
+
+[ext_resource type="Script" path="res://all/menu/components/helper/tween_data/tween_data.gd" id="1_22hec"]
+
+[resource]
+script = ExtResource("1_22hec")
+ease_type = 1
+trans_type = 11
+duration = 0.3

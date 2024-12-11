@@ -31,7 +31,6 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-auto_focus = true
 text = "TIRAGE"
 texture = ExtResource("4_oas53")
 change_scene = true

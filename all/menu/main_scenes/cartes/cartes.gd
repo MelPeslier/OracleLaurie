@@ -37,10 +37,18 @@ func _ready() -> void:
 			carte.card_data = Data.card_group_datas[i].cards_data[j]
 			
 			my_scroll.position.y = get_window().size.y
-			
+	group_index = 0
 	var my_scroll: MyScroll = get_child(group_index)
+	my_scroll.card_index = 0
 	my_scroll.position.y = 0
 	input_free_scroll.my_scroll = my_scroll
+	#input_free_scroll.index_changed.connect( my_scroll._on_input_free_scroll_index_changed )
+	
+	InputHelper.input_down_emitted.connect( _on_input_down_emitted )
+	InputHelper.input_tap_released_emitted.connect( _on_input_tap_released_emitted )
+	InputHelper.input_up_emitted.connect( _on_input_up_emitted )
+	#InputHelper.input_left_emitted.connect( _on_input_left_emitted )
+	#InputHelper.input_right_emitted.connect( _on_input_right_emitted )
 
 
 func focus(_time_scale : float = 1.0) -> void:
@@ -58,7 +66,6 @@ func move_to(_index_to_add: int) -> void:
 	if index >= get_child_count() : return
 	if index < 0 : return
 	group_index = index
-	print(group_index)
 	var my_scroll_target: MyScroll = get_child(group_index)
 	
 	var last_pos : float = get_window().size.y * -signf(_index_to_add)
@@ -73,21 +80,13 @@ func go_to(_index_to_add : int) -> void:
 
 
 func _on_input_left_emitted() -> void:
-	#print("left_emitted")
-	if InputHelper.is_mobile():
-		#print("left canceled")
-		return
 	go_to(-1)
 
 func _on_input_right_emitted() -> void:
-	#print("right_emitted")
-	if  InputHelper.is_mobile():
-		#print("right canceled")
-		return
 	go_to(+1)
 
 
-func _on_input_tap_emitted() -> void:
+func _on_input_tap_released_emitted() -> void:
 	var my_scroll: MyScroll = get_child(group_index)
 	my_scroll.tap()
 
@@ -100,10 +99,16 @@ func _on_input_down_emitted() -> void:
 
 
 func _set_group_index(_group_index: int) -> void:
+	var old_my_scroll: MyScroll = get_child(group_index)
+	if input_free_scroll.index_changed.is_connected( old_my_scroll._on_input_free_scroll_index_changed ):
+		input_free_scroll.index_changed.disconnect( old_my_scroll._on_input_free_scroll_index_changed )
+	
 	group_index = clampi(_group_index, 0, get_child_count() - 1)
 	
 	var my_scroll: MyScroll = get_child(group_index)
 	input_free_scroll.my_scroll = my_scroll
+	
+	input_free_scroll.index_changed.connect( my_scroll._on_input_free_scroll_index_changed )
 	
 	var no_top := not group_index == 0
 	drag_preview.change_side_state(Side.SideType.TOP, no_top)

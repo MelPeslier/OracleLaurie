@@ -23,38 +23,34 @@ var snap_interval :float = 300
 
 
 func _ready() -> void:
-	InputHelper.focus_type_changed.connect(_on_focus_type_changed)
-	_on_focus_type_changed(InputHelper.focus_type)
 	my_scroll = my_scroll
 
 
 func _set_my_scroll(_my_scroll: MyScroll) -> void:
+	my_scroll = _my_scroll
 	set_process(false)
-	if InputHelper.focus_type == InputHelper.FocusType.TOUCH_SCREEN:
-		if not my_scroll: return
-		snap_interval = _my_scroll.cards.get_child(0).custom_minimum_size.x
-		set_process(true)
-
-
-func _on_focus_type_changed(_focus_type : InputHelper.FocusType) -> void:
-	if _focus_type == InputHelper.FocusType.TOUCH_SCREEN:
-		target_position = my_scroll.scroll_horizontal
-		set_process(true)
-	else:
-		set_process(false)
+	set_process_input(false)
+	if not my_scroll: return
+	snap_interval = _my_scroll.cards.get_child(0).custom_minimum_size.x
+	var _index : int = my_scroll.card_index
+	target_position = float(_index) * snap_interval
+	set_process_input(true)
+	set_process(true)
 
 
 func custom_input(event: InputEvent) -> void:
-	if not InputHelper.focus_type == InputHelper.FocusType.TOUCH_SCREEN: return
+	if event is InputEventMouseButton:
+		if event.pressed:
+			scrolling = true
+			set_process(true)
+		else:
+			snap_to_nearest_interval()
+			scrolling = false
+		return
 	
-	if event is InputEventScreenDrag:
-		scrolling = true
+	if event is InputEventMouseMotion and scrolling:
 		current_velocity = event.relative.x * scroll_coef
 		my_scroll.scroll_horizontal -= current_velocity
-	elif event is InputEventScreenTouch and event.is_released():
-		# Lorsque l'utilisateur lâche, déclenche le snapping
-		scrolling = false
-		snap_to_nearest_interval()
 
 
 func _process(delta):
@@ -69,11 +65,13 @@ func _process(delta):
 			var current_scroll = my_scroll.scroll_horizontal
 			var new_scroll = lerp(current_scroll, target_position, snap_smoothness)
 			my_scroll.scroll_horizontal = new_scroll
+			if is_equal_approx(new_scroll, target_position):
+				set_process(false)
 
 
 func snap_to_nearest_interval():
 	# Calcul de la position la plus proche pour le snapping
 	var current_scroll = my_scroll.scroll_horizontal
 	var _index : int = roundi( abs(current_scroll ) / snap_interval)
-	index_changed.emit(_index)
 	target_position = float(_index) * snap_interval
+	index_changed.emit(_index)

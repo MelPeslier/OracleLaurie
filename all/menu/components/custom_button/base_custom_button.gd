@@ -6,13 +6,12 @@ signal unfocused
 signal clicked
 
 @export var focus_component : FocusComponent
-@export var auto_focus :bool = false
 @export var text : String : set = _set_text
 @export var texture : Texture2D : set = _set_texture
 @export var td : TweenData
 
 @export_group("Action")
-@export var action_name : StringName = "tap"
+@export var action_name : StringName = &"tap"
 @export var on_release := true
 
 @export_group("ToDo")
@@ -43,32 +42,38 @@ func _set_focused(_is_focused: bool) -> void:
 
 func _ready() -> void:
 	activate()
-	if auto_focus and not InputHelper.is_mobile():
-		focus.call_deferred()
-	else:
-		unfocus.call_deferred(0.0)
+	unfocus.call_deferred(0.0)
+	InputHelper.input_tap_released_emitted.connect( _on_input_tap_released_emitted )
 
 
-func _input(event: InputEvent) -> void:
-	if not event.is_action_type(): return
-	if not InputHelper.is_point_inside_box(self, event): return
-	
-	if is_action_just():
+func _on_input_tap_released_emitted(_event: InputEvent):
+	if InputHelper.is_point_inside_box(self, _event):
 		if is_focused:
 			next()
 		else:
 			focus()
-	
-	if not is_focused: return
-	
-	if InputHelper.is_action_just_released("up") and button_up:
-		button_up.focus()
-	elif InputHelper.is_action_just_released("down") and button_down:
-		button_down.focus()
-	elif InputHelper.is_action_just_released("left") and button_left:
-		button_left.focus()
-	elif InputHelper.is_action_just_released("right") and button_right:
-		button_right.focus()
+
+
+#func _input(event: InputEvent) -> void:
+	#if not event.is_action_type(): return
+	#
+	#if InputHelper.is_point_inside_box(self, event):
+		#if Input.is_action_just_released("tap"):
+			#if is_focused:
+				#next()
+			#else:
+				#focus()
+		#return
+	#
+	#if not is_focused: return
+	#if Input.is_action_just_released("up") and button_up:
+		#button_up.focus()
+	#elif Input.is_action_just_released("down") and button_down:
+		#button_down.focus()
+	#elif Input.is_action_just_released("left") and button_left:
+		#button_left.focus()
+	#elif Input.is_action_just_released("right") and button_right:
+		#button_right.focus()
 
 
 func next(_time_scale: float = 1.0) -> void:
@@ -104,12 +109,6 @@ func unfocus(_time_scale: float = 1.0) -> void:
 
 func activate() -> void:
 	set_process_input(true)
-
-
-func is_action_just() -> bool:
-	if on_release:
-		return InputHelper.is_action_just_released( action_name )
-	return InputHelper.is_action_just_pressed( action_name )
 
 
 func _set_text(_text: String) -> void:

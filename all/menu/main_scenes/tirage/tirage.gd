@@ -42,6 +42,7 @@ func _ready() -> void:
 		var tirage : TirageGroupe = TIRAGE_GROUPE.instantiate()
 		scroll_cards.get_child(0).add_child( tirage )
 		tirage.card_group_data = card_group_data
+		
 	
 	var mind_text : MindText = MIND_TEXT.instantiate()
 	mind_texts.add_child( mind_text )
@@ -58,7 +59,7 @@ func move_to(_index_to_add: int) -> void:
 	
 	var last_pos : float = get_window().size.y * -signf(_index_to_add)
 
-	my_scroll_last.move_to( last_pos )
+	my_scroll_last.move_to( last_pos, false )
 	my_scroll_target.move_to( 0.0 )
 
 

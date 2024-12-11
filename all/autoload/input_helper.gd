@@ -1,20 +1,18 @@
 extends Node
 
-signal focus_type_changed(_focus_type: FocusType)
+## Inputs
+signal input_tap_pressed_emitted(_event: InputEvent)
+signal input_tap_released_emitted(_event: InputEvent)
+signal input_left_emitted
+signal input_right_emitted
+signal input_up_emitted
+signal input_down_emitted
+
 signal drag_progress_changed(drag_progress: Vector2)
 
-enum FocusType{
-	TOUCH_SCREEN,
-	CONTROLLER,
-	KEYBOARD,
-}
+var pressed := false
 
-var focus_type := FocusType.TOUCH_SCREEN : set = _set_focus_type
-
-var focused := true
-var _touch_index :int = -1
-
-var drag_distance :float = 175
+var drag_distance :float = 300
 var button_press_distance : float = 40
 var _drag_pos := Vector2.ZERO
 
@@ -22,81 +20,48 @@ var last_button : BaseCustomButton = null
 
 var drag_progress := Vector2.ZERO : set = _set_drag_progress
 
-
-func _notification(what: int) -> void:
-	match what:
-		NOTIFICATION_APPLICATION_FOCUS_OUT:
-			focused = false
-		NOTIFICATION_APPLICATION_FOCUS_IN:
-			focused = true
-
-
-# TODO : manage next buttons from here.
-# + make repeatable inputs from keys and controller pressed buttons
-# + make an input buffer for buttons to switch to next buttons
-
 func _input(event: InputEvent) -> void:
-	track_focus_type(event)
-	if not focus_type == FocusType.TOUCH_SCREEN: return
-	if event is InputEventScreenTouch:
+	if event is InputEventMouseButton and event.is_action_type():
 		if event.pressed:
-			Input.action_press("tap")
-			_touch_index = event.index
+			input_tap_pressed_emitted.emit(event)
+			pressed = true
 			_drag_pos = event.position
 			drag_progress = Vector2.ZERO
-		elif event.index == _touch_index:
+		else:
 			var dist : Vector2 = _drag_pos - event.position
+			pressed = false
 			if event.position.distance_to(_drag_pos) < 30:
-				Input.action_release("tap")
+				input_tap_released_emitted.emit(event)
 			
-			elif absf( dist.x ) >= drag_distance: # Side
+			if absf( dist.x ) >= drag_distance: # Side
 				if dist.x < 0 : # Finger to right
-					Input.action_press("left")
-					Input.action_release("left")
+					input_left_emitted.emit()
 				else:
-					Input.action_press("right")
-					Input.action_release("right")
+					input_right_emitted.emit()
 			
 			elif absf( dist.y ) >= drag_distance:
 				if dist.y < 0 : # Finger to down
-					Input.action_press("up")
-					Input.action_release("up")
+					input_up_emitted.emit()
 				else:
-					Input.action_press("down")
-					Input.action_release("down")
-			_touch_index = -1
+					input_down_emitted.emit()
 			drag_progress = Vector2.ZERO
 			
-		#if event.double_tap:
 	
-	elif event is InputEventScreenDrag:
-		
-		if event.index == _touch_index:
-			var dist : Vector2 = _drag_pos - event.position
-			drag_progress = dist / Vector2(drag_distance, drag_distance)
+	elif event is InputEventMouseMotion and pressed:
+		var dist : Vector2 = _drag_pos - event.position
+		drag_progress = dist / Vector2(drag_distance, drag_distance)
 
 
-func is_point_inside_box(_node: BaseCustomButton, event: InputEvent) -> bool:
-	if not (event is InputEventScreenTouch or event is InputEventMouseButton):
-		return _node == InputHelper.last_button
+func is_point_inside_box(_node: Control, event: InputEvent) -> bool:
+	if not event is InputEventMouse:
+		if _node is BaseCustomButton:
+			return _node == InputHelper.last_button
 	var _point : Vector2 = event.position
 	var _start : Vector2 = _node.global_position
 	var _end : Vector2 = _node.global_position + _node.size * _node.scale
 	var _inside :bool = _start.x < _point.x and _end.x > _point.x \
 					and _start.y < _point.y and _end.y > _point.y
 	return _inside
-
-
-func is_action_just_pressed(action: StringName) -> bool:
-	if focused:
-		return Input.is_action_just_pressed(action)
-	return false
-
-
-func is_action_just_released(action: StringName) -> bool:
-	if focused:
-		return Input.is_action_just_released(action)
-	return false
 
 
 func _set_drag_progress(_drag_progress: Vector2) -> void:
@@ -109,21 +74,3 @@ func _set_drag_progress(_drag_progress: Vector2) -> void:
 	else:
 		drag_progress.x = 0.0
 	drag_progress_changed.emit(drag_progress)
-
-
-func track_focus_type(event: InputEvent) -> void:
-	if event is InputEventKey or event is InputEventMouse:
-		focus_type = FocusType.KEYBOARD
-	elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
-		focus_type = FocusType.CONTROLLER
-	elif event is InputEventScreenTouch or event is InputEventScreenDrag:
-		focus_type = FocusType.TOUCH_SCREEN
-
-
-func _set_focus_type(_focus_type: FocusType) -> void:
-	if focus_type == _focus_type : return
-	focus_type = _focus_type
-	focus_type_changed.emit(focus_type)
-
-func is_mobile() -> bool:
-	return focus_type == FocusType.TOUCH_SCREEN

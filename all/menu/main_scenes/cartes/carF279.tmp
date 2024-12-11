@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpqyyx0cyo646"]
+[gd_scene load_steps=6 format=3 uid="uid://cpqyyx0cyo646"]
 
 [ext_resource type="PackedScene" uid="uid://bto3nakpksmb2" path="res://all/menu/main_scenes/base/centered.tscn" id="1_nkmq6"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/cartes/cartes.gd" id="1_obxt8"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/info.gd" id="3_2xhbi"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/inputs/free_scroll.gd" id="3_53qw8"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/input_info.gd" id="4_nhc6w"]
 
 [node name="CartesCentered" instance=ExtResource("1_nkmq6")]
 
@@ -37,4 +38,30 @@ description = "Juste pour ça quoi"
 unique_name_in_owner = true
 script = ExtResource("3_53qw8")
 
+[node name="InputLeft" type="Node" parent="InputHandler" index="1"]
+script = ExtResource("4_nhc6w")
+action_name = &"left"
+
+[node name="InputRight" type="Node" parent="InputHandler" index="2"]
+script = ExtResource("4_nhc6w")
+action_name = &"right"
+
+[node name="InputTap" type="Node" parent="InputHandler" index="3"]
+script = ExtResource("4_nhc6w")
+action_name = &"tap"
+on_release = true
+
+[node name="InputUp" type="Node" parent="InputHandler" index="4"]
+script = ExtResource("4_nhc6w")
+action_name = &"up"
+
+[node name="InputDown" type="Node" parent="InputHandler" index="5"]
+script = ExtResource("4_nhc6w")
+action_name = &"down"
+
 [connection signal="index_changed" from="InputHandler/InputFreeScroll" to="GlobalSize/Main/Cartes" method="_on_input_free_scroll_index_changed"]
+[connection signal="emitted" from="InputHandler/InputLeft" to="GlobalSize/Main/Cartes" method="_on_input_left_emitted"]
+[connection signal="emitted" from="InputHandler/InputRight" to="GlobalSize/Main/Cartes" method="_on_input_right_emitted"]
+[connection signal="emitted" from="InputHandler/InputTap" to="GlobalSize/Main/Cartes" method="_on_input_tap_emitted"]
+[connection signal="emitted" from="InputHandler/InputUp" to="GlobalSize/Main/Cartes" method="_on_input_up_emitted"]
+[connection signal="emitted" from="InputHandler/InputDown" to="GlobalSize/Main/Cartes" method="_on_input_down_emitted"]

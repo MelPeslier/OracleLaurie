@@ -36,7 +36,7 @@ theme_type_variation = &"panelbox"
 
 [node name="Main" type="TextureRect" parent="Visual"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture = ExtResource("2_7rx3v")
 expand_mode = 1

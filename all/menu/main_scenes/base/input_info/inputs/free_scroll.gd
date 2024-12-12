@@ -20,7 +20,7 @@ var scrolling := false
 
 # Taille de chaque intervalle de snapping en pixels
 var snap_interval :float = 300
-
+var _index: int = -1
 
 func _ready() -> void:
 	my_scroll = my_scroll
@@ -39,16 +39,25 @@ func _set_my_scroll(_my_scroll: MyScroll) -> void:
 
 
 func custom_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
+	if event is InputEventScreenTouch:
 		if event.pressed:
+			if not _index == -1 : return
+			_index = event.index
+			print("index ::: ", _index)
 			scrolling = true
 			set_process(true)
 		else:
+			if not _index == event.index: return
+			print("ok : ", _index)
 			snap_to_nearest_interval()
 			scrolling = false
+			_index = -1
 		return
 	
-	if event is InputEventMouseMotion and scrolling:
+	if event is InputEventScreenDrag and scrolling:
+		if not _index == event.index: return
+		print("okokok : ", _index)
+		
 		current_velocity = event.relative.x * scroll_coef
 		my_scroll.scroll_horizontal -= current_velocity
 

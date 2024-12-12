@@ -48,6 +48,12 @@ func _ready() -> void:
 
 func _on_input_tap_released_emitted(_event: InputEvent):
 	if InputHelper.is_point_inside_box(self, _event):
+		next_step()
+		return
+	if is_focused:
+		unfocus()
+
+func next_step() -> void:
 		if is_focused:
 			next()
 		else:

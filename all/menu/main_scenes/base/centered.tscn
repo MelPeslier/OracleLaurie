@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bto3nakpksmb2"]
+[gd_scene load_steps=10 format=3 uid="uid://bto3nakpksmb2"]
 
 [ext_resource type="PackedScene" uid="uid://wd2ih63ywwif" path="res://all/menu/main_scenes/base/background/background.tscn" id="1_qkggi"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/base/global_size.gd" id="1_rymi6"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/input_handler.gd" id="3_7julb"]
 [ext_resource type="PackedScene" uid="uid://cy4e1w5emjvsl" path="res://all/menu/main_scenes/help/help.tscn" id="3_iteng"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/base/main.gd" id="3_m1ppa"]
 [ext_resource type="PackedScene" uid="uid://cuwkjg2046lwy" path="res://all/menu/components/drag_preview/drag_preview.tscn" id="3_wd2c8"]
 [ext_resource type="PackedScene" uid="uid://0l7qwq35u5up" path="res://all/menu/components/custom_button/hide_button.tscn" id="5_25kcv"]
 [ext_resource type="Texture2D" uid="uid://bk7hp4lshv8ba" path="res://all/menu/images/quit.png" id="6_6i6kl"]
@@ -38,24 +39,30 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+script = ExtResource("3_m1ppa")
 
-[node name="HideButtonReturn" parent="GlobalSize/Main" instance=ExtResource("5_25kcv")]
-layout_mode = 0
+[node name="MarginContainer" type="MarginContainer" parent="GlobalSize/Main"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 10
+
+[node name="HideButtonReturn" parent="GlobalSize/Main/MarginContainer" instance=ExtResource("5_25kcv")]
+layout_mode = 2
+size_flags_horizontal = 0
 texture = ExtResource("6_6i6kl")
 change_scene = true
 next_scene_path = "res://all/menu/main_scenes/main/main.tscn"
 
-[node name="HideButtonHelp" parent="GlobalSize/Main" node_paths=PackedStringArray("control_focus") instance=ExtResource("5_25kcv")]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -90.0
-offset_right = 0.0
-grow_horizontal = 0
+[node name="HideButtonHelp" parent="GlobalSize/Main/MarginContainer" node_paths=PackedStringArray("control_focus") instance=ExtResource("5_25kcv")]
+layout_mode = 2
+size_flags_horizontal = 8
 is_anchored_left = false
 texture = ExtResource("7_e7feb")
-control_focus = NodePath("../Help")
+control_focus = NodePath("../../Help")
 
 [node name="Help" parent="GlobalSize/Main" node_paths=PackedStringArray("infos", "input_handler") instance=ExtResource("3_iteng")]
 layout_mode = 1

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bmikt2qija12p"]
 
-[ext_resource type="Script" path="res://all/menu/control_focus.gd" id="1_k4fdb"]
+[ext_resource type="Script" path="res://all/menu/main_scenes/menu/menu.gd" id="1_3v6si"]
 [ext_resource type="PackedScene" uid="uid://ci5wpttsjw7ns" path="res://all/menu/components/custom_button/custom_button.tscn" id="2_gqdpo"]
 [ext_resource type="Texture2D" uid="uid://byeccwlgimi0u" path="res://all/menu/images/tirage.png" id="4_oas53"]
 [ext_resource type="Texture2D" uid="uid://dmwmc6v1evjvl" path="res://all/menu/images/history.png" id="6_3rr6d"]
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_k4fdb")
+script = ExtResource("1_3v6si")
 
 [node name="VBC" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -72,6 +72,7 @@ button_up = NodePath("../Cartes")
 button_down = NodePath("../Quit")
 
 [node name="Quit" parent="VBC" node_paths=PackedStringArray("button_up", "button_down") instance=ExtResource("2_gqdpo")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

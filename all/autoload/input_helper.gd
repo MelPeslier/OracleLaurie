@@ -7,30 +7,44 @@ signal input_left_emitted
 signal input_right_emitted
 signal input_up_emitted
 signal input_down_emitted
+signal input_back_emitted
 
 signal drag_progress_changed(drag_progress: Vector2)
 
-var pressed := false
+var _index : int = -1
 
 var drag_distance :float = 300
-var button_press_distance : float = 40
+var button_press_distance : float = 50
 var _drag_pos := Vector2.ZERO
 
 var last_button : BaseCustomButton = null
 
 var drag_progress := Vector2.ZERO : set = _set_drag_progress
 
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		input_back_emitted.emit()
+
+
+func _ready() -> void:
+	pass
+
+
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.is_action_type():
+	if event is InputEventScreenTouch:
 		if event.pressed:
+			if not _index == -1: return
 			input_tap_pressed_emitted.emit(event)
-			pressed = true
+			_index = event.index
 			_drag_pos = event.position
 			drag_progress = Vector2.ZERO
 		else:
+			if not event.index == _index : return
+			_index = -1
 			var dist : Vector2 = _drag_pos - event.position
-			pressed = false
-			if event.position.distance_to(_drag_pos) < 30:
+			
+			if event.position.distance_to(_drag_pos) < button_press_distance:
 				input_tap_released_emitted.emit(event)
 			
 			if absf( dist.x ) >= drag_distance: # Side
@@ -46,16 +60,16 @@ func _input(event: InputEvent) -> void:
 					input_down_emitted.emit()
 			drag_progress = Vector2.ZERO
 			
-	
-	elif event is InputEventMouseMotion and pressed:
+	elif event is InputEventScreenDrag:
 		var dist : Vector2 = _drag_pos - event.position
 		drag_progress = dist / Vector2(drag_distance, drag_distance)
 
 
 func is_point_inside_box(_node: Control, event: InputEvent) -> bool:
-	if not event is InputEventMouse:
-		if _node is BaseCustomButton:
-			return _node == InputHelper.last_button
+	if not (event is InputEventScreenDrag or event is InputEventScreenTouch): return false
+	#if not event is InputEventMouse:
+		#if _node is BaseCustomButton:
+			#return _node == InputHelper.last_button
 	var _point : Vector2 = event.position
 	var _start : Vector2 = _node.global_position
 	var _end : Vector2 = _node.global_position + _node.size * _node.scale

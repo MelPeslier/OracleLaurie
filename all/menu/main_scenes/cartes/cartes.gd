@@ -40,6 +40,7 @@ func _ready() -> void:
 	group_index = 0
 	var my_scroll: MyScroll = get_child(group_index)
 	my_scroll.card_index = 0
+	
 	my_scroll.position.y = 0
 	input_free_scroll.my_scroll = my_scroll
 	#input_free_scroll.index_changed.connect( my_scroll._on_input_free_scroll_index_changed )
@@ -86,7 +87,7 @@ func _on_input_right_emitted() -> void:
 	go_to(+1)
 
 
-func _on_input_tap_released_emitted() -> void:
+func _on_input_tap_released_emitted(event : InputEvent) -> void:
 	var my_scroll: MyScroll = get_child(group_index)
 	my_scroll.tap()
 

@@ -8,6 +8,10 @@ extends Control
 @onready var left: Side = $Left
 
 
+func _ready() -> void:
+	visible = true
+
+
 func change_side_state(_side_type : Side.SideType, _is_available: bool) -> void:
 	match _side_type:
 		Side.SideType.LEFT:

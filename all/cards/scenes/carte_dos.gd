@@ -8,6 +8,25 @@ signal choosen(_card_ref : CardRef)
 @export var target_scale:= Vector2(1.2, 1.2)
 @export var shadow_offset_coef : float = 2
 
+@export_group("fake_3D")
+@export var y_rot_max: float = 20
+@export var x_rot_max: float = 20
+
+var x_rot: float = 0 : set = _set_x_rot
+
+func _set_x_rot(_rot: float) -> void:
+	x_rot = _rot
+	var mat : ShaderMaterial = material
+	mat.set_shader_parameter("x_rot", x_rot * x_rot_max)
+
+var y_rot: float = 0 : set = _set_y_rot
+
+func _set_y_rot(_rot: float) -> void:
+	y_rot = _rot
+	var mat : ShaderMaterial = material
+	mat.set_shader_parameter("y_rot", y_rot * y_rot_max)
+
+
 var tween: Tween
 var activated := false : set = _set_activated
 var _touch_index : int = -1
@@ -23,27 +42,34 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# si input touch, press / drag & is on top of card, focus,
-	if event.is_action_type():
-		if event is InputEventScreenTouch:
-			if event.pressed:
-				_touch_index = event.index
-			elif focused:
-				choosen.emit(card_ref)
-				_touch_index = -1
-				unfocus()
+	if event is InputEventScreenTouch:
+		if event.pressed:
+			_touch_index = event.index
+		elif focused:
+			choosen.emit(card_ref)
+			_touch_index = -1
+			unfocus()
 		return
 	# Drag handle :
 	if event is InputEventScreenDrag:
 		if InputHelper.is_point_inside_box(self, event):
+			InputHelper.reset_drag_progress(event.position)
+			skew(event.position)
 			if not focused:
 				focus()
 		elif focused:
 			unfocus()
-	
-	# else if not on top of card and focused, unfocus
-	
 	#TODO:  ajouter un mouvement de skew à la carte, ainsi que son ombre qui suit,
 	#  et q'ui s'offset en fonction de l'endroit appuyé
+
+
+func skew(_pos: Vector2) -> void:
+	var strength : Vector2 = global_position + pivot_offset - _pos
+	var coef := strength / custom_minimum_size * scale
+
+	y_rot = -coef.x
+	x_rot = coef.y
+	
 
 
 func focus() -> void:
@@ -62,6 +88,8 @@ func unfocus() -> void:
 	td.set_data(tween)
 	tween.tween_property(self, "scale", Vector2.ONE, td.duration * 0.5)
 	tween.tween_property(shadow, "position", shadow_offset, td.duration * 0.5)
+	tween.tween_property(self, "x_rot", 0.0, td.duration)
+	tween.tween_property(self, "y_rot", 0.0, td.duration)
 	focused = false
 
 

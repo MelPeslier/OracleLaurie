@@ -39,13 +39,12 @@ func move_to(_target_pos: float, _selected : bool = true) -> void:
 		if old_child is TirageGroupe:
 			old_child.deactivate()
 		return
-	#go_to(0)
+	go_to(0)
 
 
 
 func go_to(_index_to_add : int) -> void:
 	var index: int = card_index + _index_to_add
-	print("card_index  my scroll : ", card_index)
 	if index >= cards.get_child_count() : return
 	if index < 0 : return
 	
@@ -82,7 +81,6 @@ func tap() -> void:
 
 func _set_card_index(_index: int) -> void:
 	card_index = clampi(_index, 0, cards.get_child_count() - 1)
-	print(name, " card index : ", card_index)
 	var no_left := not card_index == 0
 	drag_preview.change_side_state(Side.SideType.LEFT, no_left)
 	var no_right := not card_index == cards.get_child_count() - 1

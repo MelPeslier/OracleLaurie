@@ -26,9 +26,6 @@ size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("1_obxt8")
 
-[node name="HideButtonReturn" parent="GlobalSize/Main" index="1"]
-unique_name_in_owner = true
-
 [node name="Info" type="Node" parent="Infos" index="0"]
 script = ExtResource("3_2xhbi")
 description = "Juste pour ça quoi"

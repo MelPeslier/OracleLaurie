@@ -78,6 +78,10 @@ func is_point_inside_box(_node: Control, event: InputEvent) -> bool:
 	return _inside
 
 
+func reset_drag_progress(_position: Vector2) -> void:
+	_drag_pos = _position
+
+
 func _set_drag_progress(_drag_progress: Vector2) -> void:
 	if drag_progress == _drag_progress: return
 	drag_progress = _drag_progress

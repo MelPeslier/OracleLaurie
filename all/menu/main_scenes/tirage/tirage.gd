@@ -13,13 +13,19 @@ var group_index : int = 0 : set = _set_group_index
 
 
 func _ready() -> void:
+	InputHelper.input_left_emitted.connect( _on_input_left_emitted )
+	InputHelper.input_right_emitted.connect( _on_input_right_emitted )
+	InputHelper.input_tap_released_emitted.connect( _on_input_tap_release_emitted )
+	InputHelper.input_up_emitted.connect( _on_input_up_emitted )
+	InputHelper.input_down_emitted.connect( _on_input_down_emitted )
+	
 	scroll_ideas.position.y = get_window().size.y
 
-	# Print a draw
+	# Affiche a draw
 	if Data.tirage_actuel:
 		for card_ref in Data.tirage_actuel.cards_ref:
 			var carte : Carte = CARTE.instantiate()
-			scroll_cards.get_child(0).add_child( carte )
+			scroll_cards.cards.add_child( carte )
 			carte.card_data = Data.get_card_data_from_card_ref( card_ref )
 		
 		var last_mind_save : MindText
@@ -33,6 +39,11 @@ func _ready() -> void:
 		if not last_mind_save.is_today():
 			var mind_text : MindText = MIND_TEXT.instantiate()
 			mind_texts.add_child( mind_text )
+		
+		group_index = 0
+		var my_scroll: MyScroll = get_child(group_index)
+		my_scroll.card_index = 0
+		my_scroll.move_to(0.0)
 		return
 	
 	# Else do a draw
@@ -40,13 +51,18 @@ func _ready() -> void:
 	Data.save_manager.tirage_saves.append( Data.tirage_actuel )
 	for card_group_data : CardGroupData in Data.card_group_datas:
 		var tirage : TirageGroupe = TIRAGE_GROUPE.instantiate()
-		scroll_cards.get_child(0).add_child( tirage )
+		scroll_cards.cards.add_child( tirage )
 		tirage.card_group_data = card_group_data
 		
 	
 	var mind_text : MindText = MIND_TEXT.instantiate()
 	mind_texts.add_child( mind_text )
 	
+	group_index = 0
+	var my_scroll: MyScroll = get_child(group_index)
+	my_scroll.card_index = 0
+	my_scroll.move_to(0.0)
+
 
 func move_to(_index_to_add: int) -> void:
 	var my_scroll_last: MyScroll = get_child(group_index)
@@ -69,21 +85,13 @@ func go_to(_index_to_add : int) -> void:
 
 
 func _on_input_left_emitted() -> void:
-	#print("left_emitted")
-	if InputHelper.is_mobile():
-		#print("left canceled")
-		return
 	go_to(-1)
 
 func _on_input_right_emitted() -> void:
-	#print("right_emitted")
-	if  InputHelper.is_mobile():
-		#print("right canceled")
-		return
 	go_to(+1)
 
 
-func _on_input_tap_emitted() -> void:
+func _on_input_tap_release_emitted(_event: InputEvent) -> void:
 	var my_scroll: MyScroll = get_child(group_index)
 	my_scroll.tap()
 
@@ -96,9 +104,11 @@ func _on_input_down_emitted() -> void:
 
 
 func _set_group_index(_group_index: int) -> void:
+	var old_my_scroll: MyScroll = get_child(group_index)
+	
 	group_index = clampi(_group_index, 0, get_child_count() - 1)
 	
-	#var my_scroll: MyScroll = get_child(group_index)
+	var my_scroll: MyScroll = get_child(group_index)
 	
 	var no_top := not group_index == 0
 	drag_preview.change_side_state(Side.SideType.TOP, no_top)

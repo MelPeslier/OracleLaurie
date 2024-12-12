@@ -1,8 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://eqlqvfuwg4je"]
+[gd_scene load_steps=7 format=3 uid="uid://eqlqvfuwg4je"]
 
+[ext_resource type="Shader" path="res://all/shaders/fake_3D.gdshader" id="1_aiss7"]
 [ext_resource type="Script" path="res://all/cards/scenes/carte_dos.gd" id="1_qbp7v"]
 [ext_resource type="Script" path="res://all/menu/components/helper/tween_data/tween_data.gd" id="2_7e4b3"]
 [ext_resource type="Texture2D" uid="uid://bd3rnlb8xxvwh" path="res://default_texture.png" id="2_65njs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f2dhs"]
+resource_local_to_scene = true
+shader = ExtResource("1_aiss7")
+shader_parameter/rect_size = Vector2(144, 192)
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.0
 
 [sub_resource type="Resource" id="Resource_p5e3g"]
 script = ExtResource("2_7e4b3")
@@ -11,6 +22,7 @@ trans_type = 11
 duration = 0.3
 
 [node name="CarteDos" type="Control"]
+material = SubResource("ShaderMaterial_f2dhs")
 custom_minimum_size = Vector2(144, 192)
 layout_mode = 3
 anchors_preset = 8
@@ -40,34 +52,49 @@ offset_right = -8.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0.0235294, 0.784314)
 
-[node name="BG" type="ColorRect" parent="."]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(144, 192)
+
+[node name="BG" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 color = Color(0.494118, 0.172549, 0.0784314, 0.737255)
 
-[node name="Image" type="TextureRect" parent="."]
+[node name="Image" type="TextureRect" parent="SubViewportContainer/SubViewport"]
 unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_65njs")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Contour" type="PanelContainer" parent="."]
-layout_mode = 1
+[node name="Contour" type="PanelContainer" parent="SubViewportContainer/SubViewport"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_type_variation = &"panelbox"

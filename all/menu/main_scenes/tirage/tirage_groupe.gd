@@ -21,16 +21,24 @@ var dos: Array[CarteDos] = []
 
 
 func _ready() -> void:
+	carte.visible = false
 	carte.modulate.a = 0.0
 
 # Initialise
 func _set_card_group_data(_card_group_data : CardGroupData) -> void:
 	card_group_data = _card_group_data
+	
+	# Random
+	var cards_ref : Array[CardRef]
+	for i: int in card_group_data.nombre_de_cartes:
+		cards_ref.push_back( card_group_data.cards_data[i].card_ref )
+	cards_ref.shuffle()
+	
 	for i: int in card_group_data.nombre_de_cartes:
 		var carte_dos: CarteDos = CARTE_DOS.instantiate()
 		cartes_dos.add_child( carte_dos )
 		dos.push_back(carte_dos)
-		carte_dos.init_type(card_group_data.image, card_group_data.cards_data[i].card_ref)
+		carte_dos.init_type( card_group_data.image, cards_ref[i] )
 		carte_dos.choosen.connect( _on_card_choosen )
 	draw_card.init_positons(dos)
 
@@ -50,6 +58,8 @@ func _on_card_choosen(_card_ref: CardRef) -> void:
 	var duration : float = td.duration
 	var target_pos_selected : float = get_window().size.y + cartes_dos.get_child(0).custom_minimum_size.y
 	var others_pos : float = - cartes_dos.get_child(0).custom_minimum_size.y
+	
+	carte.visible = true
 	
 	var choosen_carte_dos: CarteDos = null
 	var i: int = 0
@@ -81,6 +91,7 @@ func activate() -> void:
 
 
 func deactivate() -> void:
+	if choosen_card_ref: return
 	for carte_dos: CarteDos in cartes_dos.get_children():
 		carte_dos.activated = false
 

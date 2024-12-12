@@ -43,12 +43,10 @@ func custom_input(event: InputEvent) -> void:
 		if event.pressed:
 			if not _index == -1 : return
 			_index = event.index
-			print("index ::: ", _index)
 			scrolling = true
 			set_process(true)
 		else:
 			if not _index == event.index: return
-			print("ok : ", _index)
 			snap_to_nearest_interval()
 			scrolling = false
 			_index = -1
@@ -56,7 +54,6 @@ func custom_input(event: InputEvent) -> void:
 	
 	if event is InputEventScreenDrag and scrolling:
 		if not _index == event.index: return
-		print("okokok : ", _index)
 		
 		current_velocity = event.relative.x * scroll_coef
 		my_scroll.scroll_horizontal -= current_velocity

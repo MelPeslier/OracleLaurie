@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://vejjiryd6mam"]
+[gd_scene load_steps=4 format=3 uid="uid://vejjiryd6mam"]
 
 [ext_resource type="PackedScene" uid="uid://bto3nakpksmb2" path="res://all/menu/main_scenes/base/centered.tscn" id="1_mpu1n"]
 [ext_resource type="Script" path="res://all/menu/main_scenes/tirage/tirage.gd" id="2_5ufpc"]
-[ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/input_info.gd" id="3_2y7ho"]
 [ext_resource type="PackedScene" uid="uid://c1h04xh33ww17" path="res://all/menu/main_scenes/cartes/my_scroll.tscn" id="3_7wbmf"]
-[ext_resource type="Script" path="res://all/menu/main_scenes/base/input_info/inputs/input_drag.gd" id="5_yy16i"]
 
 [node name="TirageCentered" instance=ExtResource("1_mpu1n")]
 
@@ -18,12 +16,9 @@ grow_vertical = 2
 script = ExtResource("2_5ufpc")
 
 [node name="ScrollCards" parent="GlobalSize/Main/Tirage" index="0" node_paths=PackedStringArray("drag_preview") instance=ExtResource("3_7wbmf")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
+mouse_filter = 2
+scroll_deadzone = 50
 drag_preview = NodePath("../../DragPreview")
 
 [node name="ScrollIdeas" parent="GlobalSize/Main/Tirage" index="1" node_paths=PackedStringArray("drag_preview") instance=ExtResource("3_7wbmf")]
@@ -46,42 +41,8 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 50
 
-[node name="Help" parent="GlobalSize/Main" index="3"]
+[node name="Help" parent="GlobalSize/Main" index="2"]
 visible = false
-
-[node name="DragPreview" parent="GlobalSize/Main" index="4"]
-visible = false
-
-[node name="InputDrag" type="Node" parent="InputHandler" index="0"]
-script = ExtResource("5_yy16i")
-
-[node name="InputTap" type="Node" parent="InputHandler" index="1"]
-script = ExtResource("3_2y7ho")
-action_name = &"tap"
-on_release = true
-
-[node name="InputLeft" type="Node" parent="InputHandler" index="2"]
-script = ExtResource("3_2y7ho")
-action_name = &"left"
-
-[node name="InputRight" type="Node" parent="InputHandler" index="3"]
-script = ExtResource("3_2y7ho")
-action_name = &"right"
-
-[node name="InputUp" type="Node" parent="InputHandler" index="4"]
-script = ExtResource("3_2y7ho")
-action_name = &"up"
-
-[node name="InputDown" type="Node" parent="InputHandler" index="5"]
-script = ExtResource("3_2y7ho")
-action_name = &"down"
-
-[connection signal="clicked" from="GlobalSize/Main/HideButtonReturn" to="GlobalSize/Main/Tirage" method="_on_hide_button_return_clicked"]
-[connection signal="emitted" from="InputHandler/InputTap" to="GlobalSize/Main/Tirage" method="_on_input_tap_emitted"]
-[connection signal="emitted" from="InputHandler/InputLeft" to="GlobalSize/Main/Tirage" method="_on_input_left_emitted"]
-[connection signal="emitted" from="InputHandler/InputRight" to="GlobalSize/Main/Tirage" method="_on_input_right_emitted"]
-[connection signal="emitted" from="InputHandler/InputUp" to="GlobalSize/Main/Tirage" method="_on_input_up_emitted"]
-[connection signal="emitted" from="InputHandler/InputDown" to="GlobalSize/Main/Tirage" method="_on_input_down_emitted"]
 
 [editable path="GlobalSize/Main/Tirage/ScrollCards"]
 [editable path="GlobalSize/Main/Tirage/ScrollIdeas"]

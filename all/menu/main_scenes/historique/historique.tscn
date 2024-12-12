@@ -12,6 +12,9 @@ duration = 1.0
 
 [node name="HistoriqueCentered" instance=ExtResource("1_dqhb6")]
 
+[node name="Main" parent="GlobalSize" index="1"]
+z_index = 1
+
 [node name="Historique" type="Control" parent="GlobalSize/Main" index="0"]
 layout_mode = 1
 anchors_preset = 15
@@ -53,3 +56,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 60
+
+[node name="DragPreview" parent="GlobalSize/Main" index="3"]
+visible = false

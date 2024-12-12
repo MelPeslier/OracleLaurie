@@ -15,7 +15,7 @@ var group_index : int = 0 : set = _set_group_index
 @onready var drag_preview: DragPreview = %DragPreview
 @onready var input_free_scroll: FreeScroll = %InputFreeScroll
 
-@onready var hide_button_return: HideButton = %HideButtonReturn
+#@onready var hide_button_return: HideButton = %HideButtonReturn
 
 
 

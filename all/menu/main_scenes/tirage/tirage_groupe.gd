@@ -46,10 +46,9 @@ func _set_card_group_data(_card_group_data : CardGroupData) -> void:
 func _on_card_choosen(_card_ref: CardRef) -> void:
 	deactivate()
 	if choosen_card_ref: return
-	choosen_card_ref = _card_ref
 	
-	carte.card_data = Data.get_card_data_from_card_ref( choosen_card_ref )
-	Data.tirage_actuel.cards_ref.append( choosen_card_ref )
+	carte.card_data = Data.get_card_data_from_card_ref( _card_ref )
+	Data.tirage_actuel.cards_ref.append( _card_ref )
 	Data.save_manager.save()
 	if tween and tween.is_running():
 		tween.kill()
@@ -64,7 +63,7 @@ func _on_card_choosen(_card_ref: CardRef) -> void:
 	var choosen_carte_dos: CarteDos = null
 	var i: int = 0
 	for carte_dos: CarteDos in cartes_dos.get_children():
-		if choosen_card_ref == carte_dos.card_ref:
+		if _card_ref == carte_dos.card_ref:
 			choosen_carte_dos = carte_dos
 			continue
 		tween.tween_property(carte_dos, "position:y", others_pos, duration)\
@@ -77,6 +76,10 @@ func _on_card_choosen(_card_ref: CardRef) -> void:
 	tween.chain().tween_property(carte, "position:y", 0.0, carte_duration).from(get_window().size.y)
 	tween.parallel().tween_property(carte, "modulate:a", 1.0, 0.1)
 	tween.parallel().tween_property(cartes_dos, "modulate:a", 0.0, 0.1)
+	tween.chain().tween_callback( _set_card_ref.bind( _card_ref ) )
+
+func _set_card_ref(_card_ref: CardRef) -> void:
+	choosen_card_ref = _card_ref
 
 
 func tap() -> void:
@@ -94,16 +97,3 @@ func deactivate() -> void:
 	if choosen_card_ref: return
 	for carte_dos: CarteDos in cartes_dos.get_children():
 		carte_dos.activated = false
-
-
-func get_closest_card() -> CardRef: # Random For Now
-	var dist: float = 5000
-	var card_ref: CardRef = null
-	#for 
-	var carte_dos: CarteDos = cartes_dos.get_child(0)
-	
-	# Random
-	var random_card : int = randi() % card_group_data.nombre_de_cartes
-	carte_dos = cartes_dos.get_child( random_card )
-	card_ref = carte_dos.card_ref
-	return card_ref 

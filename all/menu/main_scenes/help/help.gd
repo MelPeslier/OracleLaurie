@@ -9,7 +9,6 @@ const INFO_DISPLAY = preload("res://all/menu/main_scenes/help/info_display.tscn"
 @export var infos: Node
 @export var input_handler: Node
 
-@onready var tap_input_info: InputInfo = %TapInputInfo
 @onready var v_box: VBoxContainer = %VBox
 
 
@@ -20,12 +19,6 @@ func _ready() -> void:
 	
 	for input_info: InputInfo in input_handler.get_children():
 		create_info_display(input_info)
-	
-	create_info_display(tap_input_info)
-
-
-func _input(event: InputEvent) -> void:
-	tap_input_info.custom_input( event )
 
 
 func create_info_display(_info: Info) -> void:
@@ -36,15 +29,16 @@ func create_info_display(_info: Info) -> void:
 
 func focus(_time_scale : float = 1.0) -> void:
 	help_opened.emit(true)
-	set_process_input(true)
 	super(_time_scale)
+	InputHelper.input_tap_released_emitted.connect( _on_input_tap_released_emitted )
 
 
 func unfocus(_time_scale: float = 1.0) -> void:
 	help_opened.emit(false)
-	set_process_input(false)
 	super(_time_scale)
+	if InputHelper.input_tap_released_emitted.is_connected( _on_input_tap_released_emitted ):
+		InputHelper.input_tap_released_emitted.disconnect( _on_input_tap_released_emitted )
 
 
-func _on_tap_input_info_emitted() -> void:
+func _on_input_tap_released_emitted(_event: InputEvent) -> void:
 	unfocus()

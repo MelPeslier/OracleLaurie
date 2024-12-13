@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cuwkjg2046lwy"]
+[gd_scene load_steps=14 format=3 uid="uid://cuwkjg2046lwy"]
 
 [ext_resource type="Shader" path="res://all/shaders/noise_scroll.gdshader" id="1_4jgn0"]
 [ext_resource type="Script" path="res://all/menu/components/drag_preview/drag_preview.gd" id="1_6ejwd"]
@@ -38,8 +38,42 @@ shader_parameter/tex_size = Vector2(180.52, 125)
 shader_parameter/noise_1 = SubResource("NoiseTexture2D_bn4t1")
 shader_parameter/noise_2 = SubResource("NoiseTexture2D_utnke")
 
-[node name="DragPreview" type="Control"]
-layout_mode = 3
+[sub_resource type="Curve" id="Curve_t8m7t"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.58803, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2vvlh"]
+curve = SubResource("Curve_t8m7t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_77uyn"]
+resource_local_to_scene = true
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 3.0
+initial_velocity_min = 175.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.25
+alpha_curve = SubResource("CurveTexture_2vvlh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uayip"]
+resource_local_to_scene = true
+particle_flag_align_y = true
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+spread = 3.0
+initial_velocity_min = 175.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.2
+scale_max = 0.25
+alpha_curve = SubResource("CurveTexture_2vvlh")
+
+[node name="DragPreview" type="PanelContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -53,18 +87,14 @@ script = ExtResource("1_6ejwd")
 [node name="Top" parent="." instance=ExtResource("1_rwryx")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ragso")
-layout_mode = 1
+layout_mode = 2
 size_flags_vertical = 2
 color = Color(1, 1, 1, 1)
 
 [node name="Bot" parent="." instance=ExtResource("1_rwryx")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ragso")
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_bottom = 1.0
-grow_vertical = 0
+layout_mode = 2
 size_flags_vertical = 10
 color = Color(1, 1, 1, 1)
 side_type = 3
@@ -73,21 +103,23 @@ side_type = 3
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ragso")
 layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-offset_right = 50.0
-offset_bottom = 1280.0
+size_flags_horizontal = 2
 color = Color(1, 1, 1, 1)
 side_type = 0
+
+[node name="Particles" parent="Left/Control" index="0"]
+process_material = SubResource("ParticleProcessMaterial_77uyn")
 
 [node name="Right" parent="." instance=ExtResource("1_rwryx")]
 unique_name_in_owner = true
 material = SubResource("ShaderMaterial_ragso")
 layout_mode = 2
-anchors_preset = 0
-anchor_right = 0.0
-offset_left = 910.0
-offset_right = 960.0
-offset_bottom = 1280.0
+size_flags_horizontal = 10
 color = Color(1, 1, 1, 1)
 side_type = 1
+
+[node name="Particles" parent="Right/Control" index="0"]
+process_material = SubResource("ParticleProcessMaterial_uayip")
+
+[editable path="Left"]
+[editable path="Right"]

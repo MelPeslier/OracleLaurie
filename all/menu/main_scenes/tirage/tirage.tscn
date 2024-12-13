@@ -41,6 +41,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 50
 
+[node name="Help" parent="GlobalSize/Main" index="2"]
+z_index = 1
+
 [connection signal="clicked" from="GlobalSize/Main/MarginContainer/HideButtonReturn" to="GlobalSize/Main/Tirage" method="_on_hide_button_return_clicked"]
 
 [editable path="GlobalSize/Main/Tirage/ScrollCards"]

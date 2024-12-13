@@ -26,13 +26,14 @@ layout_mode = 2
 [node name="Date" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"HeaderSmall"
+theme_type_variation = &"HeaderMedium"
 text = "Date"
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 2
+theme_type_variation = &"HeaderSmall"
 text = "HFLKQSDHLKQDHLKQDHFLKQHF qdqDFQD QDFQDBFLQK DGKQOGED FOIUQDGFOIQHDGLKQDHLQKHDFQDHFLOQIUDHLQKDHLQKDHFLKQSDHLKQDHLKQDHFLKQHF "
 vertical_alignment = 1
 autowrap_mode = 3

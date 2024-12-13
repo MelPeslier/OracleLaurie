@@ -5,9 +5,9 @@ extends DrawCard
 @export var space_between: float = 50
 
 
-func init_positons(cartes_dos: Array[CarteDos]) -> void:
-	var size := cartes_dos[0].custom_minimum_size
-	var window_size := cartes_dos[0].get_window().size
+func init_positons(parent : Control, cartes_dos: Array[CarteDos]) -> void:
+	var size : Vector2 = cartes_dos[0].size
+	var window_size := parent.size
 	
 	var total_size := Vector2.ZERO
 	total_size.x = size.x * card_per_line + space_between * (card_per_line -1)

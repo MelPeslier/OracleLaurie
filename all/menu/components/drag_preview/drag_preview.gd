@@ -1,11 +1,12 @@
 class_name DragPreview
-extends Control
+extends PanelContainer
 
 
 @onready var left: Side = %Left
 @onready var top: Side = %Top
 @onready var bot: Side = %Bot
 @onready var right: Side = %Right
+
 
 
 func change_side_state(_side_type : Side.SideType, _is_available: bool) -> void:

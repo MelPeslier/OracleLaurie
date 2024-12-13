@@ -19,6 +19,8 @@ var dos: Array[CarteDos] = []
 
 @onready var carte: Carte = %Carte
 @onready var cartes_dos: Control = %CartesDos
+@onready var label: Label = %Label
+@onready var label_2: Label = %Label2
 
 
 func _ready() -> void:
@@ -41,7 +43,7 @@ func _set_card_group_data(_card_group_data : CardGroupData) -> void:
 		dos.push_back(carte_dos)
 		carte_dos.init_type( card_group_data.image, cards_ref[i] )
 		carte_dos.choosen.connect( _on_card_choosen )
-	draw_card.init_positons(dos)
+	draw_card.init_positons(self, dos)
 
 
 func _on_card_choosen(_card_ref: CardRef) -> void:
@@ -75,10 +77,15 @@ func _on_card_choosen(_card_ref: CardRef) -> void:
 	tween.tween_property(choosen_carte_dos, "position:y", target_pos_selected, duration)\
 		.set_delay( cards_interval * float( i ) )
 	
-	tween.chain().tween_property(carte, "position:y", 0.0, carte_duration).from(get_window().size.y)
+	var center : float = (size.y - carte.size.y) / 2
+	label.text = str(size)
+	label_2.text = str(center)
+	
+	tween.chain().tween_property(carte, "position:y", center, carte_duration).from(get_window().size.y)
 	tween.parallel().tween_property(carte, "modulate:a", 1.0, 0.1)
 	tween.parallel().tween_property(cartes_dos, "modulate:a", 0.0, 0.1)
 	tween.chain().tween_callback( _set_card_ref.bind( _card_ref ) )
+	tween.chain().tween_property(label, "text", str(carte.position), 0.0)
 
 func _set_card_ref(_card_ref: CardRef) -> void:
 	choosen_card_ref = _card_ref

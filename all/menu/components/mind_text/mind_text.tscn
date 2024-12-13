@@ -4,19 +4,15 @@
 
 [node name="MindText" type="PanelContainer"]
 custom_minimum_size = Vector2(800, 100)
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
 offset_left = -400.0
-offset_top = -50.0
 offset_right = 400.0
-offset_bottom = 50.0
+offset_bottom = 100.0
 grow_horizontal = 2
-grow_vertical = 2
 size_flags_horizontal = 6
-size_flags_vertical = 6
+size_flags_vertical = 0
 script = ExtResource("1_40s6r")
 
 [node name="Timer" type="Timer" parent="."]
@@ -45,7 +41,7 @@ autowrap_mode = 3
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 3
 placeholder_text = "YOUR_THOUGHTS_HERE"
 wrap_mode = 1
 

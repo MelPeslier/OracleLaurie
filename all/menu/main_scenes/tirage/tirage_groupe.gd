@@ -1,6 +1,7 @@
 class_name TirageGroupe
 extends Control
 
+signal card_choosen
 
 const CARTE_DOS = preload("res://all/cards/scenes/carte_dos.tscn")
 
@@ -47,6 +48,7 @@ func _on_card_choosen(_card_ref: CardRef) -> void:
 	deactivate()
 	if choosen_card_ref: return
 	
+	card_choosen.emit()
 	carte.card_data = Data.get_card_data_from_card_ref( _card_ref )
 	Data.tirage_actuel.cards_ref.append( _card_ref )
 	Data.save_manager.save()

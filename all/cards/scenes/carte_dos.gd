@@ -33,7 +33,7 @@ var _touch_index : int = -1
 var focused := false
 
 @onready var image: TextureRect = %Image
-@onready var shadow: ColorRect = %Shadow
+@onready var shadow: PanelContainer = %Shadow
 @onready var shadow_offset := shadow.position
 
 func _ready() -> void:
@@ -49,9 +49,10 @@ func _input(event: InputEvent) -> void:
 			choosen.emit(card_ref)
 			_touch_index = -1
 			unfocus()
-		return
+			return
 	# Drag handle :
-	if event is InputEventScreenDrag:
+	var just_pressed : bool = event is InputEventScreenTouch and event.pressed and event.index == _touch_index
+	if event is InputEventScreenDrag or just_pressed:
 		if InputHelper.is_point_inside_box(self, event):
 			InputHelper.reset_drag_progress(event.position)
 			skew(event.position)

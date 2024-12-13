@@ -27,14 +27,17 @@ func _ready() -> void:
 	text_edit.visible = false
 	text_edit.editable = false
 	label.text = mind_save.text
+	saved = true
 
 
 func _on_text_edit_text_changed() -> void:
-	timer.start()
 	saved = false
+	timer.start()
 
 
 func _on_timer_timeout() -> void:
+	if saved: return
+	if text_edit.text.is_empty(): return
 	mind_save.text = text_edit.text
 	Data.save_manager.save()
 	saved = true

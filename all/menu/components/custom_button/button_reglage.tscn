@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b467cq624erqw"]
+[gd_scene load_steps=5 format=3 uid="uid://b467cq624erqw"]
 
 [ext_resource type="Script" path="res://all/menu/components/custom_button/button_reglage.gd" id="1_4vpcb"]
 [ext_resource type="Texture2D" uid="uid://cc1ajkq10wm1" path="res://all/menu/images/cog_wheel.png" id="1_5j77r"]
 [ext_resource type="Script" path="res://all/menu/components/focus_component/focus_zoom.gd" id="2_pd2l2"]
+[ext_resource type="AudioStream" uid="uid://dc4ge0gg3eygl" path="res://all/audio/piano/piano_randomizer.tres" id="4_iwku0"]
 
 [node name="ButtonReglage" type="PanelContainer" node_paths=PackedStringArray("focus_component")]
 anchors_preset = 8
@@ -56,3 +57,8 @@ stretch_mode = 4
 
 [node name="FocusZoom" type="Node" parent="HBoxContainer/Visual"]
 script = ExtResource("2_pd2l2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_iwku0")
+max_polyphony = 3

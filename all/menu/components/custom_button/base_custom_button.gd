@@ -30,6 +30,8 @@ signal clicked
 @export var button_left : BaseCustomButton
 @export var button_right : BaseCustomButton
 
+@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+
 var t: Tween
 var is_focused := false : set = _set_focused
 func _set_focused(_is_focused: bool) -> void:
@@ -83,6 +85,8 @@ func next_step() -> void:
 
 
 func next(_time_scale: float = 1.0) -> void:
+	if audio_stream_player:
+		audio_stream_player.play()
 	clicked.emit()
 	if change_scene:
 		if use_path:
@@ -103,6 +107,8 @@ func focus(_time_scale: float = 1.0) -> void:
 		InputHelper.last_button.unfocus()
 	InputHelper.last_button = self
 	is_focused = true
+	if audio_stream_player:
+		audio_stream_player.play()
 	if focus_component:
 		focus_component.focus(_time_scale)
 

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://gqnd5wfbjixh"]
+
+[ext_resource type="AudioStream" uid="uid://k7dxaplqo1v0" path="res://all/audio/AMBIENCE_SINUSOIDAL_LOOP.wav" id="2_20vav"]
+
+[node name="Audio" type="Node"]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_20vav")
+autoplay = true

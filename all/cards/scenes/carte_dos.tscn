@@ -1,9 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://eqlqvfuwg4je"]
+[gd_scene load_steps=16 format=3 uid="uid://eqlqvfuwg4je"]
 
 [ext_resource type="Shader" path="res://all/shaders/fake_3D.gdshader" id="1_aiss7"]
 [ext_resource type="Script" path="res://all/cards/scenes/carte_dos.gd" id="1_qbp7v"]
 [ext_resource type="Script" path="res://all/menu/components/helper/tween_data/tween_data.gd" id="2_7e4b3"]
 [ext_resource type="Texture2D" uid="uid://bd3rnlb8xxvwh" path="res://default_texture.png" id="2_65njs"]
+[ext_resource type="AudioStream" uid="uid://dnheox8i0tbyv" path="res://all/audio/cards/draw_01.mp3" id="5_pqb7k"]
+[ext_resource type="AudioStream" uid="uid://dq0pugs5mauf3" path="res://all/audio/cards/draw_02.mp3" id="6_7wc4b"]
+[ext_resource type="AudioStream" uid="uid://dyvdp4qw0ag3q" path="res://all/audio/cards/draw_03.mp3" id="7_sl28r"]
+[ext_resource type="AudioStream" uid="uid://d1ummir838l4m" path="res://all/audio/cards/draw_04.mp3" id="8_5ua8f"]
+[ext_resource type="AudioStream" uid="uid://xfdb88vtlulh" path="res://all/audio/cards/draw_05.mp3" id="9_xoafv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f2dhs"]
 resource_local_to_scene = true
@@ -55,6 +60,14 @@ expand_margin_left = 4.0
 expand_margin_top = 4.0
 expand_margin_right = 4.0
 expand_margin_bottom = 4.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mf3e4"]
+streams_count = 5
+stream_0/stream = ExtResource("5_pqb7k")
+stream_1/stream = ExtResource("6_7wc4b")
+stream_2/stream = ExtResource("7_sl28r")
+stream_3/stream = ExtResource("8_5ua8f")
+stream_4/stream = ExtResource("9_xoafv")
 
 [node name="CarteDos" type="Control"]
 material = SubResource("ShaderMaterial_f2dhs")
@@ -139,3 +152,8 @@ mouse_filter = 2
 texture = ExtResource("2_65njs")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_mf3e4")
+max_polyphony = 3

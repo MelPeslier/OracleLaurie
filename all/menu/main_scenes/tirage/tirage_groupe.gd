@@ -19,8 +19,7 @@ var dos: Array[CarteDos] = []
 
 @onready var carte: Carte = %Carte
 @onready var cartes_dos: Control = %CartesDos
-@onready var label: Label = %Label
-@onready var label_2: Label = %Label2
+
 
 
 func _ready() -> void:
@@ -72,20 +71,21 @@ func _on_card_choosen(_card_ref: CardRef) -> void:
 			continue
 		tween.tween_property(carte_dos, "position:y", others_pos, duration)\
 		.set_delay( cards_interval * float( i ) )
+		tween.tween_callback(carte_dos.audio_stream_player.play)\
+		.set_delay( cards_interval * float( i ) )
 		i+=1
 	
 	tween.tween_property(choosen_carte_dos, "position:y", target_pos_selected, duration)\
 		.set_delay( cards_interval * float( i ) )
+	tween.tween_callback(choosen_carte_dos.audio_stream_player.play)\
+		.set_delay( cards_interval * float( i ) )
 	
 	var center : float = (size.y - carte.size.y) / 2
-	label.text = str(size)
-	label_2.text = str(center)
 	
 	tween.chain().tween_property(carte, "position:y", center, carte_duration).from(get_window().size.y)
 	tween.parallel().tween_property(carte, "modulate:a", 1.0, 0.1)
 	tween.parallel().tween_property(cartes_dos, "modulate:a", 0.0, 0.1)
 	tween.chain().tween_callback( _set_card_ref.bind( _card_ref ) )
-	tween.chain().tween_property(label, "text", str(carte.position), 0.0)
 
 func _set_card_ref(_card_ref: CardRef) -> void:
 	choosen_card_ref = _card_ref

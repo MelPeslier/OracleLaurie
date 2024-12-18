@@ -35,6 +35,7 @@ var focused := false
 @onready var image: TextureRect = %Image
 @onready var shadow: PanelContainer = %Shadow
 @onready var shadow_offset := shadow.position
+@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
 func _ready() -> void:
 	activated = false
@@ -74,6 +75,8 @@ func skew(_pos: Vector2) -> void:
 
 
 func focus() -> void:
+	if audio_stream_player:
+		audio_stream_player.play()
 	if tween and tween.is_running():
 		tween.kill()
 	tween = create_tween().set_parallel()

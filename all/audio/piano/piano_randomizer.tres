@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://dc4ge0gg3eygl"]
+
+[ext_resource type="AudioStream" uid="uid://bcmw47c3hyj33" path="res://all/audio/piano/piano_01.mp3" id="1_l1jqk"]
+[ext_resource type="AudioStream" uid="uid://bwq0d41r788rt" path="res://all/audio/piano/piano_02.mp3" id="2_5l8n5"]
+[ext_resource type="AudioStream" uid="uid://cneu5uie0d33y" path="res://all/audio/piano/piano_03.mp3" id="3_8ltve"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_l1jqk")
+stream_1/stream = ExtResource("2_5l8n5")
+stream_2/stream = ExtResource("3_8ltve")

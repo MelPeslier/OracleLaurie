@@ -14,6 +14,8 @@ func _ready() -> void:
 
 
 func focus(_time_scale: float = 1.0) -> void:
+	if audio_stream_player:
+		audio_stream_player.play()
 	if InputHelper.last_button and is_instance_valid( InputHelper.last_button ):
 		InputHelper.last_button.unfocus()
 	InputHelper.last_button = self

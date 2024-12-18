@@ -25,6 +25,7 @@ config/icon="res://default_texture.png"
 Data="*res://all/autoload/data.gd"
 InputHelper="*res://all/autoload/input_helper.gd"
 SceneTransition="*res://all/autoload/scene_transition.gd"
+Audio="*res://all/autoload/audio.tscn"
 
 [display]
 

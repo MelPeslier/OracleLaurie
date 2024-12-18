@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://0l7qwq35u5up"]
+[gd_scene load_steps=6 format=3 uid="uid://0l7qwq35u5up"]
 
 [ext_resource type="Script" path="res://all/menu/components/custom_button/hide_button.gd" id="1_ima04"]
 [ext_resource type="Texture2D" uid="uid://cc1ajkq10wm1" path="res://all/menu/images/cog_wheel.png" id="2_7rx3v"]
 [ext_resource type="Script" path="res://all/menu/components/helper/tween_data/tween_data.gd" id="2_qb3i2"]
+[ext_resource type="AudioStream" uid="uid://dc4ge0gg3eygl" path="res://all/audio/piano/piano_randomizer.tres" id="4_imtu0"]
 
 [sub_resource type="Resource" id="Resource_5jplw"]
 script = ExtResource("2_qb3i2")
@@ -41,3 +42,8 @@ layout_mode = 2
 texture = ExtResource("2_7rx3v")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_imtu0")
+max_polyphony = 3

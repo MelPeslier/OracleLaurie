@@ -44,6 +44,8 @@ func focus(_time_scale: float = 1.0) -> void:
 		InputHelper.last_button.unfocus()
 	InputHelper.last_button = self
 	main_particles.emitting = true
+	if audio_stream_player:
+		audio_stream_player.play()
 	if t and t.is_running():
 		t.kill()
 	t = create_tween().set_parallel()

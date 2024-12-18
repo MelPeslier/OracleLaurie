@@ -11,12 +11,16 @@ var card_group_datas : Array[CardGroupData]
 
 var color_tween : Tween
 
-
+var user_pref: UserPref
 
 var tirage_actuel : TirageSave = null
 @onready var save_manager : SaveManager = SaveManager.load_or_create()
 
 @onready var color_helper := ColorHelper.new()
+
+
+func _ready() -> void:
+	user_pref = UserPref.load_or_create()
 
 
 func color_trans(_new: ColorHelper, _td: TweenData = TweenData.new()) -> void:

@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://eqlqvfuwg4je"]
 
-[ext_resource type="Shader" path="res://all/shaders/fake_3D.gdshader" id="1_aiss7"]
-[ext_resource type="Script" path="res://all/cards/scenes/carte_dos.gd" id="1_qbp7v"]
+[ext_resource type="Shader" uid="uid://cbafi1hxad8he" path="res://all/shaders/fake_3D.gdshader" id="1_aiss7"]
+[ext_resource type="Script" uid="uid://de6jowtkbtlcn" path="res://all/cards/scenes/carte_dos.gd" id="1_qbp7v"]
 [ext_resource type="Script" path="res://all/menu/components/helper/tween_data/tween_data.gd" id="2_7e4b3"]
 [ext_resource type="Texture2D" uid="uid://bd3rnlb8xxvwh" path="res://default_texture.png" id="2_65njs"]
 [ext_resource type="AudioStream" uid="uid://dnheox8i0tbyv" path="res://all/audio/cards/draw_01.mp3" id="5_pqb7k"]

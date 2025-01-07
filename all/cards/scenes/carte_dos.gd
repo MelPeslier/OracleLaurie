@@ -61,8 +61,6 @@ func _input(event: InputEvent) -> void:
 				focus()
 		elif focused:
 			unfocus()
-	#TODO:  ajouter un mouvement de skew à la carte, ainsi que son ombre qui suit,
-	#  et q'ui s'offset en fonction de l'endroit appuyé
 
 
 func skew(_pos: Vector2) -> void:
